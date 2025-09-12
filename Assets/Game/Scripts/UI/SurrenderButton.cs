@@ -13,7 +13,6 @@ public class SurrenderButton : MonoBehaviour
 
     private void ExitBattle()
     {
-        EnemyStateManager.Instance.SaveNewData();
-        GameModeChanger.Instance.StartExploring();
+        
     }
 }

@@ -14,8 +14,6 @@ public class KillEnemyButton : MonoBehaviour
 
     private void KillRandomEnemy()
     {
-        var enemies = EnemyStateManager.Instance.GetEnemiesIdDictionary();
-        var id = new List<string>(enemies.Keys)[Random.Range(0, enemies.Keys.Count)];
-        EnemyStateManager.Instance.SetNewEnemyStateById(id, true);
+        
     }
 }

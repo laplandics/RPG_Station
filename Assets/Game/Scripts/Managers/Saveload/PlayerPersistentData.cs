@@ -1,34 +1,26 @@
-using System;
 using UnityEngine;
 
 public class PlayerPersistentData : MonoBehaviour, IPersistentData
 {
-    public void Save(ref SaveloadSystem.SaveData data)
+    public void Save(SaveDataSO data)
     {
         var player = FindFirstObjectByType<Player>();
         if (!player) return;
         var playerTransform = player.transform;
         var playerSpriteRenderer = player.playerSpriteRenderer;
         
-        data.playerData.position = playerTransform.position;
-        data.playerData.rotationSprite = playerSpriteRenderer.sprite;
+        data.saveData.playerSaveData.position = playerTransform.position;
+        data.saveData.playerSaveData.rotationSprite = playerSpriteRenderer.sprite;
     }
 
-    public void Load(SaveloadSystem.SaveData saveData)
+    public void Load(SaveDataSO data)
     {
         var player = FindFirstObjectByType<Player>();
         if (!player) return;
         var playerTransform = player.transform;
         var playerSpriteRenderer = player.playerSpriteRenderer;
         
-        playerTransform.position = saveData.playerData.position;
-        playerSpriteRenderer.sprite = saveData.playerData.rotationSprite;
+        playerTransform.position = data.saveData.playerSaveData.position;
+        playerSpriteRenderer.sprite = data.saveData.playerSaveData.rotationSprite;
     }
-}
-
-[Serializable]
-public struct PlayerSaveData
-{
-    public Vector3 position;
-    public Sprite rotationSprite;
 }

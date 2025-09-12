@@ -12,4 +12,17 @@ public class GameManager : MonoBehaviour
         if (!Instance) {Instance = this; DontDestroyOnLoad(gameObject);}
         else {Destroy(gameObject);}
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.F5))
+        {
+            SaveloadSystem.SaveAll();
+        }
+
+        if (Input.GetKey(KeyCode.F9))
+        {
+            SaveloadSystem.LoadAll();
+        }
+    }
 }

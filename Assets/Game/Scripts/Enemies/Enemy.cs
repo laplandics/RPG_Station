@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -27,7 +26,6 @@ public abstract class Enemy : MonoBehaviour, ISortingOnLayerObject
     {
         player.controller.SetLockState(true);
         
-        EnemyStateManager.Instance.SetEnemiesIdDictionary(id);
         yield return new WaitForSeconds(0.3f);
         
         StartFighting();
@@ -35,7 +33,7 @@ public abstract class Enemy : MonoBehaviour, ISortingOnLayerObject
     
     private void StartFighting()
     {
-        GameModeChanger.Instance.StartBattle();
+        
     }
     
     public void SetState(bool isDead)
