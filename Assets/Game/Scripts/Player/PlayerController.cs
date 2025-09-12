@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField] private float speed;
+    private Rigidbody2D _rb;
+    private GameInputs _input;
+    private Vector2 _moveInput;
+    private bool _isBlocked;
+    
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        
+        _input = new GameInputs();
+        
+        _input.Player.Move.Enable();
+        _input.Player.Move.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
+        _input.Player.Move.canceled += ctx => _moveInput = Vector2.zero;
+    }
+
+    public void SetLockState(bool isLocked) => _isBlocked = isLocked;
+
+    private void OnDestroy()
+    {
+        _input.Player.Move.Disable();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isBlocked) return;
+        var move = new Vector2(_moveInput.x, _moveInput.y) * (speed * Time.deltaTime);
+        var movePos = new Vector2(transform.position.x + move.x, transform.position.y + move.y);
+        _rb.MovePosition(movePos);
+    }
+
+    public Vector2 GetMoveInput() => !_isBlocked ? _moveInput : Vector2.zero;
+        
+}
