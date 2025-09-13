@@ -5,14 +5,14 @@ public abstract class Enemy : MonoBehaviour, ISortingOnLayerObject
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private string id;
-    [SerializeField] bool isFriendly;
+    [SerializeField] private bool isFriendly;
     private bool _isDead;
 
     private void OnEnable()
     {
         AddSelfIntoSortingOrderManager();
     }
-    
+
     private void OnCollisionEnter2D(Collision2D player)
     {
         Debug.Log("OnCollisionEnter2D");
@@ -44,12 +44,12 @@ public abstract class Enemy : MonoBehaviour, ISortingOnLayerObject
 
     public void AddSelfIntoSortingOrderManager()
     {
-        SortingOrderManager.Instance.AddSortingOnLayerObject(this);
+        DS.GetManager<SortingOrderManagerSO>().AddSortingOnLayerObject(this);
     }
 
     public void RemoveSelfFromSortingOrderManager()
     {
-        SortingOrderManager.Instance.RemoveSortingOnLayerObject(this);
+        DS.GetManager<SortingOrderManagerSO>().RemoveSortingOnLayerObject(this);
     }
 
     private void OnDisable()

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c560c45ac5fd2ba40bc8f4b6552a3122, type: 3}
+  m_Name: InitialSettings
+  m_EditorClassIdentifier: Assembly-CSharp::InitialSettingsSO
+  Enemies:
+  - enemyPrefab: {fileID: 1917984317280157915, guid: b195d11e2567cc44791c05cc7a7506fa, type: 3}
+    amount: 1

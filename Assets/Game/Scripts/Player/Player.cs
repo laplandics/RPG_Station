@@ -8,23 +8,33 @@ public class Player : MonoBehaviour, ISortingOnLayerObject
     private void Start()
     {
         AddSelfIntoSortingOrderManager();
+        DS.GetManager<GameManagerSO>().OnSave.AddListener(ShareData);
     }
     
     public void AddSelfIntoSortingOrderManager()
     {
-        SortingOrderManager.Instance.AddSortingOnLayerObject(this);
+        DS.GetManager<SortingOrderManagerSO>().AddSortingOnLayerObject(this);
     }
 
     public void RemoveSelfFromSortingOrderManager()
     {
-        SortingOrderManager.Instance.RemoveSortingOnLayerObject(this);
+        DS.GetManager<SortingOrderManagerSO>().RemoveSortingOnLayerObject(this);
     }
 
+    private void OnDisable()
+    {
+        DS.GetManager<GameManagerSO>().OnSave.RemoveListener(ShareData);
+    }
+    
     private void OnDestroy()
     {
         RemoveSelfFromSortingOrderManager();
     }
     
+    public void ShareData()
+    {
+        
+    }
     public SpriteRenderer SpriteRenderer => playerSpriteRenderer;
     public float YCoordinate => transform.position.y;
 }

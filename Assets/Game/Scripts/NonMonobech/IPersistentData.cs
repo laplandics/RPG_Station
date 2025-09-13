@@ -1,5 +1,5 @@
 ﻿public interface IPersistentData
 {
-    public void Save(SaveDataSO data);
-    public void Load(SaveDataSO data);
+    public void Save(SaveLoadSystemManagerSO data);
+    public void Load(SaveLoadSystemManagerSO data);
 }
