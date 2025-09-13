@@ -311,4 +311,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6e6afd2db350f49a073ebc13d6aa56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  camera: {fileID: 8985997171981782363}
+  cameraCm: {fileID: 8985997171981782363}

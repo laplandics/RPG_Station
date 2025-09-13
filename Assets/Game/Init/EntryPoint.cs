@@ -1,91 +1,68 @@
 using System.Collections;
-using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class EntryPoint : MonoBehaviour
 {
-    public UnityEvent onInSceneManagersInitialized;
-    
-    [SerializeField] private InitPrefabsSO initPrefabs;
-    [SerializeField] private InitialSettingsSO initialSettings;
+    [SerializeField] private InitEssential initPrefabs;
     [SerializeField] private GameObject[] inSceneManagers;
-    private GameManagerSO gameManager;
+    [SerializeField] private GlobalInputsState globalInputsState;
+    private GameObject _cameraInstance;
+    private GameObject _globalLightningInstance;
     
     private IEnumerator Start()
     {
+        var isInitialized = false;
+        
         DS.Initialize();
-        DS.GetManager<SaveLoadSystemManagerSO>().Load(out var enemiesData, out var playerData);
-
-        AddUnityEventsListeners();
+        DS.GetSoManager<GlobalInputsManagerSo>().BlockGlobalInputs();
         
+        AssignManagersSoToInSceneManagersInitialization();
         SpawnInSceneManagers();
-        SpawnGlobalLight();
-        var playerPos = SpawnPlayer(playerData);
-        SpawnCamera(playerPos);
-        SpawnMap();
-        SpawnSavedEnemies(enemiesData);
+        SpawnUnityEssentials();
         
-        yield break;
+        DS.GetSoManager<GameManagerSo>().Initialize(_cameraInstance, _globalLightningInstance);
+        
+        isInitialized = true;
+        yield return new WaitUntil(() => isInitialized);
+        DS.GetSoManager<EventManagerSo>().onSceneInitializationCompleted?.Invoke();
+        
+        Debug.Log("Game Init Complete");
+        DS.GetSoManager<GlobalInputsManagerSo>().AssignInputAction(globalInputsState);
     }
 
-    private void AddUnityEventsListeners()
+    private void AssignManagersSoToInSceneManagersInitialization()
     {
-        foreach (var manager in  DS.GetAllManagers())
+        foreach (var manager in DS.GetSoManagers())
         {
-            if (manager is not IRoutineManagerSo rManager) continue;
-            onInSceneManagersInitialized.AddListener(rManager.OnRoutineAvailable);
+            if (manager is not IInSceneManagerListener rManager) continue;
+            DS.GetSoManager<EventManagerSo>().onInSceneManagersInitialized.AddListener(rManager.OnSceneManagersInitialized);
         }
     }
-
+    
     private void SpawnInSceneManagers()
     {
         foreach (var managerObject in inSceneManagers)
         {
             var manager = Instantiate(managerObject, Vector3.zero, Quaternion.identity).GetComponent<MonoBehaviour>();
-            DS.SetManager(manager);
-            manager.GetComponent<IInitializable>().Initialize();
+            DS.SetSceneManager(manager);
+            manager.GetComponent<IInSceneManager>().Initialize();
         }
-        onInSceneManagersInitialized?.Invoke();
+        DS.GetSoManager<EventManagerSo>().onInSceneManagersInitialized?.Invoke();
+    }
+
+    private void SpawnUnityEssentials()
+    {
+        SpawnGlobalLight();
+        SpawnCamera();
     }
 
     private void SpawnGlobalLight()
     {
-        Instantiate(initPrefabs.globalLightning, initPrefabs.globalLightning.transform.position, Quaternion.identity);
+        _globalLightningInstance = Instantiate(initPrefabs.globalLightning, initPrefabs.globalLightning.transform.position, Quaternion.identity);
     }
 
-    private Transform SpawnPlayer(PlayerSaveData playerData)
+    private void SpawnCamera()
     {
-        var player = Instantiate(initPrefabs.player, playerData.position, Quaternion.identity).GetComponent<Player>();
-        if (playerData.sprite) player.SpriteRenderer.sprite = playerData.sprite;
-        return player.transform;
-    }
-    
-    private void SpawnCamera(Transform followTarget)
-    {
-        var cameraInstance = Instantiate(initPrefabs.camera, initPrefabs.camera.transform.position, Quaternion.identity);
-        var cameraCm = cameraInstance.GetComponentInChildren<CinemachineCamera>();
-        cameraCm.Follow = followTarget;
-    }
-
-    private void SpawnMap()
-    {
-        Instantiate(initPrefabs.map, initPrefabs.map.transform.position, Quaternion.identity);
-    }
-
-    private void SpawnSavedEnemies(EnemiesSaveData enemiesData)
-    {
-        foreach (var enemy in initialSettings.Enemies)
-        {
-            foreach (var enemyData in enemiesData.enemiesData)
-            {
-                if (enemyData.id != enemy.enemyPrefab.GetComponent<Enemy>().Id) continue;
-                for (var i = 0; i < enemy.amount; i++)
-                {
-                    var someEnemy = Instantiate(enemy.enemyPrefab, enemyData.position,  Quaternion.identity).GetComponent<Enemy>();
-                    someEnemy.SetState(enemyData.isDead);
-                }
-            }
-        }
+        _cameraInstance = Instantiate(initPrefabs.camera, initPrefabs.camera.transform.position, Quaternion.identity);
     }
 }

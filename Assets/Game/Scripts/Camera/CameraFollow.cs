@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private new CinemachineCamera camera;
+    [SerializeField] private CinemachineCamera cameraCm;
 
     public void SetTarget(Transform target)
     {
-        camera.Follow = target;
+        cameraCm.Follow = target;
     }
 }

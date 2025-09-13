@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04f6b6e4b062d2e41b2fe3e9542166f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cc65941ff6401b4d8d6b086f6aae892, type: 3}
   m_Name: SaveLoadManager
-  m_EditorClassIdentifier: Assembly-CSharp::SaveLoadManagerSO
+  m_EditorClassIdentifier: Assembly-CSharp::SaveManagerSO

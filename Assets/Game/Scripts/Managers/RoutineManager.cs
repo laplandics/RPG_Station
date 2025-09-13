@@ -3,36 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoutineManager : MonoBehaviour, IInitializable
+public class RoutineManager : MonoBehaviour, IInSceneManager
 {
     [SerializeField] private int initializeOrder;
     public int InitializeOrder => initializeOrder;
-    private List<Action> actions = new();
+    private readonly List<Action> _updateActions = new();
+    private readonly List<Action> _fixedUpdateActions = new();
     
     public void Initialize()
     {
         DontDestroyOnLoad(gameObject);
     }
 
-    public Coroutine GetCoroutine(IEnumerator routine)
+    public Coroutine StartRoutine(IEnumerator routine)
     {
-        var newCoroutine = StartCoroutine(routine);
-        return newCoroutine;
+        var newRoutine = StartCoroutine(routine);
+        return newRoutine;
     }
 
-    public void ReturnCoroutine(Coroutine coroutine)
+    public void EndRoutine(Coroutine coroutine)
     {
         StopCoroutine(coroutine);
     }
 
-    public void GetUpdateAction(Action action) => actions.Add(action);
+    public void GetUpdateAction(Action action) => _updateActions.Add(action);
+    public void GetFixedUpdateAction(Action action) => _fixedUpdateActions.Add(action);
     
-    public void ReturnUpdateAction(Action action) => actions.Remove(action);
+    public void ReturnUpdateAction(Action action) => _updateActions.Remove(action);
+    public void ReturnFixedUpdateAction(Action action) => _fixedUpdateActions.Remove(action);
     
 
     private void Update()
     {
-        foreach (var action in actions)
+        foreach (var action in _updateActions)
+        {
+            action?.Invoke();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (var action in _fixedUpdateActions)
         {
             action?.Invoke();
         }

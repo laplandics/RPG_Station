@@ -5,54 +5,99 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12bad51c-2c4e-40b6-ac43-b869a0f55dab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInitializable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInitializable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IRoutineManagerSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IRoutineManagerSo.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/DataStorage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/DataStorage.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/EnemiesSaveData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/EnemiesSaveData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/PlayerSaveData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/PlayerSaveData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Battle.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Enemies.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Enemies/Enemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Enemies/Enemy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Enemies/TestEnemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Enemies/TestEnemy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Player.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Player/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Exploring/Player/Player.prefab.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManagerListener.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManagerListener.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/EventManagerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/SaveLoadManagerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitPrefabs.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitPrefabs.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitialSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitialSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/EnemiesSaveData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/EnemiesSaveData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/PlayerSaveData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/PlayerSaveData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Init/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Init/EntryPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/ENEMIES/TestEnemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/ENEMIES/TestEnemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Dungeon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Dungeon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/UNITY ESSENTIAL/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UNITY ESSENTIAL/Camera.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Game_Explore.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Game_Explore.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Global.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Global/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Global/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Global/SortingOrderManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Global/SortingOrderManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Saveload.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Saveload/EnemiesPersistentData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Saveload/EnemiesPersistentData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Saveload/EnemyStateManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Saveload/EnemyStateManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Saveload/PlayerPersistentData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Saveload/PlayerPersistentData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Scenes/GameModeChanger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/Scenes/GameModeChanger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IPersistentData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IPersistentData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/SaveloadSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/SaveloadSystem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/TestEnemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/TestEnemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/RoutineManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/RoutineManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/DS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/DS.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInitializable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInitializable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IPersistentData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IPersistentData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IRoutineManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IRoutineManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/ISortingOnLayerObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/ISortingOnLayerObject.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SaveDataSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SaveDataSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerRotation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerRotation.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillEnemyButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillEnemyButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/SurrenderButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/SurrenderButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/EnemyStateManagerSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/EnemyStateManagerSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/GameManagerSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GameManagerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/GameManagerSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadManagerSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadManagerSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadSystemManagerSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadSystemManagerSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SceneManagerSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SceneManagerSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SortingOrderManagerSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SortingOrderManagerSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitPrefabsSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitEssential.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitPrefabsSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitialSettingsSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitInstances.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitialSettingsSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Sprites.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Battle.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Battle/Shadowling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Battle/Shadowling.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/Max.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/Max/Max_allSides.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/Max/Max_allSides.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/TestEnemie.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/TestEnemie/Enemie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/TestEnemie/Enemie.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/GameInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/GameInputs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/GameInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/GameInputs.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/EnemyStateManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/EnemyStateManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadSystemManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadSystemManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SceneManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SceneManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SortingOrderManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SortingOrderManager.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,18 +123,25 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/a7/6461f551/File.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/29/d9075f41/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/87/54797f08/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/b4/83f79592/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitPrefabs.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdee1383db0f4513952862f91d61e50258200/3d/70f93c0d/Formatting.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdee1383db0f4513952862f91d61e50258200/da/760662f0/JsonConvert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdee1383db0f4513952862f91d61e50258200/fb/7b449329/JsonSerializerInternalReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Managers/RoutineManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInitializable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IRoutineManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/EnemyStateManagerSO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/GameManagerSO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadManagerSO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SceneManagerSO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SortingOrderManagerSO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitialSettingsSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManagerListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/DataSo/SpriteAssetsBundleSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/EventManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GameManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitInstances.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -113,11 +165,23 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../SkyWatt Games/RPG_Station\RPG_Station.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="G:\SkyWatt Games\RPG_Station" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath G:\GitUnityRep\RPG_Station -debugCodeOptimization" />
@@ -156,10 +220,10 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22336">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18080">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="22336" />
+      <option name="pid" value="18080" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list>
@@ -185,6 +249,9 @@
       <updated>1757714624600</updated>
       <workItem from="1757714626365" duration="42000" />
       <workItem from="1757714688764" duration="22463000" />
+      <workItem from="1757738215913" duration="145000" />
+      <workItem from="1757757620735" duration="10956000" />
+      <workItem from="1757769414261" duration="15298000" />
     </task>
     <servers />
   </component>
@@ -218,5 +285,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

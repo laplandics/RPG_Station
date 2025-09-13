@@ -163,9 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2211750093812fc48ae1f26384c646ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntryPoint
-  onInSceneManagersInitialized:
-    m_PersistentCalls:
-      m_Calls: []
   initPrefabs: {fileID: 11400000, guid: 20b6411a17465e543bf879b6aaca6ad1, type: 2}
   initialSettings: {fileID: 11400000, guid: 897b45028cef164419aa4fe3b60833b9, type: 2}
   inSceneManagers:

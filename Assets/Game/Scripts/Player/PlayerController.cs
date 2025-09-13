@@ -8,11 +8,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveInput;
     private bool _isBlocked;
     
-    private void Start()
+    public void Initialize()
     {
         _rb = GetComponent<Rigidbody2D>();
         
-        _input = new GameInputs();
+        _input = DS.GetSoManager<GlobalInputsManagerSo>().GetInputs();
         
         _input.Player.Move.Enable();
         _input.Player.Move.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
@@ -23,17 +23,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        _input.Player.Move.Disable();
+        _input?.Player.Move.Disable();
     }
 
-    private void FixedUpdate()
+    public void MovePlayer()
     {
         if (_isBlocked) return;
         var move = new Vector2(_moveInput.x, _moveInput.y) * (speed * Time.deltaTime);
         var movePos = new Vector2(transform.position.x + move.x, transform.position.y + move.y);
         _rb.MovePosition(movePos);
     }
-
-    public Vector2 GetMoveInput() => !_isBlocked ? _moveInput : Vector2.zero;
-        
 }
