@@ -1,11 +1,5 @@
-﻿using System;
-using UnityEngine;
-
-public enum GlobalInputsState
-{
-    AllEnable,
-    SaveLoadBlocked
-}
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "GameInputsManager", menuName = "ManagersSO/GameInputsManager")]
 public class GlobalInputsManagerSo : ScriptableObject
@@ -15,28 +9,40 @@ public class GlobalInputsManagerSo : ScriptableObject
     private void OnEnable()
     {
         _inputs = new GameInputs();
+        _inputs.Global.Disable();
     }
 
     public GameInputs GetInputs() => _inputs;
-    public void BlockGlobalInputs()
-    {
-        _inputs.Global.Disable();
-    }
-    public void AssignInputAction(GlobalInputsState state)
+
+    public void EnableAllGlobalInputs()
     {
         _inputs.Global.Enable();
-        
-        switch (state)
-        {
-            case GlobalInputsState.AllEnable:
-                _inputs.Global.Save.performed += _ => DS.GetSoManager<EventManagerSo>().onSave?.Invoke();
-                _inputs.Global.Load.performed += _ => DS.GetSoManager<EventManagerSo>().onLoad?.Invoke();
-                break;
-            case GlobalInputsState.SaveLoadBlocked:
-                _inputs.Global.Save.Disable();
-                _inputs.Global.Load.Disable();
-                break;
-        }
-        
+        EnableSaveLoadInputs();
+    }
+    
+    public void DisableAllGlobalInputs()
+    {
+        _inputs.Global.Disable();
+        DisableSaveLoadInputs();
+    }
+    public void EnableSaveLoadInputs()
+    {
+        _inputs.Global.Save.performed += InvokeSave;
+        _inputs.Global.Load.performed += InvokeLoad;
+    }
+
+    public void DisableSaveLoadInputs()
+    {
+        _inputs.Global.Save.performed -= InvokeSave;
+        _inputs.Global.Load.performed -= InvokeLoad;
+    }
+
+    private void InvokeSave(InputAction.CallbackContext _)
+    {
+        DS.GetSoManager<EventManagerSo>().onSave?.Invoke();
+    }
+    private void InvokeLoad(InputAction.CallbackContext _)
+    {
+        DS.GetSoManager<EventManagerSo>().onLoad?.Invoke();
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: InitInstances
   m_EditorClassIdentifier: Assembly-CSharp::InitialSettingsSO
   playerPrefab: {fileID: 4956531894878883135, guid: 4757f9444f3791540b0f37e22a6477e9, type: 3}
+  mapPrefab: {fileID: 4620359853367406977, guid: 467bf8dae97effe47995695b4b0d14b3, type: 3}
   enemiesPrefabs: []
-  mapPrefab: {fileID: 79985151010755174, guid: ca7a90bb9ecf92a4390961172a704b96, type: 3}

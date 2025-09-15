@@ -1,60 +1,52 @@
+using System.Collections;
 using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "GameManager", menuName = "ManagersSO/GameManager")]
 public class GameManagerSo : ScriptableObject
 {
-    public bool isStartingNewGame;
     [SerializeField] private InitInstances instances;
     private GameObject _cameraInstance;
     private GameObject _globalLightningInstance;
-    private GameObject _map;
     private Player  _player;
     private PlayerManagerSo _playerManager;
-    private MapManagerSo _mapManager;
-    
-    public void Initialize(GameObject cameraInstance, GameObject globalLightningInstance)
+
+    public IEnumerator Initialize(GameObject cameraInstance, GameObject globalLightningInstance)
     {
         _cameraInstance = cameraInstance;
         _globalLightningInstance = globalLightningInstance;
+        var routineManager = DS.GetSceneManager<RoutineManager>();
         
-        InstantiateSceneObjects();
-        InitializeCameraFollow();
+        DS.GetSoManager<EventManagerSo>().onSave.AddListener(() => routineManager.StartRoutine(TrySaveGame()));
+        DS.GetSoManager<EventManagerSo>().onLoad.AddListener(() => routineManager.StartRoutine(TryLoadGame()));
         
-        AssignLocalManagersToSaveEvent();
-        AssignLocalManagersToLoadEvent();
-        
-        if (!isStartingNewGame) LoadGame();
+        yield return routineManager.StartRoutine(InstantiateSceneObjects());
+        yield return routineManager.StartRoutine(InitializeCameraFollow());
     }
 
-    private void AssignLocalManagersToSaveEvent()
-    {
-        var eventManager = DS.GetSoManager<EventManagerSo>();
-        eventManager.onSave.AddListener(_playerManager.SavePlayerData);
-    }
-
-    private void AssignLocalManagersToLoadEvent()
-    {
-        var eventManager = DS.GetSoManager<EventManagerSo>();
-        eventManager.onLoad.AddListener(_playerManager.LoadPlayerData);
-    }
-
-    private void InstantiateSceneObjects()
+    private IEnumerator InstantiateSceneObjects()
     {
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
-        _mapManager = DS.GetSoManager<MapManagerSo>();
         _player = _playerManager.SpawnPlayer(instances.playerPrefab);
-        _map = _mapManager.SpawnMap(instances.mapPrefab);
+        yield return null;
     }
 
-    private void InitializeCameraFollow()
+    private IEnumerator InitializeCameraFollow()
     {
-        var cameraFollow = _cameraInstance.GetComponent<CameraFollow>();
+        var cameraFollow = _cameraInstance.GetComponent<GameCamera>();
         cameraFollow.SetTarget(_player.transform);
+        yield return null;
     }
 
-    private void LoadGame()
+    private IEnumerator TryLoadGame()
     {
-        DS.GetSoManager<PlayerManagerSo>().LoadPlayerData();
+        _playerManager.LoadPlayerData();
+        yield return null;
+    }
+
+    private IEnumerator TrySaveGame()
+    {
+        _playerManager.SavePlayerData();
+        yield return null;
     }
 }

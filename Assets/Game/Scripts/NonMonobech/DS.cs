@@ -18,7 +18,7 @@ public static class DS
         foreach (var manager in managersSo)
         {
             var type = manager.GetType();
-            if (ManagersSo.TryAdd(type, manager)) {Debug.Log($"Adding manager {type.Name}");}
+            ManagersSo.TryAdd(type, manager);
         }
     }
 
@@ -26,7 +26,6 @@ public static class DS
     {
         if (!_isInitialized) return null;
         if (ManagersSo.TryGetValue(typeof(T), out var manager)) return manager as T;
-        Debug.LogError($"Can't find manager {typeof(T).Name}");
         return null;
     }
     
@@ -34,7 +33,6 @@ public static class DS
     {
         if (!_isInitialized) return null;
         if (ManagersMb.TryGetValue(typeof(T), out var manager)) return manager as T;
-        Debug.LogError($"Can't find manager {typeof(T).Name}");
         return null;
     }
 
@@ -42,7 +40,7 @@ public static class DS
     {
         if (!_isInitialized) return;
         var type = manager.GetType();
-        if (ManagersMb.TryAdd(type, manager)) {Debug.Log($"Adding manager {type.Name}");}
+        ManagersMb.TryAdd(type, manager);
     }
 
     public static ScriptableObject[] GetSoManagers()

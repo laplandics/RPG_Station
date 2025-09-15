@@ -5,99 +5,184 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12bad51c-2c4e-40b6-ac43-b869a0f55dab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManagerListener.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManagerListener.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/EventManagerSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/SaveLoadManagerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/GameCamera.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/ISaveAble.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/UniqueIdManagerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/UniqueIdManagerSo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitPrefabs.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitPrefabs.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitialSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitialSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/EnemiesSaveData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/EnemiesSaveData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/PlayerSaveData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SaveData/PlayerSaveData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitInstances.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/DataStorage/Init/InitInstances.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SpriteAssets/PlayerSpriteAsset.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/DataStorage/SpriteAssets/PlayerSpriteAsset.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Init/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Init/EntryPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/ENEMIES/TestEnemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/ENEMIES/TestEnemy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Dungeon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Dungeon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/ENEMIES/Enemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/ENEMIES/Enemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Dungeon.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/GLOBAL INSTANCES/Dungeon.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/INTITIES/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/INTITIES/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/UNITY ESSENTIAL/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UNITY ESSENTIAL/Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Game_Battle.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Game_Battle.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/Game_Explore.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/Game_Explore.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/TestEnemy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/TestEnemy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/RoutineManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Managers/RoutineManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/GameCamera.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/DS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/DS.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInitializable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInitializable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IPersistentData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IPersistentData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IRoutineManagerSo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IRoutineManagerSo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/ISortingOnLayerObject.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/ISortingOnLayerObject.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerRotation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerRotation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillEnemyButton.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillEnemyButton.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/SurrenderButton.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/SurrenderButton.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/EnemyStateManagerSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/EnemyStateManagerSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/GameManagerSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GameManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/GameManagerSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadManagerSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadManagerSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadSystemManagerSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SaveLoadSystemManagerSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SceneManagerSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SceneManagerSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SortingOrderManagerSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/ManagersSO/SortingOrderManagerSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitPrefabsSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitEssential.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitPrefabsSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitialSettingsSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitInstances.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSO/SettingsSO/InitialSettingsSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Sprites.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Battle.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Battle/Shadowling.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Battle/Shadowling.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/Max.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/Max/Max_allSides.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/Max/Max_allSides.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/TestEnemie.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/TestEnemie/Enemie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Creatures/Exploring/TestEnemie/Enemie.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/GameInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/GameInputs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/GameInputs.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/GameInputs.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/EnemyStateManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/EnemyStateManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadManager.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadSystemManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SaveLoadSystemManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SceneManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SceneManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SortingOrderManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/SortingOrderManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GameManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GameManagerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitInstances.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitInstances.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/BattleSprites/Battle/Shadowling/Shadowling.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Sprites/BattleSprites/Battle/Shadowling/Shadowling.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/SpriteVariants/Player/Feet.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/SpriteVariants/Player/Hands.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/SpriteVariants/Player/Head.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/SpriteVariants/Player/Legs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/SpriteVariants/Player/Torso.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/DungeonFloor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/DungeonFloor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/DungeonTiles.spriteatlasv2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/DungeonTiles.spriteatlasv2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/DungeonWalls.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/DungeonWalls.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/MoreFloor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/MoreFloor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Dungeon.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Dungeon.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/DungeonWalls_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/MoreFloor_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/MoreFloor_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/MoreFloor_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/MoreFloor_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/MoreFloor_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/MoreFloor_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_15.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_15.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_16.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_16.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_17.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_17.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_18.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_18.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_19.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_19.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_20.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_20.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_21.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_21.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_22.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_22.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_23.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_23.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_24.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_24.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_25.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_25.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_26.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_26.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_27.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_27.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_28.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_28.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_29.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_29.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_30.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_30.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_31.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_31.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_32.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_32.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_33.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_33.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_34.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_34.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_35.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_35.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_36.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_36.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_37.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_37.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_38.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_38.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_39.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_39.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_40.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_40.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_41.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_41.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_42.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_42.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_43.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_43.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_44.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_44.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilePalette/Dungeon/Tilemap_Dungeon_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/MapManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/MapManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,26 +208,35 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/42/9f74d782/UniqueId.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/a7/6461f551/File.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/29/d9075f41/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/71/2c422f2b/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/87/54797f08/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/b4/83f79592/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e926e9c7db684472928e12ac2693beec9f7400/93/42c96271/GameObjectInspector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e926e9c7db684472928e12ac2693beec9f7400/ee/07f46f1c/Editor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdee1383db0f4513952862f91d61e50258200/3d/70f93c0d/Formatting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdee1383db0f4513952862f91d61e50258200/da/760662f0/JsonConvert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdee1383db0f4513952862f91d61e50258200/fb/7b449329/JsonSerializerInternalReader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Camera/GameCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Chunk/ChunkManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Managers/RoutineManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/IInSceneManagerListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/NonMonobech/ISaveAble.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/DataSo/SpriteAssetsBundleSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/EventManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GameManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/GlobalInputsManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/MapManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/PlayerManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/ManagersSo/UniqueIdManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/ScriptsSo/SettingsSo/InitInstances.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
@@ -152,23 +246,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Unity Player.Unity.exe (AssetImportWorker0).executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Unity Player.Unity.exe (AssetImportWorker1).executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../SkyWatt Games/RPG_Station\RPG_Station.exe" />
@@ -220,15 +316,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18080">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="18080" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -239,6 +333,32 @@
     <configuration name="Attach to Device" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
       <method v="2" />
     </configuration>
+    <configuration name="Unity.exe (AssetImportWorker0)" type="UnityPlayer" factoryName="UnityAttachToPlayer" temporary="true">
+      <option name="host" value="127.0.0.1" />
+      <option name="pid" value="13592" />
+      <option name="playerId" value="EditorHelper(Unity.exe-AssetImportWorker0-RPG_Station)" />
+      <option name="playerInstanceId" value="RPG_Station" />
+      <option name="port" value="56592" />
+      <option name="projectName" value="RPG_Station" />
+      <option name="roleName" value="AssetImportWorker0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity.exe (AssetImportWorker1)" type="UnityPlayer" factoryName="UnityAttachToPlayer" temporary="true">
+      <option name="host" value="127.0.0.1" />
+      <option name="pid" value="11020" />
+      <option name="playerId" value="EditorHelper(Unity.exe-AssetImportWorker1-RPG_Station)" />
+      <option name="playerInstanceId" value="RPG_Station" />
+      <option name="port" value="56020" />
+      <option name="projectName" value="RPG_Station" />
+      <option name="roleName" value="AssetImportWorker1" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Attach to Unity Player.Unity.exe (AssetImportWorker1)" />
+        <item itemvalue="Attach to Unity Player.Unity.exe (AssetImportWorker0)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -252,12 +372,22 @@
       <workItem from="1757738215913" duration="145000" />
       <workItem from="1757757620735" duration="10956000" />
       <workItem from="1757769414261" duration="15298000" />
+      <workItem from="1757787525349" duration="26000" />
+      <workItem from="1757787566643" duration="217000" />
+      <workItem from="1757787807726" duration="343000" />
+      <workItem from="1757796992829" duration="5463000" />
+      <workItem from="1757853961679" duration="4806000" />
+      <workItem from="1757862334257" duration="6469000" />
+      <workItem from="1757910126949" duration="6115000" />
+      <workItem from="1757933732296" duration="20661000" />
+      <workItem from="1757955113623" duration="2460000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
