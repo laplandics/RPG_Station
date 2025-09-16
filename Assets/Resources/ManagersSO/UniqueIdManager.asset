@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808f74e5ca32434caa5e7fbbbd5cb838, type: 3}
   m_Name: UniqueIdManager
   m_EditorClassIdentifier: Assembly-CSharp::UniqueIdManagerSo
+  regenerateIds: 0
   persistentPrefabs:
   - {fileID: 4956531894878883135, guid: 4757f9444f3791540b0f37e22a6477e9, type: 3}

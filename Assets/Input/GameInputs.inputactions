@@ -595,6 +595,15 @@
             "id": "2cebaf62-dd58-41fc-999d-594939844a9a",
             "actions": [
                 {
+                    "name": "NewGame",
+                    "type": "Button",
+                    "id": "1b56b440-903c-4f1d-895d-870b996754e0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Save",
                     "type": "Button",
                     "id": "293ff3f5-00d5-42ca-a37d-dc66e0a48f4c",
@@ -633,6 +642,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Load",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "065712fb-1496-496e-91ef-8050d286325f",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NewGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
