@@ -11,7 +11,7 @@ public class GameManagerSo : ScriptableObject
     private GameObject _globalLightningInstance;
     private Map _map;
     private MapManagerSo _mapManager;
-    private ChunkManagerSo _chunkManager;
+    private ChunksManagerSo _chunksManager;
     private Player  _player;
     private PlayerManagerSo _playerManager;
     private bool _isInitialized;
@@ -22,21 +22,28 @@ public class GameManagerSo : ScriptableObject
         _globalLightningInstance = globalLightningInstance;
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
         _mapManager = DS.GetSoManager<MapManagerSo>();
-        _chunkManager = DS.GetSoManager<ChunkManagerSo>();
-        
-        DS.GetSoManager<EventManagerSo>().onMapUpdated.AddListener(EndInitialization);
-        DS.GetSoManager<EventManagerSo>().onSave.AddListener(TrySaveGame);
-        DS.GetSoManager<EventManagerSo>().onLoad.AddListener(() => _ = TryLoadGame());
+        _chunksManager = DS.GetSoManager<ChunksManagerSo>();
+
+        await AssignEvents();
 
         await InstantiateSceneObjects(() => _isInitialized);
         InitializeCameraFollow();
+    }
+
+    private Task AssignEvents()
+    {
+        var eventManager = DS.GetSoManager<EventManagerSo>();
+        eventManager.onMapUpdated.AddListener(EndInitialization);
+        eventManager.onSave.AddListener(() => _ = TrySaveGame());
+        eventManager.onLoad.AddListener(() => _ = TryLoadGame());
+        return Task.CompletedTask;
     }
 
     private async Task InstantiateSceneObjects(Func<bool> isInitialized)
     {
         _player = await _playerManager.SpawnPlayer(instances.playerPrefab);
         _map = await _mapManager.SpawnMap();
-        await _chunkManager.SpawnChunks(_map.transform);
+        await _chunksManager.SpawnChunks(_map.transform);
         while (!isInitialized()) {await Task.Yield();}
     }
     
@@ -52,11 +59,13 @@ public class GameManagerSo : ScriptableObject
     private async Task TryLoadGame()
     {
         await _playerManager.LoadPlayerData();
+        await _mapManager.LoadMapData();
     }
 
-    private void TrySaveGame()
+    private async Task TrySaveGame()
     { 
-        if (!_player) return;
-        _playerManager.SavePlayerData();
+        if (_player) await _playerManager.SavePlayerData();
+        if (_chunksManager) await _chunksManager.SaveChunksData();
+        if (_mapManager) await _mapManager.SaveMapData();
     }
 }

@@ -1,6 +1,8 @@
-﻿public interface ISaveAble
+﻿using System.Threading.Tasks;
+
+public interface ISaveAble
 {
     public string PrefabKey { get; set; }
-    public void Save();
-    public void Load();
+    public Task Save();
+    public Task Load();
 }

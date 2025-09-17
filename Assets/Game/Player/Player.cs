@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Player : MonoBehaviour, ISaveAble
@@ -7,21 +8,19 @@ public class Player : MonoBehaviour, ISaveAble
     [SerializeField] private PlayerController controller;
     public PlayerController GetController() => controller;
     public string PrefabKey { get => key; set => key = value; }
-    public void Save()
+    public async Task Save()
     {
         var data = new PlayerData
         {
             position = transform.position,
         };
-        DS.GetSoManager<SaveLoadManagerSo>().Save(key,data);
+        await DS.GetSoManager<SaveLoadManagerSo>().Save(key,data);
     }
 
-    public void Load()
+    public async Task Load()
     {
-        DS.GetSoManager<SaveLoadManagerSo>().Load<PlayerData>(key, data =>
-        {
-            transform.position = data.position;
-        });
+        var data = await DS.GetSoManager<SaveLoadManagerSo>().Load<PlayerData>(key);
+        transform.position = data.position;
     }
 }
 

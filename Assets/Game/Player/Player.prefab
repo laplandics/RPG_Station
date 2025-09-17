@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd539427a8c3eb458666c03a4b00cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  key: 
+  key: a553a097-1f9f-4701-b295-20df464a89d1
   controller: {fileID: 4890396874743471357}
 --- !u!114 &4890396874743471357
 MonoBehaviour:

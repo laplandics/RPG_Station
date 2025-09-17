@@ -20,7 +20,6 @@ public class EntryPoint : MonoBehaviour
             DS.GetSoManager<GlobalInputsManagerSo>().EnableAllGlobalInputs();
             await InitializeGameManager();
     
-            Debug.LogWarning("TODO: New Scene Load System");
             await CompleteInitialization();
         }
         catch (Exception e)

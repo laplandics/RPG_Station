@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.IO;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -10,40 +9,22 @@ public class SaveLoadManagerSo : ScriptableObject, IInSceneManagerListener
     private bool _isRoutineManagerAvailable;
     public void OnSceneManagersInitialized() => _isRoutineManagerAvailable = true;
     
-    public void Save(string key, object data)
+    public async Task Save(string key, object data)
     {
-        
         var json = JsonConvert.SerializeObject(data, Formatting.Indented);
         if (!_isRoutineManagerAvailable) {Debug.LogError("Error during saving gameData: RoutineManager is unavailable"); return;}
-        DS.GetSceneManager<RoutineManager>().StartRoutine(SerializeSaveFileRoutine(key, json, _ => {}));
-    }
-
-    private IEnumerator SerializeSaveFileRoutine(string key, string json, Action<bool> callback)
-    {
-        var task = File.WriteAllTextAsync(GetFile(key), json);
-        while (!task.IsCompleted) yield return null;
-        if (task.IsFaulted) {Debug.LogError("Error during saving gameData: " + task.Exception); callback?.Invoke(false);}
-        else callback?.Invoke(true);
+        await File.WriteAllTextAsync(GetFile(key), json);
     }
     
-    public void Load<T>(string key, Action<T> callback)
+    public async Task<T> Load<T>(string key)
     {
-        if (!_isRoutineManagerAvailable) {Debug.LogError("Error during loading gameData: RoutineManager is unavailable"); return;}
-        DS.GetSceneManager<RoutineManager>().StartRoutine(DeserializeSaveFileRoutine(key, (callbackResult, taskResult) =>
-        {
-            if (!callbackResult) return;
-            var data = JsonConvert.DeserializeObject<T>(taskResult);
-            callback?.Invoke(data);
-        }));
+        if (!_isRoutineManagerAvailable) return default;
+        var task = await File.ReadAllTextAsync(GetFile(key));
+        var data = JsonConvert.DeserializeObject<T>(task);
+
+        return data;
     }
 
-    private IEnumerator DeserializeSaveFileRoutine(string key, Action<bool, string> callback)
-    {
-        var task = File.ReadAllTextAsync(GetFile(key));
-        while (!task.IsCompleted) yield return null;
-        if (task.IsFaulted) {Debug.LogError("Error during loading gameData: " + task.Exception); callback?.Invoke(false, null);}
-        else callback?.Invoke(true, task.Result);
-    }
     
     private string GetFile(string key) => Path.Combine(Application.persistentDataPath, $"{key}.json");
 }

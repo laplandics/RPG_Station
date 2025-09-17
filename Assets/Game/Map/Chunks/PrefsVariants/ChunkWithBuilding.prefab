@@ -1832,6 +1832,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3577150145296470737, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1654545075320982031}
     - targetCorrespondingSourceObject: {fileID: 4871058658234433441, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5073992216115736983}
@@ -2043,3 +2046,21 @@ CompositeCollider2D:
   m_OffsetDistance: 0
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1816806385816830720}
+--- !u!1 &7713393856523497072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3577150145296470737, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
+  m_PrefabInstance: {fileID: 6534703004373843105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1654545075320982031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713393856523497072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ff93b97d69e8242bdbe7eed68cf601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkWithBuilding
+  key: 9729238c-f72b-44b0-9a5f-1e8ae5ebbe67

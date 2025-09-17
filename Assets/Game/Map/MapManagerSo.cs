@@ -5,11 +5,23 @@ using UnityEngine;
 public class MapManagerSo : ScriptableObject
 {
     [SerializeField] private InitInstances instances;
-    private Map _map;
-    
+
+    public Map Map { get; private set; }
+
     public Task<Map> SpawnMap()
     {
-        _map = Instantiate(instances.mapPrefab, instances.mapPrefab.transform.position, Quaternion.identity).GetComponent<Map>();
-        return Task.FromResult(_map);
+        Map = Instantiate(instances.mapPrefab, instances.mapPrefab.transform.position, Quaternion.identity);
+        Map.Initialize();
+        return Task.FromResult(Map);
+    }
+
+    public async Task LoadMapData()
+    {
+        await Map.Load();
+    }
+
+    public async Task SaveMapData()
+    {
+        await Map.Save();
     }
 }

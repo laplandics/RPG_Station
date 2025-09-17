@@ -9,10 +9,9 @@ public class PlayerManagerSo : ScriptableObject
     private Player _player;
     private PlayerController _playerController;
     
-    public Task<Player> SpawnPlayer(GameObject playerPrefab)
+    public Task<Player> SpawnPlayer(Player playerPrefab)
     {
-        var playerInstance = Instantiate(playerPrefab, playerPrefab.transform.position, Quaternion.identity);
-        _player = playerInstance.GetComponent<Player>();
+        _player = Instantiate(playerPrefab, playerPrefab.transform.position, Quaternion.identity);
         _playerController = _player.GetController();
         _playerSpriteSwapper = _player.GetComponent<PlayerSpriteSwapper>();
         _playerSpriteSwapper.Initialize();
@@ -27,13 +26,15 @@ public class PlayerManagerSo : ScriptableObject
         DS.GetSceneManager<RoutineManager>().GetUpdateAction(_playerSpriteSwapper.SetPlayerSprite);
     }
 
-    public Task LoadPlayerData()
+    public async Task LoadPlayerData()
     {
-        _player.Load();
-        return Task.CompletedTask;
+        await _player.Load();
     }
 
-    public void SavePlayerData() => _player.Save();
-    
+    public async Task SavePlayerData()
+    {
+        await _player.Save();
+    }
+
     public Vector2 GetPlayerPosition() => _player.transform.position;
 }

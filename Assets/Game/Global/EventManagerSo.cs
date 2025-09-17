@@ -10,4 +10,6 @@ public class EventManagerSo : ScriptableObject
     public UnityEvent onLoad = new();
     public UnityEvent onMapUpdated = new();
     public UnityEvent onPlayersPositionChanged = new();
+    public UnityEvent<Chunk> onChunkSpawned = new();
+    public UnityEvent<Chunk> onChunkDespawned = new();
 }
