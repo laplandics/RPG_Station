@@ -1,18 +1,27 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MapManager", menuName = "ManagersSO/MapManager")]
 public class MapManagerSo : ScriptableObject
 {
-    [SerializeField] private InitInstances instances;
+    [SerializeField] private MainGameObjectsSo instances;
+    [SerializeField] private List<Chunk> allowedChunks;
+    public List<Chunk> MapChunks { get => allowedChunks; }
 
     public Map Map { get; private set; }
 
-    public Task<Map> SpawnMap()
+    public Task Initialize()
     {
-        Map = Instantiate(instances.mapPrefab, instances.mapPrefab.transform.position, Quaternion.identity);
+        DS.GetSoManager<EventManagerSo>().onMapSpawned.AddListener(InitializeMap);
+        return Task.CompletedTask;
+    }
+
+    private void InitializeMap(Map map)
+    {
+        Map = map;
         Map.Initialize();
-        return Task.FromResult(Map);
     }
 
     public async Task LoadMapData()

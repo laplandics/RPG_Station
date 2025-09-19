@@ -1,61 +1,54 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 
 [CreateAssetMenu(fileName = "GameManager", menuName = "ManagersSO/GameManager")]
 public class GameManagerSo : ScriptableObject
 {
-    [SerializeField] private InitInstances instances;
-    private GameObject _cameraInstance;
-    private GameObject _globalLightningInstance;
+    [SerializeField] private MainGameObjectsSo instances;
+    private Camera _camera;
+    private Light2D _globalLight;
     private Map _map;
     private MapManagerSo _mapManager;
     private ChunksManagerSo _chunksManager;
     private Player  _player;
     private PlayerManagerSo _playerManager;
-    private bool _isInitialized;
 
-    public async Task Initialize(GameObject cameraInstance, GameObject globalLightningInstance)
+    public async Task Initialize()
     {
-        _cameraInstance = cameraInstance;
-        _globalLightningInstance = globalLightningInstance;
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
         _mapManager = DS.GetSoManager<MapManagerSo>();
         _chunksManager = DS.GetSoManager<ChunksManagerSo>();
 
         await AssignEvents();
-
-        await InstantiateSceneObjects(() => _isInitialized);
-        InitializeCameraFollow();
+        await InitializeObjectsManagers();
     }
 
     private Task AssignEvents()
     {
         var eventManager = DS.GetSoManager<EventManagerSo>();
-        eventManager.onMapUpdated.AddListener(EndInitialization);
+        eventManager.onUnityEssentialsSpawned.AddListener(AssignUnityEssentials);
         eventManager.onSave.AddListener(() => _ = TrySaveGame());
         eventManager.onLoad.AddListener(() => _ = TryLoadGame());
         return Task.CompletedTask;
     }
 
-    private async Task InstantiateSceneObjects(Func<bool> isInitialized)
+    private void AssignUnityEssentials(Light2D light, Camera camera)
     {
-        _player = await _playerManager.SpawnPlayer(instances.playerPrefab);
-        _map = await _mapManager.SpawnMap();
-        await _chunksManager.SpawnChunks(_map.transform);
-        while (!isInitialized()) {await Task.Yield();}
-    }
-    
-    private void EndInitialization() => _isInitialized = true;
-    
-
-    private void InitializeCameraFollow()
-    {
-        var cameraFollow = _cameraInstance.GetComponent<GameCamera>();
-        cameraFollow.SetTarget(_player.transform);
+        _globalLight = light;
+        _camera = camera;
     }
 
+    private async Task InitializeObjectsManagers()
+    {
+        await _playerManager.Initialize();
+        await _mapManager.Initialize();
+        await _chunksManager.Initialize();
+    }
+    
     private async Task TryLoadGame()
     {
         await _playerManager.LoadPlayerData();

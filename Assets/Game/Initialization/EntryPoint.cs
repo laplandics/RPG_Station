@@ -1,13 +1,11 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class EntryPoint : MonoBehaviour
 {
-    [SerializeField] private InitEssential initPrefabs;
     [SerializeField] private GameObject[] inSceneManagers;
-    private GameObject _cameraInstance;
-    private GameObject _globalLightningInstance;
 
     private async void Start()
     {
@@ -16,11 +14,10 @@ public class EntryPoint : MonoBehaviour
             await InitializeDS();
             await AssignManagersSoToInSceneManagersInitialization();
             await SpawnInSceneManagers();
-            await SpawnUnityEssentials();
             DS.GetSoManager<GlobalInputsManagerSo>().EnableAllGlobalInputs();
             await InitializeGameManager();
-    
-            await CompleteInitialization();
+            
+            DS.GetSoManager<EventManagerSo>().onManagersInitialized.Invoke();
         }
         catch (Exception e)
         {
@@ -57,21 +54,8 @@ public class EntryPoint : MonoBehaviour
         DS.GetSoManager<EventManagerSo>().onInSceneManagersInitialized?.Invoke();
     }
 
-    private Task SpawnUnityEssentials()
-    {
-        _globalLightningInstance = Instantiate(initPrefabs.globalLightning, initPrefabs.globalLightning.transform.position, Quaternion.identity);
-        _cameraInstance = Instantiate(initPrefabs.camera, initPrefabs.camera.transform.position, Quaternion.identity);
-        return Task.CompletedTask;
-    }
-
     private async Task InitializeGameManager()
     {
-        await DS.GetSoManager<GameManagerSo>().Initialize(_cameraInstance, _globalLightningInstance);
-    }
-
-    private static Task CompleteInitialization()
-    {
-        DS.GetSoManager<EventManagerSo>().onSceneInitializationCompleted?.Invoke();
-        return Task.CompletedTask;
+        await DS.GetSoManager<GameManagerSo>().Initialize();
     }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad46a185add91a8418d0a746b56c523f, type: 3}
   m_Name: ChunksManager
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManagerSo
-  instances: {fileID: 11400000, guid: 897b45028cef164419aa4fe3b60833b9, type: 2}
+  instances: {fileID: 11400000, guid: d8f1e1973bf4a8145be3ed7f9de6beb9, type: 2}
   chunkSize: 32

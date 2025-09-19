@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c877e7d62df123f41bc80482fd717523, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerSO
-  isStartingNewGame: 0
-  instances: {fileID: 11400000, guid: 897b45028cef164419aa4fe3b60833b9, type: 2}
+  instances: {fileID: 11400000, guid: d8f1e1973bf4a8145be3ed7f9de6beb9, type: 2}

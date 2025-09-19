@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e8ef135b1d5964dbcf6077fe2ac4dd, type: 3}
+  m_Name: MainGameObjects
+  m_EditorClassIdentifier: Assembly-CSharp::SceneObjectsManagerSo
+  allPrefabs:
+  - {fileID: 5703648210758683712, guid: 44433f54fdaebb7428f21df4c623ca73, type: 3}
+  - {fileID: 8495432189108552356, guid: 1547f281690238549abfb7228f6f9fd9, type: 3}
+  - {fileID: 4956531894878883135, guid: 4757f9444f3791540b0f37e22a6477e9, type: 3}
+  - {fileID: 1458652241894607910, guid: 3915bfb62402c3d46837590cfde89610, type: 3}

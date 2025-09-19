@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d55b9a67b01cd4db9e0a1038ca87b5, type: 3}
   m_Name: MapManager
   m_EditorClassIdentifier: Assembly-CSharp::MapManagerSo
-  instances: {fileID: 11400000, guid: 897b45028cef164419aa4fe3b60833b9, type: 2}
+  instances: {fileID: 11400000, guid: d8f1e1973bf4a8145be3ed7f9de6beb9, type: 2}
+  allowedChunks:
+  - {fileID: 1654545075320982031, guid: 63ce1497318954d418811af1082928a4, type: 3}
+  - {fileID: 2157817061617243873, guid: 504e2e65c29e27a43a4fc06f6fcd60b2, type: 3}

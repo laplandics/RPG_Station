@@ -4,8 +4,14 @@ using UnityEngine;
 public class GameCamera : MonoBehaviour
 {
     [SerializeField] private CinemachineCamera cameraCm;
-    public void SetTarget(Transform target)
+
+    public void Initialize()
     {
-        cameraCm.Follow = target;
+        DS.GetSoManager<EventManagerSo>().onPlayerSpawned.AddListener(SetTarget);
+    }
+
+    public void SetTarget(Player target)
+    {
+        cameraCm.Follow = target.transform;
     }
 }

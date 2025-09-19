@@ -8,16 +8,20 @@ public class PlayerManagerSo : ScriptableObject
     private PlayerSpriteSwapper _playerSpriteSwapper;
     private Player _player;
     private PlayerController _playerController;
-    
-    public Task<Player> SpawnPlayer(Player playerPrefab)
+
+    public Task Initialize()
     {
-        _player = Instantiate(playerPrefab, playerPrefab.transform.position, Quaternion.identity);
+        DS.GetSoManager<EventManagerSo>().onPlayerSpawned.AddListener(InitializePlayer);
+        return Task.CompletedTask;
+    }
+
+    public void InitializePlayer(Player player)
+    {
+        _player = player;
         _playerController = _player.GetController();
         _playerSpriteSwapper = _player.GetComponent<PlayerSpriteSwapper>();
         _playerSpriteSwapper.Initialize();
-        DS.GetSoManager<EventManagerSo>().onSceneInitializationCompleted.AddListener(InitializePlayerController);
-        
-        return Task.FromResult(_player);
+        DS.GetSoManager<EventManagerSo>().onSceneReady.AddListener(InitializePlayerController);
     }
 
     private void InitializePlayerController()
