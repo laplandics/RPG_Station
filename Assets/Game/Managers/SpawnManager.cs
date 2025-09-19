@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour, IInSceneManager
         eventManager.onManagersInitialized.AddListener(() => DS.GetSceneManager<RoutineManager>().StartRoutine(StartSpawningSceneObjects()));
     }
 
-    public T Spawn<T>(Vector3 position, Transform parent = null)
+    private T Spawn<T>(Vector3 position, Transform parent = null)
     {
         var instance = GetProperInstance<T>();
         if (instance.TryGetComponent<T>(out _)) return Instantiate(instance, position, Quaternion.identity, parent).GetComponent<T>();

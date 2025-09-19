@@ -14,11 +14,12 @@ public class PlayerSpriteSwapper : MonoBehaviour
     {
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
     }
-    
+
     public void SetPlayerSprite()
     {
         var input = _playerManager.MoveInput;
         if (input == Vector2.zero) return;
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y)) { spriteRenderer.sprite = input.x > 0 ? baseRight : baseLeft; }
+        else if (Mathf.Abs(input.x) == Mathf.Abs(input.y)) {spriteRenderer.sprite = input.x > 0 ? baseRight : baseLeft;}
     }
 }

@@ -11,17 +11,17 @@ public class GameManagerSo : ScriptableObject
     [SerializeField] private MainGameObjectsSo instances;
     private Camera _camera;
     private Light2D _globalLight;
-    private Map _map;
     private MapManagerSo _mapManager;
     private ChunksManagerSo _chunksManager;
-    private Player  _player;
     private PlayerManagerSo _playerManager;
+    private EnemiesManagerSo _enemiesManager;
 
     public async Task Initialize()
     {
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
         _mapManager = DS.GetSoManager<MapManagerSo>();
         _chunksManager = DS.GetSoManager<ChunksManagerSo>();
+        _enemiesManager = DS.GetSoManager<EnemiesManagerSo>();
 
         await AssignEvents();
         await InitializeObjectsManagers();
@@ -47,6 +47,7 @@ public class GameManagerSo : ScriptableObject
         await _playerManager.Initialize();
         await _mapManager.Initialize();
         await _chunksManager.Initialize();
+        await _enemiesManager.Initialize();
     }
     
     private async Task TryLoadGame()
@@ -57,7 +58,7 @@ public class GameManagerSo : ScriptableObject
 
     private async Task TrySaveGame()
     { 
-        if (_player) await _playerManager.SavePlayerData();
+        if (_playerManager) await _playerManager.SavePlayerData();
         if (_chunksManager) await _chunksManager.SaveChunksData();
         if (_mapManager) await _mapManager.SaveMapData();
     }

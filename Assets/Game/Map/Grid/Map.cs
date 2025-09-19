@@ -14,8 +14,10 @@ public class Map : MonoBehaviour, ISaveAble
 
     public void Initialize()
     {
-        DS.GetSoManager<EventManagerSo>().onChunkSpawned.AddListener(AddChunk);
-        DS.GetSoManager<EventManagerSo>().onChunkDespawned.AddListener(RemoveChunk);
+        var eventManager = DS.GetSoManager<EventManagerSo>();
+        eventManager.onChunkSpawned.AddListener(AddChunk);
+        eventManager.onChunkDespawned.AddListener(RemoveChunk);
+        eventManager.onMapUpdated?.Invoke();
     }
 
     public List<ChunkData> GetSavedChunks() => _savedChunks;
@@ -43,8 +45,7 @@ public class Map : MonoBehaviour, ISaveAble
     {
         var data = await DS.GetSoManager<SaveLoadManagerSo>().Load<MapData>(key);
         _savedChunks = data.savedChunks;
-        DS.GetSoManager<ChunksManagerSo>().DestroyAllChunks();
-        await DS.GetSoManager<ChunksManagerSo>().LoadChunksData(data.savedChunks);
+        await DS.GetSoManager<ChunksManagerSo>().LoadChunks();
     }
 
     private void OnDestroy()

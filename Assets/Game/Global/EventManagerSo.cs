@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
@@ -13,7 +14,7 @@ public class EventManagerSo : ScriptableObject
     public UnityEvent onSceneReady = new();
     public UnityEvent onSave = new();
     public UnityEvent onLoad = new();
-    public UnityEvent onMapUpdated = new();
+    public UnityEvent onMapUpdated;
     public UnityEvent onPlayersPositionChanged = new();
     public UnityEvent<Chunk> onChunkSpawned = new();
     public UnityEvent<Chunk> onChunkDespawned = new();

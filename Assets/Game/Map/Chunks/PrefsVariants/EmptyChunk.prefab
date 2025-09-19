@@ -1,5 +1,83 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1464818612963524626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538936901922653403}
+  - component: {fileID: 7859231843795193571}
+  m_Layer: 0
+  m_Name: Zone (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &538936901922653403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464818612963524626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7957381567360480272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7859231843795193571
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464818612963524626}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 30, y: 30}
+  m_EdgeRadius: 0
 --- !u!1001 &8438082829866064482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52,9 +130,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: EmptyChunk
       objectReference: {fileID: 0}
+    - target: {fileID: 4871058658234433441, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1978307018053545586, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 538936901922653403}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3577150145296470737, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
       insertIndex: -1
@@ -78,3 +163,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmptyChunk
   key: 0f490afe-2728-49a5-9c21-c4cc880e91a3
+  cellSize: 1
+  minEnemies: 0
+  maxEnemies: 2
+  allowedEnemies:
+  - {fileID: -491516063759454300, guid: 4d826b19a528fca479cf0daa8b372de1, type: 3}
+  spawnZones:
+  - {fileID: 7859231843795193571}
+--- !u!4 &7957381567360480272 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1978307018053545586, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
+  m_PrefabInstance: {fileID: 8438082829866064482}
+  m_PrefabAsset: {fileID: 0}

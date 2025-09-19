@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         var currentPosition = SnapToGrid(transform.position);
         var pos = currentPosition + _moveInput * cellSize;
         _targetPosition = SnapToGrid(pos);
-        if (!Physics2D.OverlapCircle(SnapToCellCenter(_targetPosition), cellSize * 0.1f)) return true;
+        if (!Physics2D.OverlapCircle(SnapToCellCenter(_targetPosition), cellSize * 0.1f, LayerMask.NameToLayer("Obstacle"))) return true;
         print("The place is taken");
         _isMoving = false;
         return false;

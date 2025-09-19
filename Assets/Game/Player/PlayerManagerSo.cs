@@ -40,5 +40,5 @@ public class PlayerManagerSo : ScriptableObject
         await _player.Save();
     }
 
-    public Vector2 GetPlayerPosition() => _player.transform.position;
+    public Transform GetPlayerTransform() => _player.transform;
 }
