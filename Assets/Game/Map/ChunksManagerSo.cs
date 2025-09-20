@@ -45,7 +45,8 @@ public class ChunksManagerSo : ScriptableObject
         {
             nearChunks.Add(position);
             if (_chunks.ContainsKey(position)) continue;
-            await SpawnChunk(position);
+            var chunk = await SpawnChunk(position);
+            _eventManager.onChunkSpawned?.Invoke(chunk);
         }
         _firstGeneration = false;
         var chunksToRemove = new List<Vector3>();
@@ -75,8 +76,8 @@ public class ChunksManagerSo : ScriptableObject
         {
             var chunk = await SpawnChunk(chunkData.position);
             if (chunk == null) continue;
-            chunk.ChunkData = chunkData;
-            await chunk.Load();
+            await LoadChunkData(chunk, chunkData);
+            _eventManager.onChunkSpawned?.Invoke(chunk);
         }
         
     }
@@ -89,17 +90,17 @@ public class ChunksManagerSo : ScriptableObject
         }
     }
 
-    private Task<Chunk> SpawnChunk(Vector3 position)
+    private async Task<Chunk> SpawnChunk(Vector3 position)
     {
-        if (!GetBoundaries().Contains(position)) return Task.FromResult<Chunk>(null);
+        if (!GetBoundaries().Contains(position)) return null;
         _mapTransform = _mapManager.Map.transform;
-        var chunkInstance = TryGetSavedChunk(position);
+        var chunkInstance = TryGetSavedChunk(position, out var savedData);
         var chunk = Instantiate(chunkInstance, position, Quaternion.identity, _mapTransform);
+        if (savedData != null) await LoadChunkData(chunk, savedData);
         chunk.gameObject.name = $"Chunk ({position.x}:{position.y})";
         _chunks.TryAdd(position, chunk);
-        _eventManager.onChunkSpawned?.Invoke(chunk);
 
-        return Task.FromResult(chunk);
+        return chunk;
     }
 
     private Task DespawnChunk(GameObject chunk)
@@ -123,9 +124,9 @@ public class ChunksManagerSo : ScriptableObject
     {
         var boundaries = new List<Vector3>();
         var center = GetPlayerChunk();
-        for (var y = -1; y <= 1; y++)
+        for (var y = -20; y <= 20; y++)
         {
-            for (var x = -1; x <= 1; x++)
+            for (var x = -20; x <= 20; x++)
             {
                 var chunkX = center.x + x;
                 var chunkY = center.y + y;
@@ -135,7 +136,7 @@ public class ChunksManagerSo : ScriptableObject
         return boundaries;
     }
 
-    private Chunk TryGetSavedChunk(Vector3 pos)
+    private Chunk TryGetSavedChunk(Vector3 pos, out ChunkData chunkData)
     {
         var savedChunks = _mapManager.Map.GetSavedChunks();
         if (savedChunks != null)
@@ -145,12 +146,23 @@ public class ChunksManagerSo : ScriptableObject
                 if (savedChunk.position != pos) continue;
                 foreach (var chunk in _mapManager.MapChunks)
                 {
-                    if (chunk.PrefabKey == savedChunk.prefabKey) return chunk;
+                    if (chunk.PrefabKey == savedChunk.prefabKey)
+                    {
+                        chunkData = savedChunk;
+                        return chunk;
+                    }
                 }
             }
         }
 
         var prefab = _mapManager.MapChunks[Random.Range(0, _mapManager.MapChunks.Count)];
+        chunkData = null;
         return prefab;
+    }
+
+    private async Task LoadChunkData(Chunk chunk, ChunkData chunkData)
+    {
+        chunk.ChunkData = chunkData;
+        await chunk.Load();
     }
 }

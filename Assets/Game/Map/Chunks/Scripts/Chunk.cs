@@ -14,26 +14,23 @@ public abstract class Chunk : MonoBehaviour, ISaveAble
     [SerializeField] private List<Enemy> allowedEnemies;
     [SerializeField] private List<BoxCollider2D> spawnZones;
     private CancellationTokenSource _cts;
-    public string PrefabKey { get => key; set => key = value; } 
+    public string PrefabKey { get => key; set => key = value; }
+    public List<Enemy> AllowedEnemies => allowedEnemies; 
     public ChunkData ChunkData { get; set; } 
-    public Task Save() 
+    public async Task Save() 
     { 
-        ChunkData = new ChunkData 
-        { 
-            prefabKey = key, 
-            position = transform.position, 
-        }; 
-        return Task.CompletedTask;
-    }
-    
-    public async Task Load() 
-    { 
-        while (ChunkData == null)
+        ChunkData = new ChunkData
         {
-            try { await Task.Yield(); }
-            catch (TaskCanceledException) { return; }
-        }
-        transform.position = ChunkData!.position; 
+            prefabKey = key,
+            position = transform.position,
+            enemies = await DS.GetSoManager<EnemiesManagerSo>().SaveEnemies(this)
+        }; 
+    }
+
+    public async Task Load()
+    {
+        transform.position = ChunkData.position;
+        await DS.GetSoManager<EnemiesManagerSo>().LoadEnemies(this);
     }
 
     public List<Enemy> GetRandonEnemies()
@@ -73,4 +70,5 @@ public class ChunkData
 {
     public string prefabKey;
     public Vector3 position;
+    public List<EnemyData> enemies;
 }

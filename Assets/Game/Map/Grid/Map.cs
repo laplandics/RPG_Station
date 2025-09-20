@@ -15,17 +15,17 @@ public class Map : MonoBehaviour, ISaveAble
     public void Initialize()
     {
         var eventManager = DS.GetSoManager<EventManagerSo>();
-        eventManager.onChunkSpawned.AddListener(AddChunk);
+        eventManager.onChunkSpawned.AddListener(chunk => _ = AddChunk(chunk));
         eventManager.onChunkDespawned.AddListener(RemoveChunk);
         eventManager.onMapUpdated?.Invoke();
     }
 
     public List<ChunkData> GetSavedChunks() => _savedChunks;
 
-    private void AddChunk(Chunk chunk)
+    private async Task AddChunk(Chunk chunk)
     {
         currentChunks.Add(chunk);
-        chunk.Save();
+        await chunk.Save();
         foreach (var savedData in _savedChunks)
         {
             if (savedData.position == chunk.ChunkData.position) return;

@@ -14,6 +14,8 @@ public class UniqueIdManagerSo : ScriptableObject
     [SerializeField] private List<GameObject> persistentPrefabs;
     [Header("Chunk Prefabs")]
     [SerializeField] private List<Chunk> chunks;
+    [Header("Enemy Prefabs")]
+    [SerializeField] private List<Enemy> enemies;
     
     
     private void OnValidate()
@@ -43,6 +45,15 @@ public class UniqueIdManagerSo : ScriptableObject
             {
                 chunk.PrefabKey = Guid.NewGuid().ToString();
                 EditorUtility.SetDirty(chunk);
+            }
+        }
+
+        foreach (var enemy in enemies)
+        {
+            if (string.IsNullOrEmpty(enemy.PrefabKey))
+            {
+                enemy.PrefabKey = Guid.NewGuid().ToString();
+                EditorUtility.SetDirty(enemy);
             }
         }
     }
