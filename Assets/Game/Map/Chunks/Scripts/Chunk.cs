@@ -14,7 +14,7 @@ public abstract class Chunk : MonoBehaviour, ISaveAble
     [SerializeField] private List<Enemy> allowedEnemies;
     [SerializeField] private List<BoxCollider2D> spawnZones;
     private CancellationTokenSource _cts;
-    public string PrefabKey { get => key; set => key = value; }
+    public string InstanceKey { get => key; set => key = value; }
     public List<Enemy> AllowedEnemies => allowedEnemies; 
     public ChunkData ChunkData { get; set; } 
     public async Task Save() 
@@ -33,7 +33,7 @@ public abstract class Chunk : MonoBehaviour, ISaveAble
         await DS.GetSoManager<EnemiesManagerSo>().LoadEnemies(this);
     }
 
-    public List<Enemy> GetRandonEnemies()
+    public List<Enemy> GetRandomEnemies()
     {
         var enemiesCount = Random.Range(minEnemies, maxEnemies + 1);
         var randomEnemies = new List<Enemy>();
@@ -47,7 +47,7 @@ public abstract class Chunk : MonoBehaviour, ISaveAble
 
     public Vector3 GetRandomSpawnPoint()
     {
-        var zone = spawnZones[Random.Range(0, spawnZones.Count - 1)];
+        var zone = spawnZones[Random.Range(0, spawnZones.Count)];
         var bounds = zone.bounds;
 
         var x = Random.Range(bounds.min.x, bounds.max.x);

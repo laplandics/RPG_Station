@@ -1,14 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "EnemiesManager", menuName = "ManagersSO/EnemiesManager")]
 public class EnemiesManagerSo : ScriptableObject
 {
     private Dictionary<Chunk, List<Enemy>> _currentEnemies = new();
-    private Dictionary<Chunk, List<EnemyData>> _savedEnemies = new();
     public Task Initialize()
     {
         DS.GetSoManager<EventManagerSo>().onChunkSpawned.AddListener(SpawnRandomEnemies);
@@ -39,6 +36,7 @@ public class EnemiesManagerSo : ScriptableObject
         if (!_currentEnemies.TryGetValue(chunk, out var chunkEnemies)) return;
         foreach (var enemy in chunkEnemies)
         {
+            DS.GetSoManager<EventManagerSo>().onEnemyDespawned?.Invoke(enemy);
             Destroy(enemy.gameObject);
         }
         _currentEnemies.Remove(chunk);
@@ -48,9 +46,10 @@ public class EnemiesManagerSo : ScriptableObject
     {
         var chunkEnemies = new List<Enemy>();
         if (_currentEnemies.TryGetValue(chunk, out _)) return;
-        foreach (var enemy in chunk.GetRandonEnemies())
+        foreach (var enemy in chunk.GetRandomEnemies())
         {
-            chunkEnemies.Add(Instantiate(enemy, chunk.GetRandomSpawnPoint(), Quaternion.identity));
+            var enemyInstance = Instantiate(enemy, chunk.GetRandomSpawnPoint(), Quaternion.identity, chunk.gameObject.transform);
+            chunkEnemies.Add(InitializeEnemy(enemyInstance, chunk));
         }
 
         _currentEnemies.TryAdd(chunk, chunkEnemies);
@@ -63,12 +62,22 @@ public class EnemiesManagerSo : ScriptableObject
         {
             foreach (var allowedEnemy in chunk.AllowedEnemies)
             {
-                if (enemyData.prefabKey != allowedEnemy.PrefabKey) continue;
-                chunkEnemies.Add(Instantiate(allowedEnemy, enemyData.position, Quaternion.identity));
-                chunkEnemies[^1].gameObject.name = $"Enemy of {chunk.gameObject.name}";
-                await chunkEnemies[^1].Load();
+                if (enemyData.prefabKey != allowedEnemy.InstanceKey) continue;
+                var enemyInstance = Instantiate(allowedEnemy, enemyData.position, Quaternion.identity, chunk.gameObject.transform);
+                chunkEnemies.Add(InitializeEnemy(enemyInstance, chunk));
+                enemyInstance.EnemyData = enemyData;
+                await enemyInstance.Load();
             }
         }
         _currentEnemies.TryAdd(chunk, chunkEnemies);
+    }
+
+    private Enemy InitializeEnemy(Enemy instance, Chunk chunk)
+    {
+        instance.Initialize();
+        instance.gameObject.name = $"Enemy of {chunk.gameObject.name}";
+        DS.GetSoManager<EventManagerSo>().onEnemySpawned?.Invoke(instance);
+
+        return instance;
     }
 }

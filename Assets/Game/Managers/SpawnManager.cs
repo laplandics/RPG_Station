@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -12,7 +11,6 @@ public class SpawnManager : MonoBehaviour, IInSceneManager
 
     public void Initialize()
     {
-        DontDestroyOnLoad(gameObject);
         eventManager = DS.GetSoManager<EventManagerSo>();
         eventManager.onManagersInitialized.AddListener(() => DS.GetSceneManager<RoutineManager>().StartRoutine(StartSpawningSceneObjects()));
     }
@@ -40,6 +38,7 @@ public class SpawnManager : MonoBehaviour, IInSceneManager
     {
         var routineManager = DS.GetSceneManager<RoutineManager>();
         yield return routineManager.StartRoutine(SpawnUnityEssentials());
+        yield return routineManager.StartRoutine(SpawnTerminal());
         yield return routineManager.StartRoutine(SpawnPlayer());
         yield return routineManager.StartRoutine(SpawnMap());
 
@@ -55,7 +54,14 @@ public class SpawnManager : MonoBehaviour, IInSceneManager
         eventManager.onUnityEssentialsSpawned?.Invoke(light, camera);
         yield break;
     }
-    
+
+    private IEnumerator SpawnTerminal()
+    {
+        var terminal = Spawn<Terminal>(Vector3.zero);
+        eventManager.onTerminalSpawned?.Invoke(terminal);
+        yield break;
+    }
+
     private IEnumerator SpawnPlayer()
     {
         var player = Spawn<Player>(Vector3.zero);

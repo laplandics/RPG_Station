@@ -16,8 +16,11 @@ MonoBehaviour:
   persistentPrefabs:
   - {fileID: 4956531894878883135, guid: 4757f9444f3791540b0f37e22a6477e9, type: 3}
   - {fileID: 1458652241894607910, guid: 3915bfb62402c3d46837590cfde89610, type: 3}
+  - {fileID: 870886641080784674, guid: e7584480abe6df24898f2d5e0f148593, type: 3}
   chunks:
   - {fileID: 2157817061617243873, guid: 504e2e65c29e27a43a4fc06f6fcd60b2, type: 3}
   - {fileID: 1654545075320982031, guid: 63ce1497318954d418811af1082928a4, type: 3}
   enemies:
   - {fileID: -491516063759454300, guid: 4d826b19a528fca479cf0daa8b372de1, type: 3}
+  mods:
+  - {fileID: 11400000, guid: ff788235ba512a740b6b83f3301ac14a, type: 2}

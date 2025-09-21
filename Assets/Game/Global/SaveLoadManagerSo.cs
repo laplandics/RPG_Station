@@ -11,7 +11,7 @@ public class SaveLoadManagerSo : ScriptableObject, IInSceneManagerListener
     
     public async Task Save(string key, object data)
     {
-        var json = JsonConvert.SerializeObject(data, Formatting.Indented);
+        var json = JsonConvert.SerializeObject(data, GetSettings());
         if (!_isRoutineManagerAvailable) {Debug.LogError("Error during saving gameData: RoutineManager is unavailable"); return;}
         await File.WriteAllTextAsync(GetFile(key), json);
     }
@@ -20,11 +20,21 @@ public class SaveLoadManagerSo : ScriptableObject, IInSceneManagerListener
     {
         if (!_isRoutineManagerAvailable) return default;
         var task = await File.ReadAllTextAsync(GetFile(key));
-        var data = JsonConvert.DeserializeObject<T>(task);
+        var data = JsonConvert.DeserializeObject<T>(task, GetSettings());
 
         return data;
     }
 
+    private JsonSerializerSettings GetSettings()
+    {
+        var settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.All,
+            Formatting = Formatting.Indented
+        };
+
+        return settings;
+    }
     
     private string GetFile(string key) => Path.Combine(Application.persistentDataPath, $"{key}.json");
 }

@@ -15,6 +15,7 @@ public class GameManagerSo : ScriptableObject
     private ChunksManagerSo _chunksManager;
     private PlayerManagerSo _playerManager;
     private EnemiesManagerSo _enemiesManager;
+    private UIManagerSo _uiManager;
 
     public async Task Initialize()
     {
@@ -22,6 +23,7 @@ public class GameManagerSo : ScriptableObject
         _mapManager = DS.GetSoManager<MapManagerSo>();
         _chunksManager = DS.GetSoManager<ChunksManagerSo>();
         _enemiesManager = DS.GetSoManager<EnemiesManagerSo>();
+        _uiManager = DS.GetSoManager<UIManagerSo>();
 
         await AssignEvents();
         await InitializeObjectsManagers();
@@ -44,6 +46,7 @@ public class GameManagerSo : ScriptableObject
 
     private async Task InitializeObjectsManagers()
     {
+        await _uiManager.Initialize();
         await _playerManager.Initialize();
         await _mapManager.Initialize();
         await _chunksManager.Initialize();

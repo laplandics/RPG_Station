@@ -9,10 +9,10 @@ public class RoutineManager : MonoBehaviour, IInSceneManager
     public int InitializeOrder => initializeOrder;
     private readonly List<Action> _updateActions = new();
     private readonly List<Action> _fixedUpdateActions = new();
-    
+
     public void Initialize()
     {
-        DontDestroyOnLoad(gameObject);
+        
     }
 
     public Coroutine StartRoutine(IEnumerator routine)

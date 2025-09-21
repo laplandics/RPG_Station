@@ -139,6 +139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 10
   cellSize: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
   baseStepsDelay: 0.2
   minStepsDelay: 0.01
   decreaseRate: 10

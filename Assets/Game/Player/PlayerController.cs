@@ -1,26 +1,29 @@
+using System;
 using System.Collections;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float cellSize;
+    [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private float baseStepsDelay;
     [SerializeField] private float minStepsDelay;
     [SerializeField] private float decreaseRate;
-    private bool _isBlocked;
-    private Rigidbody2D _rb;
     private GameInputs _input;
     private Vector2 _moveInput;
     private Vector2 _targetPosition;
-    private bool _isMoving;
     private Vector2 _currentInput;
+    private bool _isCancelled;
+    private bool _isBlocked;
+    private bool _isMoving;
     private float _holdTime;
     
     public void Initialize()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        
         _input = DS.GetSoManager<GlobalInputsManagerSo>().GetInputs();
         
         _input.Player.Move.Enable();
@@ -47,7 +50,8 @@ public class PlayerController : MonoBehaviour
     {
         if (_isMoving) yield break;
         _isMoving = true;
-        while (true)
+        _isCancelled = false;
+        while (!_isCancelled)
         {
             yield return new WaitUntil(() => !_isBlocked);
             _currentInput = _moveInput;
@@ -58,9 +62,10 @@ public class PlayerController : MonoBehaviour
                 continue;
             }
 
-            if(!TryCalculateNewPosition()) yield break;
-            yield return DS.GetSceneManager<RoutineManager>().StartRoutine(ChangePlayersPosition());
-            DS.GetSoManager<EventManagerSo>().onPlayersPositionChanged?.Invoke();
+            if (!TryCalculateNewPosition()) yield break;
+            IEnumerator action = null;
+            yield return new MoveActionTc().PerformAction(0.6f, 1, ChangePlayersPosition(), CancelMovement()).ToCoroutine(result => action = result);
+            yield return DS.GetSceneManager<RoutineManager>().StartRoutine(action);
             yield return null;
         }
     }
@@ -70,12 +75,18 @@ public class PlayerController : MonoBehaviour
         var currentPosition = SnapToGrid(transform.position);
         var pos = currentPosition + _moveInput * cellSize;
         _targetPosition = SnapToGrid(pos);
-        if (!Physics2D.OverlapCircle(SnapToCellCenter(_targetPosition), cellSize * 0.1f, LayerMask.NameToLayer("Obstacle"))) return true;
-        print("The place is taken");
+        if (!Physics2D.OverlapCircle(SnapToCellCenter(_targetPosition), cellSize * 0.1f, obstacleMask)) return true;
         _isMoving = false;
         return false;
     }
-    
+
+    private IEnumerator CancelMovement()
+    {
+        _isCancelled = true;
+        _isMoving = false;
+        yield break;
+    }
+
     private IEnumerator ChangePlayersPosition()
     {
         while ((Vector2)transform.position != _targetPosition)
@@ -89,6 +100,7 @@ public class PlayerController : MonoBehaviour
             }
             yield return null;
         }
+        DS.GetSoManager<EventManagerSo>().onPlayersPositionChanged?.Invoke(transform);
     }
 
     private float CalculateDelay()

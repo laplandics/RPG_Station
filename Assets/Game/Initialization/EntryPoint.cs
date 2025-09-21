@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class EntryPoint : MonoBehaviour
 {
@@ -46,7 +45,7 @@ public class EntryPoint : MonoBehaviour
     {
         foreach (var managerObject in inSceneManagers)
         {
-            var manager = Instantiate(managerObject, Vector3.zero, Quaternion.identity);
+            var manager = Instantiate(managerObject, Vector3.zero, Quaternion.identity, transform);
             DS.SetSceneManager(manager.GetComponent<MonoBehaviour>());
             manager.GetComponent<IInSceneManager>().Initialize();
             await Task.Yield();

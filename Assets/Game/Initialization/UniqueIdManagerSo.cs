@@ -16,6 +16,8 @@ public class UniqueIdManagerSo : ScriptableObject
     [SerializeField] private List<Chunk> chunks;
     [Header("Enemy Prefabs")]
     [SerializeField] private List<Enemy> enemies;
+    [Header("EnemyMod Prefabs")]
+    [SerializeField] private List<ScriptableObject> mods;
     
     
     private void OnValidate()
@@ -23,7 +25,7 @@ public class UniqueIdManagerSo : ScriptableObject
         GenerateUniqueId();
         regenerateIds = false;
     }
-    
+
 #if UNITY_EDITOR
     private void GenerateUniqueId()
     {
@@ -32,28 +34,38 @@ public class UniqueIdManagerSo : ScriptableObject
         {
             if (!obj) continue;
             if (obj.GetComponent<MonoBehaviour>() is not ISaveAble saveAble) continue;
-            if (string.IsNullOrEmpty(saveAble.PrefabKey))
+            if (string.IsNullOrEmpty(saveAble.InstanceKey))
             {
-                saveAble.PrefabKey = Guid.NewGuid().ToString();
+                saveAble.InstanceKey = Guid.NewGuid().ToString();
                 EditorUtility.SetDirty(obj);
             }
         }
 
         foreach (var chunk in chunks)
         {
-            if (string.IsNullOrEmpty(chunk.PrefabKey))
+            if (string.IsNullOrEmpty(chunk.InstanceKey))
             {
-                chunk.PrefabKey = Guid.NewGuid().ToString();
+                chunk.InstanceKey = Guid.NewGuid().ToString();
                 EditorUtility.SetDirty(chunk);
             }
         }
 
         foreach (var enemy in enemies)
         {
-            if (string.IsNullOrEmpty(enemy.PrefabKey))
+            if (string.IsNullOrEmpty(enemy.InstanceKey))
             {
-                enemy.PrefabKey = Guid.NewGuid().ToString();
+                enemy.InstanceKey = Guid.NewGuid().ToString();
                 EditorUtility.SetDirty(enemy);
+            }
+        }
+
+        foreach (var mod in mods)
+        {
+            if (mod is not IEnemyModSetter setter) continue;
+            if (string.IsNullOrEmpty(setter.ModKey))
+            {
+                setter.ModKey = Guid.NewGuid().ToString();
+                EditorUtility.SetDirty(mod);
             }
         }
     }

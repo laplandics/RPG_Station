@@ -7,7 +7,7 @@ public class Player : MonoBehaviour, ISaveAble
     [SerializeField] private string key;
     [SerializeField] private PlayerController controller;
     public PlayerController GetController() => controller;
-    public string PrefabKey { get => key; set => key = value; }
+    public string InstanceKey { get => key; set => key = value; }
     public async Task Save()
     {
         var data = new PlayerData
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour, ISaveAble
     {
         var data = await DS.GetSoManager<SaveLoadManagerSo>().Load<PlayerData>(key);
         transform.position = data.position;
+        DS.GetSoManager<EventManagerSo>().onPlayersPositionChanged?.Invoke(transform);
     }
 }
 

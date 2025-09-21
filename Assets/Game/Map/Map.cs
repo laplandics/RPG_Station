@@ -10,7 +10,7 @@ public class Map : MonoBehaviour, ISaveAble
     [SerializeField] private List<Chunk> currentChunks = new();
     private List<ChunkData> _savedChunks = new();
     private readonly CancellationTokenSource _cts = new();
-    public string PrefabKey { get => key; set => key = value; }
+    public string InstanceKey { get => key; set => key = value; }
 
     public void Initialize()
     {

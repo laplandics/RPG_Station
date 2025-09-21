@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class ChunksManagerSo : ScriptableObject
 {
     [SerializeField] private int chunkSize;
+    [SerializeField] private int generationDistanceInChunks; 
     private Dictionary<Vector3, Chunk> _chunks = new();
     private EventManagerSo _eventManager;
     private MapManagerSo _mapManager;
@@ -22,7 +23,7 @@ public class ChunksManagerSo : ScriptableObject
         _firstGeneration = true;
         _eventManager = DS.GetSoManager<EventManagerSo>();
         _eventManager.onMapUpdated.AddListener(() => _ = GenerateChunks());
-        _eventManager.onPlayersPositionChanged.AddListener(() => _ = GenerateChunks());
+        _eventManager.onPlayersPositionChanged.AddListener(x => _ = GenerateChunks());
 
         _mapManager = DS.GetSoManager<MapManagerSo>();
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
@@ -124,9 +125,9 @@ public class ChunksManagerSo : ScriptableObject
     {
         var boundaries = new List<Vector3>();
         var center = GetPlayerChunk();
-        for (var y = -20; y <= 20; y++)
+        for (var y = -generationDistanceInChunks; y <= generationDistanceInChunks; y++)
         {
-            for (var x = -20; x <= 20; x++)
+            for (var x = -generationDistanceInChunks; x <= generationDistanceInChunks; x++)
             {
                 var chunkX = center.x + x;
                 var chunkY = center.y + y;
@@ -146,7 +147,7 @@ public class ChunksManagerSo : ScriptableObject
                 if (savedChunk.position != pos) continue;
                 foreach (var chunk in _mapManager.MapChunks)
                 {
-                    if (chunk.PrefabKey == savedChunk.prefabKey)
+                    if (chunk.InstanceKey == savedChunk.prefabKey)
                     {
                         chunkData = savedChunk;
                         return chunk;
