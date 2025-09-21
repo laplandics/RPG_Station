@@ -137,8 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6cff2b80eeead4798a74974d263b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 10
-  cellSize: 1
+  animationSpeed: 10
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64

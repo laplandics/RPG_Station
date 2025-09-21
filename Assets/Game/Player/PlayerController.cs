@@ -1,14 +1,10 @@
-using System;
 using System.Collections;
-using System.Threading;
 using Cysharp.Threading.Tasks;
-using Cysharp.Threading.Tasks.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float cellSize;
+    [SerializeField] private float animationSpeed;
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private float baseStepsDelay;
     [SerializeField] private float minStepsDelay;
@@ -30,20 +26,6 @@ public class PlayerController : MonoBehaviour
         _input.Player.Move.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
         _input.Player.Move.performed += _ => DS.GetSceneManager<RoutineManager>().StartRoutine(MovePlayer());
         _input.Player.Move.canceled += _ => _moveInput = Vector2.zero;
-    }
-
-    private Vector2 SnapToGrid(Vector2 pos)
-    {
-        var x = Mathf.Round(pos.x / cellSize) * cellSize;
-        var y = Mathf.Round(pos.y / cellSize) * cellSize;
-        return new Vector2(x, y);
-    }
-
-    private Vector2 SnapToCellCenter(Vector2 pos)
-    {
-        var x = Mathf.Round(pos.x / cellSize) * cellSize + 0.5f;
-        var y = Mathf.Round(pos.y / cellSize) * cellSize + 0.5f;
-        return new Vector2(x, y);
     }
 
     private IEnumerator MovePlayer()
@@ -72,10 +54,10 @@ public class PlayerController : MonoBehaviour
 
     private bool TryCalculateNewPosition()
     {
-        var currentPosition = SnapToGrid(transform.position);
-        var pos = currentPosition + _moveInput * cellSize;
-        _targetPosition = SnapToGrid(pos);
-        if (!Physics2D.OverlapCircle(SnapToCellCenter(_targetPosition), cellSize * 0.1f, obstacleMask)) return true;
+        var currentPosition = GridMover.SnapToGrid(transform.position);
+        var pos = currentPosition + _moveInput * GridMover.CELL_SIZE;
+        _targetPosition = GridMover.SnapToGrid(pos);
+        if (!Physics2D.OverlapCircle(GridMover.SnapToCellCenter(_targetPosition), GridMover.CELL_SIZE * 0.1f, obstacleMask)) return true;
         _isMoving = false;
         return false;
     }
@@ -91,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         while ((Vector2)transform.position != _targetPosition)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, animationSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, _targetPosition) < 0.01f)
             {
                 transform.position = _targetPosition;
@@ -113,7 +95,7 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(SnapToCellCenter(_targetPosition), cellSize*0.1f);
+        Gizmos.DrawWireSphere(GridMover.SnapToCellCenter(_targetPosition), GridMover.CELL_SIZE * 0.1f);
     }
 
     public void SetLockState(bool isBlocked) => _isBlocked = isBlocked;

@@ -1,7 +1,4 @@
-using System;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
 
@@ -17,7 +14,7 @@ public class GameManagerSo : ScriptableObject
     private EnemiesManagerSo _enemiesManager;
     private UIManagerSo _uiManager;
 
-    public async Task Initialize()
+    public void Initialize()
     {
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
         _mapManager = DS.GetSoManager<MapManagerSo>();
@@ -25,17 +22,16 @@ public class GameManagerSo : ScriptableObject
         _enemiesManager = DS.GetSoManager<EnemiesManagerSo>();
         _uiManager = DS.GetSoManager<UIManagerSo>();
 
-        await AssignEvents();
-        await InitializeObjectsManagers();
+        AssignEvents();
+        InitializeObjectsManagers();
     }
 
-    private Task AssignEvents()
+    private void AssignEvents()
     {
         var eventManager = DS.GetSoManager<EventManagerSo>();
         eventManager.onUnityEssentialsSpawned.AddListener(AssignUnityEssentials);
-        eventManager.onSave.AddListener(() => _ = TrySaveGame());
-        eventManager.onLoad.AddListener(() => _ = TryLoadGame());
-        return Task.CompletedTask;
+        eventManager.onSave.AddListener(TrySaveGame);
+        eventManager.onLoad.AddListener(TryLoadGame);
     }
 
     private void AssignUnityEssentials(Light2D light, Camera camera)
@@ -44,25 +40,25 @@ public class GameManagerSo : ScriptableObject
         _camera = camera;
     }
 
-    private async Task InitializeObjectsManagers()
+    private void InitializeObjectsManagers()
     {
-        await _uiManager.Initialize();
-        await _playerManager.Initialize();
-        await _mapManager.Initialize();
-        await _chunksManager.Initialize();
-        await _enemiesManager.Initialize();
+        _uiManager.Initialize();
+        _playerManager.Initialize();
+        _mapManager.Initialize();
+        _chunksManager.Initialize();
+        _enemiesManager.Initialize();
     }
     
-    private async Task TryLoadGame()
+    private void TryLoadGame()
     {
-        await _playerManager.LoadPlayerData();
-        await _mapManager.LoadMapData();
+        _playerManager.LoadPlayerData();
+        _mapManager.LoadMapData();
     }
 
-    private async Task TrySaveGame()
+    private void TrySaveGame()
     { 
-        if (_playerManager) await _playerManager.SavePlayerData();
-        if (_chunksManager) await _chunksManager.SaveChunksData();
-        if (_mapManager) await _mapManager.SaveMapData();
+        if (_playerManager) _playerManager.SavePlayerData();
+        if (_chunksManager) _chunksManager.SaveChunksData();
+        if (_mapManager) _mapManager.SaveMapData();
     }
 }

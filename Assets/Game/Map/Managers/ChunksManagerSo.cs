@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,20 +17,20 @@ public class ChunksManagerSo : ScriptableObject
     private Vector3 _playerChunkPosition;
     private bool _firstGeneration;
 
-    public Task Initialize()
+    public int ChunkSize => chunkSize;
+
+    public void Initialize()
     {
         _firstGeneration = true;
         _eventManager = DS.GetSoManager<EventManagerSo>();
-        _eventManager.onMapUpdated.AddListener(() => _ = GenerateChunks());
-        _eventManager.onPlayersPositionChanged.AddListener(x => _ = GenerateChunks());
+        _eventManager.onMapUpdated.AddListener(GenerateChunks);
+        _eventManager.onPlayersPositionChanged.AddListener(_ => GenerateChunks());
 
         _mapManager = DS.GetSoManager<MapManagerSo>();
         _playerManager = DS.GetSoManager<PlayerManagerSo>();
-
-        return Task.CompletedTask;
     }
 
-    private async Task GenerateChunks()
+    private void GenerateChunks()
     {
         var center = GetPlayerChunk();
         var nearChunks = new HashSet<Vector3>();
@@ -46,7 +45,7 @@ public class ChunksManagerSo : ScriptableObject
         {
             nearChunks.Add(position);
             if (_chunks.ContainsKey(position)) continue;
-            var chunk = await SpawnChunk(position);
+            var chunk = SpawnChunk(position);
             _eventManager.onChunkSpawned?.Invoke(chunk);
         }
         _firstGeneration = false;
@@ -54,7 +53,7 @@ public class ChunksManagerSo : ScriptableObject
         foreach (var chunk in _chunks)
         {
             if (nearChunks.Contains(chunk.Key)) continue;
-            await DespawnChunk(chunk.Value.gameObject);
+            DespawnChunk(chunk.Value.gameObject);
             chunksToRemove.Add(chunk.Key);
         }
         foreach (var chunk in chunksToRemove)
@@ -64,51 +63,50 @@ public class ChunksManagerSo : ScriptableObject
         chunksToRemove.Clear();
     }
 
-    public async Task LoadChunks()
+    public void LoadChunks()
     {
         foreach (var chunk in _chunks.Values)
         {
-            await DespawnChunk(chunk.gameObject);
+            DespawnChunk(chunk.gameObject);
         }
         _chunks.Clear();
 
         var savedChunks = _mapManager.Map.GetSavedChunks();
-        foreach (var chunkData in savedChunks)
+        for(var i = 0; i < savedChunks.Count; i++)
         {
-            var chunk = await SpawnChunk(chunkData.position);
+            var chunk = SpawnChunk(savedChunks[i].position);
             if (chunk == null) continue;
-            await LoadChunkData(chunk, chunkData);
+            LoadChunkData(chunk, savedChunks[i]);
             _eventManager.onChunkSpawned?.Invoke(chunk);
         }
         
     }
 
-    public async Task SaveChunksData()
+    public void SaveChunksData()
     {
         foreach (var chunk in _chunks.Values)
         {
-            await chunk.Save();
+            chunk.Save();
         }
     }
 
-    private async Task<Chunk> SpawnChunk(Vector3 position)
+    private Chunk SpawnChunk(Vector3 position)
     {
         if (!GetBoundaries().Contains(position)) return null;
         _mapTransform = _mapManager.Map.transform;
         var chunkInstance = TryGetSavedChunk(position, out var savedData);
         var chunk = Instantiate(chunkInstance, position, Quaternion.identity, _mapTransform);
-        if (savedData != null) await LoadChunkData(chunk, savedData);
+        if (savedData != null) LoadChunkData(chunk, savedData);
         chunk.gameObject.name = $"Chunk ({position.x}:{position.y})";
         _chunks.TryAdd(position, chunk);
 
         return chunk;
     }
 
-    private Task DespawnChunk(GameObject chunk)
+    private void DespawnChunk(GameObject chunk)
     {
         Destroy(chunk);
         _eventManager.onChunkDespawned?.Invoke(chunk.GetComponent<Chunk>());
-        return Task.CompletedTask;
     }
 
     private Vector3 GetPlayerChunk()
@@ -161,9 +159,9 @@ public class ChunksManagerSo : ScriptableObject
         return prefab;
     }
 
-    private async Task LoadChunkData(Chunk chunk, ChunkData chunkData)
+    private void LoadChunkData(Chunk chunk, ChunkData chunkData)
     {
         chunk.ChunkData = chunkData;
-        await chunk.Load();
+        chunk.Load();
     }
 }

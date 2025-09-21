@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public abstract class Chunk : MonoBehaviour, ISaveAble 
+public abstract class Chunk : MonoBehaviour, ISaveAble
 {
     [SerializeField] private string key;
     [SerializeField] private int cellSize;
@@ -13,24 +11,23 @@ public abstract class Chunk : MonoBehaviour, ISaveAble
     [SerializeField] private int maxEnemies;
     [SerializeField] private List<Enemy> allowedEnemies;
     [SerializeField] private List<BoxCollider2D> spawnZones;
-    private CancellationTokenSource _cts;
     public string InstanceKey { get => key; set => key = value; }
-    public List<Enemy> AllowedEnemies => allowedEnemies; 
-    public ChunkData ChunkData { get; set; } 
-    public async Task Save() 
-    { 
+    public List<Enemy> AllowedEnemies => allowedEnemies;
+    public ChunkData ChunkData { get; set; }
+    public void Save()
+    {
         ChunkData = new ChunkData
         {
             prefabKey = key,
             position = transform.position,
-            enemies = await DS.GetSoManager<EnemiesManagerSo>().SaveEnemies(this)
-        }; 
+            enemies = DS.GetSoManager<EnemiesManagerSo>().SaveEnemies(this)
+        };
     }
 
-    public async Task Load()
+    public void Load()
     {
         transform.position = ChunkData.position;
-        await DS.GetSoManager<EnemiesManagerSo>().LoadEnemies(this);
+        DS.GetSoManager<EnemiesManagerSo>().LoadEnemies(this);
     }
 
     public List<Enemy> GetRandomEnemies()
@@ -61,7 +58,7 @@ public abstract class Chunk : MonoBehaviour, ISaveAble
 
     private void OnDestroy()
     {
-        _cts?.Cancel();
+        DS.GetSoManager<EnemiesManagerSo>().RemoveChunk(this);
     }
 }
 

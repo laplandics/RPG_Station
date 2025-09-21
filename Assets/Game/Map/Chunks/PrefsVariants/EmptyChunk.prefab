@@ -165,7 +165,7 @@ MonoBehaviour:
   key: 0f490afe-2728-49a5-9c21-c4cc880e91a3
   cellSize: 1
   minEnemies: 0
-  maxEnemies: 2
+  maxEnemies: 1
   allowedEnemies:
   - {fileID: -491516063759454300, guid: 4d826b19a528fca479cf0daa8b372de1, type: 3}
   spawnZones:

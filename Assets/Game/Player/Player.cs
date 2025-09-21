@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class Player : MonoBehaviour, ISaveAble
@@ -8,18 +7,18 @@ public class Player : MonoBehaviour, ISaveAble
     [SerializeField] private PlayerController controller;
     public PlayerController GetController() => controller;
     public string InstanceKey { get => key; set => key = value; }
-    public async Task Save()
+    public void Save()
     {
         var data = new PlayerData
         {
             position = transform.position,
         };
-        await DS.GetSoManager<SaveLoadManagerSo>().Save(key,data);
+        DS.GetSoManager<SaveLoadManagerSo>().Save(key,data);
     }
 
-    public async Task Load()
+    public void Load()
     {
-        var data = await DS.GetSoManager<SaveLoadManagerSo>().Load<PlayerData>(key);
+        var data = DS.GetSoManager<SaveLoadManagerSo>().Load<PlayerData>(key);
         transform.position = data.position;
         DS.GetSoManager<EventManagerSo>().onPlayersPositionChanged?.Invoke(transform);
     }

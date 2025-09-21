@@ -1,8 +1,6 @@
-﻿using System.Threading.Tasks;
-
-public interface ISaveAble
+﻿public interface ISaveAble
 {
     public string InstanceKey { get; set; }
-    public Task Save();
-    public Task Load();
+    public void Save();
+    public void Load();
 }

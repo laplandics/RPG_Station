@@ -1,30 +1,28 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemiesManager", menuName = "ManagersSO/EnemiesManager")]
 public class EnemiesManagerSo : ScriptableObject
 {
     private Dictionary<Chunk, List<Enemy>> _currentEnemies = new();
-    public Task Initialize()
+    public void Initialize()
     {
-        DS.GetSoManager<EventManagerSo>().onChunkSpawned.AddListener(SpawnRandomEnemies);
-        DS.GetSoManager<EventManagerSo>().onChunkDespawned.AddListener(DespawnEnemies);
-        return Task.CompletedTask;
+        //DS.GetSoManager<EventManagerSo>().onChunkSpawned.AddListener(SpawnRandomEnemies);
+        //DS.GetSoManager<EventManagerSo>().onChunkDespawned.AddListener(DespawnEnemies);
     }
 
-    public async Task LoadEnemies(Chunk chunk)
+    public void LoadEnemies(Chunk chunk)
     {
         DespawnEnemies(chunk);
-        await SpawnSavedEnemies(chunk);
+        SpawnSavedEnemies(chunk);
     }
 
-    public async Task<List<EnemyData>> SaveEnemies(Chunk chunk)
+    public List<EnemyData> SaveEnemies(Chunk chunk)
     {
         var enemiesData = new List<EnemyData>();
         foreach (var enemy in _currentEnemies[chunk])
         {
-            await enemy.Save();
+            enemy.Save();
             enemiesData.Add(enemy.EnemyData);
         }
 
@@ -39,7 +37,8 @@ public class EnemiesManagerSo : ScriptableObject
             DS.GetSoManager<EventManagerSo>().onEnemyDespawned?.Invoke(enemy);
             Destroy(enemy.gameObject);
         }
-        _currentEnemies.Remove(chunk);
+        chunkEnemies.Clear();
+        _currentEnemies[chunk].Clear();
     }
 
     private void SpawnRandomEnemies(Chunk chunk)
@@ -55,7 +54,7 @@ public class EnemiesManagerSo : ScriptableObject
         _currentEnemies.TryAdd(chunk, chunkEnemies);
     }
 
-    private async Task SpawnSavedEnemies(Chunk chunk)
+    private void SpawnSavedEnemies(Chunk chunk)
     {
         var chunkEnemies = new List<Enemy>();
         foreach (var enemyData in chunk.ChunkData.enemies)
@@ -66,11 +65,13 @@ public class EnemiesManagerSo : ScriptableObject
                 var enemyInstance = Instantiate(allowedEnemy, enemyData.position, Quaternion.identity, chunk.gameObject.transform);
                 chunkEnemies.Add(InitializeEnemy(enemyInstance, chunk));
                 enemyInstance.EnemyData = enemyData;
-                await enemyInstance.Load();
+                enemyInstance.Load();
             }
         }
         _currentEnemies.TryAdd(chunk, chunkEnemies);
     }
+
+    public void RemoveChunk(Chunk chunk) => _currentEnemies.Remove(chunk);
 
     private Enemy InitializeEnemy(Enemy instance, Chunk chunk)
     {

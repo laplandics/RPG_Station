@@ -1,56 +1,64 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class Map : MonoBehaviour, ISaveAble
 {
     [SerializeField] private string key;
     [SerializeField] private List<Chunk> currentChunks = new();
-    private List<ChunkData> _savedChunks = new();
-    private readonly CancellationTokenSource _cts = new();
+    private List<ChunkData> _savedChunksData = new();
     public string InstanceKey { get => key; set => key = value; }
 
     public void Initialize()
     {
         var eventManager = DS.GetSoManager<EventManagerSo>();
-        eventManager.onChunkSpawned.AddListener(chunk => _ = AddChunk(chunk));
-        eventManager.onChunkDespawned.AddListener(RemoveChunk);
+        eventManager.onChunkSpawned.AddListener(chunk => AddChunk(chunk));
+        eventManager.onChunkDespawned.AddListener(chunk => RemoveChunk(chunk));
         eventManager.onMapUpdated?.Invoke();
     }
 
-    public List<ChunkData> GetSavedChunks() => _savedChunks;
+    public List<ChunkData> GetSavedChunks() => _savedChunksData;
 
-    private async Task AddChunk(Chunk chunk)
+    private void AddChunk(Chunk chunk)
     {
         currentChunks.Add(chunk);
-        await chunk.Save();
-        foreach (var savedData in _savedChunks)
+        chunk.Save();
+        UpdateSavedChunksData(chunk);
+    }
+
+    private void RemoveChunk(Chunk chunk)
+    {
+        chunk.Save();
+        UpdateSavedChunksData(chunk);
+        currentChunks.Remove(chunk);
+    }
+
+    private void UpdateSavedChunksData(Chunk chunk)
+    {
+        for (var i = _savedChunksData.Count - 1; i >= 0; i--)
         {
-            if (savedData.position == chunk.ChunkData.position) return;
+            if (_savedChunksData[i].position == chunk.ChunkData.position) _savedChunksData.RemoveAt(i);
         }
-        _savedChunks.Add(chunk.ChunkData);
+        _savedChunksData.Add(chunk.ChunkData);
     }
-
-    private void RemoveChunk(Chunk chunk) => currentChunks.Remove(chunk);
     
-    public async Task Save()
+    public void Save()
     {
-        var data = new MapData { savedChunks = _savedChunks };
-        await DS.GetSoManager<SaveLoadManagerSo>().Save(key, data);
+        foreach (var chunk in currentChunks)
+        {
+            if (chunk is not ISaveAble saveAbleChunk) continue;
+            saveAbleChunk.Save();
+            UpdateSavedChunksData(chunk);
+        }
+        var data = new MapData { savedChunks = _savedChunksData };
+        DS.GetSoManager<SaveLoadManagerSo>().Save(key, data);
     }
 
-    public async Task Load()
+    public void Load()
     {
-        var data = await DS.GetSoManager<SaveLoadManagerSo>().Load<MapData>(key);
-        _savedChunks = data.savedChunks;
-        await DS.GetSoManager<ChunksManagerSo>().LoadChunks();
-    }
-
-    private void OnDestroy()
-    {
-        _cts?.Cancel();
+        var data = DS.GetSoManager<SaveLoadManagerSo>().Load<MapData>(key);
+        _savedChunksData = data.savedChunks;
+        DS.GetSoManager<ChunksManagerSo>().LoadChunks();
     }
 }
 

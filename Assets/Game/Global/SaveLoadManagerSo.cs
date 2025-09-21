@@ -1,5 +1,4 @@
 using System.IO;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -9,17 +8,17 @@ public class SaveLoadManagerSo : ScriptableObject, IInSceneManagerListener
     private bool _isRoutineManagerAvailable;
     public void OnSceneManagersInitialized() => _isRoutineManagerAvailable = true;
     
-    public async Task Save(string key, object data)
+    public void Save(string key, object data)
     {
         var json = JsonConvert.SerializeObject(data, GetSettings());
         if (!_isRoutineManagerAvailable) {Debug.LogError("Error during saving gameData: RoutineManager is unavailable"); return;}
-        await File.WriteAllTextAsync(GetFile(key), json);
+        File.WriteAllText(GetFile(key), json);
     }
     
-    public async Task<T> Load<T>(string key)
+    public T Load<T>(string key)
     {
         if (!_isRoutineManagerAvailable) return default;
-        var task = await File.ReadAllTextAsync(GetFile(key));
+        var task = File.ReadAllText(GetFile(key));
         var data = JsonConvert.DeserializeObject<T>(task, GetSettings());
 
         return data;

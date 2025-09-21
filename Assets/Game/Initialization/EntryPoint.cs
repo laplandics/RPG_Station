@@ -1,60 +1,48 @@
-using System;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class EntryPoint : MonoBehaviour
 {
     [SerializeField] private GameObject[] inSceneManagers;
 
-    private async void Start()
+    private void Start()
     {
-        try
-        {
-            await InitializeDS();
-            await AssignManagersSoToInSceneManagersInitialization();
-            await SpawnInSceneManagers();
-            DS.GetSoManager<GlobalInputsManagerSo>().EnableAllGlobalInputs();
-            await InitializeGameManager();
+        InitializeDS();
+        AssignManagersSoToInSceneManagersInitialization();
+        SpawnInSceneManagers();
+        DS.GetSoManager<GlobalInputsManagerSo>().EnableAllGlobalInputs();
+        InitializeGameManager();
             
-            DS.GetSoManager<EventManagerSo>().onManagersInitialized.Invoke();
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"An error occured while initializing the scene: {e.Message}");
-        }
+        DS.GetSoManager<EventManagerSo>().onManagersInitialized.Invoke();
     }
 
-    private static Task InitializeDS()
+    private void InitializeDS()
     {
         DS.Initialize();
         DS.GetSoManager<GlobalInputsManagerSo>().DisableAllGlobalInputs();
-        return Task.CompletedTask;
     }
 
-    private static async Task AssignManagersSoToInSceneManagersInitialization()
+    private void AssignManagersSoToInSceneManagersInitialization()
     {
         foreach (var manager in DS.GetSoManagers())
         {
             if (manager is not IInSceneManagerListener rManager) continue;
             DS.GetSoManager<EventManagerSo>().onInSceneManagersInitialized.AddListener(rManager.OnSceneManagersInitialized);
-            await Task.Yield();
         }
     }
 
-    private async Task SpawnInSceneManagers()
+    private void SpawnInSceneManagers()
     {
         foreach (var managerObject in inSceneManagers)
         {
             var manager = Instantiate(managerObject, Vector3.zero, Quaternion.identity, transform);
             DS.SetSceneManager(manager.GetComponent<MonoBehaviour>());
             manager.GetComponent<IInSceneManager>().Initialize();
-            await Task.Yield();
         }
         DS.GetSoManager<EventManagerSo>().onInSceneManagersInitialized?.Invoke();
     }
 
-    private async Task InitializeGameManager()
+    private void InitializeGameManager()
     {
-        await DS.GetSoManager<GameManagerSo>().Initialize();
+        DS.GetSoManager<GameManagerSo>().Initialize();
     }
 }

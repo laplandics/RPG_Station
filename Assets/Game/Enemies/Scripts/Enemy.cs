@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour, ISaveAble
     private List<IEnemyMod> _mods = new();
     public EnemyData EnemyData { get; set; }
     public string InstanceKey { get => prefabKey; set => prefabKey = value; }
+    public float BuferTime { get; set; }
 
     public void Initialize()
     {
@@ -18,10 +19,10 @@ public abstract class Enemy : MonoBehaviour, ISaveAble
             if (mod is not IEnemyModSetter setter) continue;
             _mods.Add(setter.SetMod(this));
         }
-        foreach (var mod in _mods) {mod.LoadMod();}
+        foreach (var mod in _mods) { mod.LoadMod(); }
     }
 
-    public Task Load()
+    public void Load()
     {
         foreach (var modData in EnemyData.mods)
         {
@@ -29,13 +30,13 @@ public abstract class Enemy : MonoBehaviour, ISaveAble
             {
                 if (mod is not ISaveAble saveMod) continue;
                 if (modData.key != saveMod.InstanceKey) continue;
+                mod.SetModData(modData);
                 saveMod.Load();
             }
         }
-        return Task.CompletedTask;
     }
 
-    public Task Save()
+    public void Save()
     {
         var modsData = new List<ModData>();
         foreach (var mod in _mods)
@@ -50,8 +51,14 @@ public abstract class Enemy : MonoBehaviour, ISaveAble
             position = transform.position,
             mods = modsData
         };
+    }
 
-        return Task.CompletedTask;
+    private void OnDestroy()
+    {
+        foreach (var mod in _mods)
+        {
+            mod.UnloadMod();
+        }
     }
 }
 

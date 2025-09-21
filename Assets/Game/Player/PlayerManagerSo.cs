@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerManager", menuName = "ManagersSO/PlayerManager")]
 public class PlayerManagerSo : ScriptableObject
@@ -9,10 +8,9 @@ public class PlayerManagerSo : ScriptableObject
     private Player _player;
     private PlayerController _playerController;
 
-    public Task Initialize()
+    public void Initialize()
     {
         DS.GetSoManager<EventManagerSo>().onPlayerSpawned.AddListener(InitializePlayer);
-        return Task.CompletedTask;
     }
 
     public void InitializePlayer(Player player)
@@ -30,14 +28,14 @@ public class PlayerManagerSo : ScriptableObject
         DS.GetSceneManager<RoutineManager>().GetUpdateAction(_playerSpriteSwapper.SetPlayerSprite);
     }
 
-    public async Task LoadPlayerData()
+    public void LoadPlayerData()
     {
-        await _player.Load();
+        _player.Load();
     }
 
-    public async Task SavePlayerData()
+    public void SavePlayerData()
     {
-        await _player.Save();
+        _player.Save();
     }
 
     public Transform GetPlayerTransform() => _player.transform;

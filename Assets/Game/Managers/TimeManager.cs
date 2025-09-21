@@ -28,20 +28,21 @@ public class TimeManager : MonoBehaviour, IInSceneManager, ISaveAble
         globalSeconds = 0;
         
         _eventManager = DS.GetSoManager<EventManagerSo>();
-        _eventManager.onSave.AddListener(() => _ = Save());
-        _eventManager.onLoad.AddListener(() => _ = Load());
+        _eventManager.onSave.AddListener(Save);
+        _eventManager.onLoad.AddListener(Load);
         _eventManager.onTimePassed.AddListener(UpdateGlobalTime);
     }
 
-    public async Task Load()
+    public void Load()
     {
-        var data = await DS.GetSoManager<SaveLoadManagerSo>().Load<TimeData>(prefabKey);
+        Debug.LogWarning("TODO: Check TimeManager loading");
+        var data = DS.GetSoManager<SaveLoadManagerSo>().Load<TimeData>(prefabKey);
     }
 
-    public async Task Save()
+    public void Save()
     {
         var data = new TimeData();
-        await DS.GetSoManager<SaveLoadManagerSo>().Save(prefabKey, data);
+        DS.GetSoManager<SaveLoadManagerSo>().Save(prefabKey, data);
     }
 
     private void UpdateGlobalTime(float time)
