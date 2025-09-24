@@ -58,7 +58,6 @@ public class GameManagerSo : ScriptableObject
     private void TrySaveGame()
     { 
         if (_playerManager) _playerManager.SavePlayerData();
-        if (_chunksManager) _chunksManager.SaveChunksData();
         if (_mapManager) _mapManager.SaveMapData();
     }
 }

@@ -7,18 +7,29 @@ public class EntryPoint : MonoBehaviour
     private void Start()
     {
         InitializeDS();
+        DS.GetSoManager<GlobalInputsManagerSo>().DisableAllGlobalInputs();
         AssignManagersSoToInSceneManagersInitialization();
         SpawnInSceneManagers();
+        InitializeSpawners();
         DS.GetSoManager<GlobalInputsManagerSo>().EnableAllGlobalInputs();
         InitializeGameManager();
             
         DS.GetSoManager<EventManagerSo>().onManagersInitialized.Invoke();
     }
 
+
     private void InitializeDS()
     {
         DS.Initialize();
-        DS.GetSoManager<GlobalInputsManagerSo>().DisableAllGlobalInputs();
+    }
+
+    private void InitializeSpawners()
+    {
+        foreach (var spawnerObject in DS.GetSoSpawners())
+        {
+            if (spawnerObject is not ISpawner spawner) continue;
+            spawner.InitializeSpawner();
+        }
     }
 
     private void AssignManagersSoToInSceneManagersInitialization()

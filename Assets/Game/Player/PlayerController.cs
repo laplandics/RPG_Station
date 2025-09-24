@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float decreaseRate;
     private GameInputs _input;
     private Vector2 _moveInput;
-    private Vector2 _targetPosition;
+    private Vector2Int _targetPosition;
     private Vector2 _currentInput;
     private bool _isCancelled;
     private bool _isBlocked;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, _targetPosition, animationSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, _targetPosition) < 0.01f)
             {
-                transform.position = _targetPosition;
+                transform.position = new Vector2(_targetPosition.x, _targetPosition.y);
                 yield return new WaitForSeconds(CalculateDelay());
                 break;
             }

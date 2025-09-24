@@ -1,71 +1,69 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public abstract class Chunk : MonoBehaviour, ISaveAble
 {
-    [SerializeField] private string key;
-    [SerializeField] private int cellSize;
+    [Header("Saveload id")]
+    [SerializeField] private string prefabKey;
+    [Header("Chunk settings")]
     [SerializeField] private int minEnemies;
     [SerializeField] private int maxEnemies;
-    [SerializeField] private List<Enemy> allowedEnemies;
-    [SerializeField] private List<BoxCollider2D> spawnZones;
-    public string InstanceKey { get => key; set => key = value; }
-    public List<Enemy> AllowedEnemies => allowedEnemies;
+    [SerializeField] private Enemy[] allowedEnemies;
+    [SerializeField] private Collider2D[] spawnZones;
+
+    private EventManagerSo _eventManager;
+    private EnemiesManagerSo _enemiesManager;
+    private Vector2Int _intPosition;
+    private bool _isVisited;
+
+    public string InstanceKey { get => prefabKey; set => prefabKey = value; }
+    public int MinEnemies => minEnemies;
+    public int MaxEnemies => maxEnemies;
+    public Enemy[] AllowedEnemies => allowedEnemies;
+    public Collider2D[] SpawnZones => spawnZones;
     public ChunkData ChunkData { get; set; }
-    public void Save()
+
+    public void SetChunk()
     {
-        ChunkData = new ChunkData
-        {
-            prefabKey = key,
-            position = transform.position,
-            enemies = DS.GetSoManager<EnemiesManagerSo>().SaveEnemies(this)
-        };
+        _eventManager = DS.GetSoManager<EventManagerSo>();
+        _enemiesManager = DS.GetSoManager<EnemiesManagerSo>();
+        _intPosition = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+        _isVisited = true;
+
+        _eventManager.onChunkSpawned?.Invoke(_intPosition, this);
     }
 
     public void Load()
     {
-        transform.position = ChunkData.position;
-        DS.GetSoManager<EnemiesManagerSo>().LoadEnemies(this);
+        _enemiesManager.AddChunk(this, ChunkData.enemiesData);
     }
 
-    public List<Enemy> GetRandomEnemies()
+    public void Save()
     {
-        var enemiesCount = Random.Range(minEnemies, maxEnemies + 1);
-        var randomEnemies = new List<Enemy>();
-        for (var i = 0; i < enemiesCount; i++)
-        {
-            var enemy = allowedEnemies[Random.Range(0, allowedEnemies.Count - 1)];
-            randomEnemies.Add(enemy);
-        }
-        return randomEnemies;
+        ChunkData.prefabKeyData = prefabKey;
+        ChunkData.isVisitedData = _isVisited;
+        ChunkData.positionData = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+        ChunkData.enemiesData = DS.GetSoManager<EnemiesManagerSo>().SaveEnemiesData(this);
     }
 
-    public Vector3 GetRandomSpawnPoint()
+    public void EraseChunk(bool save)
     {
-        var zone = spawnZones[Random.Range(0, spawnZones.Count)];
-        var bounds = zone.bounds;
-
-        var x = Random.Range(bounds.min.x, bounds.max.x);
-        var y = Random.Range(bounds.min.y, bounds.max.y);
-
-        var xSnapped = Mathf.Round(x / cellSize) * cellSize;
-        var ySnapped = Mathf.Round(y / cellSize) * cellSize;
-
-        return new Vector3(xSnapped, ySnapped, 0f);
+        _eventManager.onChunkDespawned?.Invoke(_intPosition, this, save);
     }
 
     private void OnDestroy()
     {
-        DS.GetSoManager<EnemiesManagerSo>().RemoveChunk(this);
+        _enemiesManager.ClearChunk(this);
     }
 }
 
 [Serializable]
 public class ChunkData
 {
-    public string prefabKey;
-    public Vector3 position;
-    public List<EnemyData> enemies;
+    public string prefabKeyData;
+    public bool isVisitedData;
+    public float noiseData;
+    public Vector2Int positionData;
+    public List<EnemyData> enemiesData;
 }

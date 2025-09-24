@@ -165,9 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntryPoint
   inSceneManagers:
   - {fileID: 1425522640720186616, guid: 3f773a8c44894ca41bfa8ae265bfa806, type: 3}
-  - {fileID: 3962285936987152806, guid: 611d5a47479cd11499aa12c8b8d60919, type: 3}
   - {fileID: 870886641080784674, guid: e7584480abe6df24898f2d5e0f148593, type: 3}
   - {fileID: 2982271503403227771, guid: 56564780c4399e44b8a1e9b548ca7b24, type: 3}
+  - {fileID: 6472162741810732139, guid: 136d10ac7a28c8b4fa970c62aa5b5c4b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

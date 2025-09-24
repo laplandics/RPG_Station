@@ -25,7 +25,7 @@ public class MoveMod : IEnemyMod, ISaveAble
     public void LoadMod()
     {
         DS.GetSoManager<EventManagerSo>().onTimePassed.AddListener(StartMovingOnTimePassed);
-        _chunkSize = DS.GetSoManager<ChunksManagerSo>().ChunkSize;
+        //_chunkSize = DS.GetSoManager<ChunksManagerSo>().ChunkSize;
     }
     public void UnloadMod()
     {
@@ -51,20 +51,20 @@ public class MoveMod : IEnemyMod, ISaveAble
             _isRoutCalculated = true;
         }
         if (!_isRoutCalculated) yield break;
-        var difference = 0f;
-        for (var i = 0; i < GridMover.GetCellCount(time, moveSpeed, Owner.BuferTime, out difference); i++)
-        {
-            if (_routePoints.Count == 0)
-            {
-                _isRoutCalculated = false;
-                _isMoving = false;
-                break;
-            }
-            if (ownerTransform == null) yield break;
-            ownerTransform.position = _routePoints[0];
-            _routePoints.RemoveAt(0);
-        }
-        Owner.BuferTime += difference;
+        //var difference = 0f;
+        // for (var i = 0; i < GridMover.GetCellCount(time, moveSpeed, Owner.BuferTime, out difference); i++)
+        // {
+        //     if (_routePoints.Count == 0)
+        //     {
+        //         _isRoutCalculated = false;
+        //         _isMoving = false;
+        //         break;
+        //     }
+        //     if (ownerTransform == null) yield break;
+        //     ownerTransform.position = _routePoints[0];
+        //     _routePoints.RemoveAt(0);
+        // }
+        // Owner.BuferTime += difference;
         if (ownerTransform.position == targetPosition) _isMoving = false;
     }
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ChunksManager
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManagerSo
   chunkSize: 32
-  generationDistanceInChunks: 0
+  generationDistanceInChunks: 1

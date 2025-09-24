@@ -10,7 +10,7 @@ public enum SpriteSheetType
     Feet
 }
 
-[CreateAssetMenu(fileName = "SpriteAsset", menuName = "DataSO/SpriteAsset")]
+[CreateAssetMenu(fileName = "SpriteAsset", menuName = "DataStorage/SpriteAsset")]
 public class SpriteAssetsBundleSo : ScriptableObject
 {
     [Serializable]

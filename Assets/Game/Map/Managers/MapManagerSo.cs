@@ -1,12 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MapManager", menuName = "ManagersSO/MapManager")]
 public class MapManagerSo : ScriptableObject
 {
-    [SerializeField] private List<Chunk> allowedChunks;
-    public List<Chunk> MapChunks { get => allowedChunks; }
-
     public Map Map { get; private set; }
 
     public void Initialize()
@@ -20,13 +16,7 @@ public class MapManagerSo : ScriptableObject
         Map.Initialize();
     }
 
-    public void LoadMapData()
-    {
-        Map.Load();
-    }
+    public void LoadMapData() => Map.Load();
 
-    public void SaveMapData()
-    {
-        Map.Save();
-    }
+    public void SaveMapData() => Map.Save();
 }

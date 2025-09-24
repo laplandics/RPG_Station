@@ -1,167 +1,65 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "ChunksManager", menuName = "ManagersSO/ChunksManager")]
 public class ChunksManagerSo : ScriptableObject
 {
-    [SerializeField] private int chunkSize;
-    [SerializeField] private int generationDistanceInChunks; 
-    private Dictionary<Vector3, Chunk> _chunks = new();
+    private Dictionary<Vector2Int, Chunk> _chunksInScene = new();
+    private Dictionary<Vector2Int, ChunkData> _savedChunks = new();
+    private Vector2Int _currentPlayersChunk;
+    private ChunksSpawnManagerSo _chunksSpawner;
     private EventManagerSo _eventManager;
-    private MapManagerSo _mapManager;
-    private Transform _mapTransform;
-    private PlayerManagerSo _playerManager;
-    private Transform _playerTransform;
-    private Vector3 _playerChunkPosition;
-    private bool _firstGeneration;
 
-    public int ChunkSize => chunkSize;
-
+    public Dictionary<Vector2Int, ChunkData> SavedChunks => _savedChunks;
+    public Dictionary<Vector2Int, Chunk> ChunksInScene { get => _chunksInScene; set => _chunksInScene = value; }
     public void Initialize()
     {
-        _firstGeneration = true;
+        _chunksSpawner = DS.GetSoSpawner<ChunksSpawnManagerSo>();
         _eventManager = DS.GetSoManager<EventManagerSo>();
-        _eventManager.onMapUpdated.AddListener(GenerateChunks);
-        _eventManager.onPlayersPositionChanged.AddListener(_ => GenerateChunks());
 
-        _mapManager = DS.GetSoManager<MapManagerSo>();
-        _playerManager = DS.GetSoManager<PlayerManagerSo>();
+        _currentPlayersChunk = Vector2Int.zero;
+        _eventManager.onChunkDespawned.AddListener(RemoveChunk);
+        _eventManager.onPlayersPositionChanged.AddListener(TryChangePlayersChunk);
     }
 
-    private void GenerateChunks()
+    private void RemoveChunk(Vector2Int position, Chunk chunk, bool shouldSave)
     {
-        var center = GetPlayerChunk();
-        var nearChunks = new HashSet<Vector3>();
-        if (!_firstGeneration)
-        {
-            if (_playerChunkPosition == center) return;
-            _playerChunkPosition = center;
-        }
-
-        var chunksPositions = GetBoundaries();
-        foreach (var position in chunksPositions)
-        {
-            nearChunks.Add(position);
-            if (_chunks.ContainsKey(position)) continue;
-            var chunk = SpawnChunk(position);
-            _eventManager.onChunkSpawned?.Invoke(chunk);
-        }
-        _firstGeneration = false;
-        var chunksToRemove = new List<Vector3>();
-        foreach (var chunk in _chunks)
-        {
-            if (nearChunks.Contains(chunk.Key)) continue;
-            DespawnChunk(chunk.Value.gameObject);
-            chunksToRemove.Add(chunk.Key);
-        }
-        foreach (var chunk in chunksToRemove)
-        {
-            _chunks.Remove(chunk);
-        }
-        chunksToRemove.Clear();
-    }
-
-    public void LoadChunks()
-    {
-        foreach (var chunk in _chunks.Values)
-        {
-            DespawnChunk(chunk.gameObject);
-        }
-        _chunks.Clear();
-
-        var savedChunks = _mapManager.Map.GetSavedChunks();
-        for(var i = 0; i < savedChunks.Count; i++)
-        {
-            var chunk = SpawnChunk(savedChunks[i].position);
-            if (chunk == null) continue;
-            LoadChunkData(chunk, savedChunks[i]);
-            _eventManager.onChunkSpawned?.Invoke(chunk);
-        }
-        
-    }
-
-    public void SaveChunksData()
-    {
-        foreach (var chunk in _chunks.Values)
+        if (shouldSave)
         {
             chunk.Save();
+            if (!_savedChunks.TryAdd(position, chunk.ChunkData)) _savedChunks[position] = chunk.ChunkData;
         }
     }
 
-    private Chunk SpawnChunk(Vector3 position)
+    private void TryChangePlayersChunk(Transform _)
     {
-        if (!GetBoundaries().Contains(position)) return null;
-        _mapTransform = _mapManager.Map.transform;
-        var chunkInstance = TryGetSavedChunk(position, out var savedData);
-        var chunk = Instantiate(chunkInstance, position, Quaternion.identity, _mapTransform);
-        if (savedData != null) LoadChunkData(chunk, savedData);
-        chunk.gameObject.name = $"Chunk ({position.x}:{position.y})";
-        _chunks.TryAdd(position, chunk);
-
-        return chunk;
+        var playersChunk = _chunksSpawner.GetPlayerChunk();
+        if (playersChunk == _currentPlayersChunk) return;
+        _currentPlayersChunk = playersChunk;
+        _chunksSpawner.GenerateChunksAroundPlayer();
     }
 
-    private void DespawnChunk(GameObject chunk)
+    public List<ChunkData> Save()
     {
-        Destroy(chunk);
-        _eventManager.onChunkDespawned?.Invoke(chunk.GetComponent<Chunk>());
-    }
-
-    private Vector3 GetPlayerChunk()
-    {
-        _playerTransform = _playerManager.GetPlayerTransform();
-        var player = _playerTransform.position;
-        var playerChunkX = (int)Math.Round(player.x / chunkSize);
-        var playerChunkY = (int)Math.Round(player.y / chunkSize);
-
-        return new Vector3(playerChunkX, playerChunkY, 0f);
-    }
-
-    private List<Vector3> GetBoundaries()
-    {
-        var boundaries = new List<Vector3>();
-        var center = GetPlayerChunk();
-        for (var y = -generationDistanceInChunks; y <= generationDistanceInChunks; y++)
+        foreach (var chunk in _chunksInScene)
         {
-            for (var x = -generationDistanceInChunks; x <= generationDistanceInChunks; x++)
-            {
-                var chunkX = center.x + x;
-                var chunkY = center.y + y;
-                boundaries.Add(new Vector3(chunkX * chunkSize, chunkY * chunkSize, 0f));
-            }
+            chunk.Value.Save();
+            _savedChunks.TryAdd(chunk.Key, chunk.Value.ChunkData);
         }
-        return boundaries;
+
+        return _savedChunks.Values.ToList();
     }
 
-    private Chunk TryGetSavedChunk(Vector3 pos, out ChunkData chunkData)
+    public void Load(List<ChunkData> chunkData)
     {
-        var savedChunks = _mapManager.Map.GetSavedChunks();
-        if (savedChunks != null)
+        _savedChunks.Clear();
+        foreach (var data in chunkData)
         {
-            foreach (var savedChunk in savedChunks)
-            {
-                if (savedChunk.position != pos) continue;
-                foreach (var chunk in _mapManager.MapChunks)
-                {
-                    if (chunk.InstanceKey == savedChunk.prefabKey)
-                    {
-                        chunkData = savedChunk;
-                        return chunk;
-                    }
-                }
-            }
+            if (!data.isVisitedData) continue;
+            _savedChunks.TryAdd(data.positionData, data);
         }
-
-        var prefab = _mapManager.MapChunks[Random.Range(0, _mapManager.MapChunks.Count)];
-        chunkData = null;
-        return prefab;
-    }
-
-    private void LoadChunkData(Chunk chunk, ChunkData chunkData)
-    {
-        chunk.ChunkData = chunkData;
-        chunk.Load();
+        _chunksSpawner.ClearAllChunks();
+        _chunksSpawner.GenerateChunksAroundPlayer();
     }
 }
