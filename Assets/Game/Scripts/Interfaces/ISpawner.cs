@@ -1,4 +1,4 @@
 public interface ISpawner
 {
-    public bool TryInitializeSpawner(SaveData data);
+    public void InitializeSpawner();
 }

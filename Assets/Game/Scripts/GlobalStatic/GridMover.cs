@@ -2,19 +2,19 @@ using UnityEngine;
 
 public static class GridMover
 {
-    public const int CELL_SIZE = 1;
+    public const int CellSize = 1;
 
     public static Vector2Int SnapToGrid(Vector2 pos)
     {
-        var x = Mathf.RoundToInt(pos.x / CELL_SIZE) * CELL_SIZE;
-        var y = Mathf.RoundToInt(pos.y / CELL_SIZE) * CELL_SIZE;
+        var x = Mathf.RoundToInt(pos.x / CellSize) * CellSize;
+        var y = Mathf.RoundToInt(pos.y / CellSize) * CellSize;
         return new Vector2Int(x, y);
     }
 
     public static Vector2 SnapToCellCenter(Vector2 pos)
     {
-        var x = Mathf.RoundToInt(pos.x / CELL_SIZE) * CELL_SIZE + 0.5f;
-        var y = Mathf.RoundToInt(pos.y / CELL_SIZE) * CELL_SIZE + 0.5f;
+        var x = Mathf.RoundToInt(pos.x / CellSize) * CellSize + 0.5f;
+        var y = Mathf.RoundToInt(pos.y / CellSize) * CellSize + 0.5f;
         return new Vector2(x, y);
     }
 

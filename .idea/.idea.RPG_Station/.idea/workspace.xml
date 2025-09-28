@@ -4,29 +4,179 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12bad51c-2c4e-40b6-ac43-b869a0f55dab" name="Changes" comment="">
+    <list default="true" id="a6d89bb6-794f-423b-b125-e575c60d79ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraInitializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraSpawnerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Enemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Shadowling.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/EventManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/SaveDataService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/SaveDataService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/TerrainType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightInitializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightSpawnerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/ChunksGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/ForestChunk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapInitializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MeadowChunk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MountainChunk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/TerrainDataGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/TerrainSettingsSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/WaterChunk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/EntryPoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/GameObjectsService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/PathFindingService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/RoutineService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/SceneInitializeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/SceneInitializeService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/TimeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/MoveActionTc.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerChunkObserver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerChunkObserver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerInitializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpawnerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UISpawnerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Global/EventManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Global/EventManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Global/GameManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Global/GameManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Global/SaveLoadManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Global/SaveLoadManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Initialization/InitInstances.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Initialization/InitInstances.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Initialization/InitInstances.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Initialization/InitInstances.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Initialization/UniqueIdManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Initialization/UniqueIdManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Interfaces/ISaveAble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Interfaces/ISaveAble.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/ChunkManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Map/ChunkManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/Chunks/PrefsVariants/ChunkWithBuilding.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Map/Chunks/PrefsVariants/ChunkWithBuilding.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/Chunks/PrefsVariants/EmptyChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Map/Chunks/PrefsVariants/EmptyChunk.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/Chunks/Scripts/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Map/Chunks/Scripts/Chunk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/Chunks/Scripts/ChunkWithBuilding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Map/Chunks/Scripts/ChunkWithBuilding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/Grid/Grid.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/Grid/Grid.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/Grid/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Map/Grid/Map.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Map/MapManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Map/MapManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Player/PlayerManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Player/PlayerManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/UniqueIdManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ManagersSO/UniqueIdManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/DataStoragesSo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/DataStoragesSo/MapDataStorage.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/DataStoragesSo/MapDataStorage.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/CameraSpawner.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/CameraSpawner.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/ChunksSpawner.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/ChunksSpawner.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/EnemiesSpawner.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/EnemiesSpawner.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/LightSpawner.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/LightSpawner.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/MapSpawner.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/MapSpawner.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/PlayerSpawner.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/PlayerSpawner.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/UISpawner.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/LocalSO/SpawnersSo/UISpawner.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Shadowling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Shadowling.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Managers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Managers/PathFindingManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Managers/PathFindingManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Managers/RoutineManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Managers/RoutineManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Managers/TimeManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Managers/TimeManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraSpawnManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraSpawnManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraSpawnerSo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/GameCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/GameCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/GameCameraManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/GameCameraManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraInitializer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Data.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Data/EnemiesManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Data/EnemiesManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Data/EnemiesSpawnManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Data/EnemiesSpawnManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Mods.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Variants.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Variants/Enemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Variants/Enemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Variants/Shadowling.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Variants/Shadowling.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Generators.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Generators/TerrainDataGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Generators/TerrainDataGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/EventManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/EventManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/EventManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GameManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GameManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalInputsManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalInputsManagerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/DS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/DS.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IInSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IInSceneService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IInSceneManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IInSceneService.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IObjectManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IObjectManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/ISpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/ISpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/ITerrainChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/ITerrainChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightInitializer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightSpawnManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightSpawnManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightSpawnerSo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/Chunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/Chunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/ForestChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/ForestChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/MeadowChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/MeadowChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/MountainChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/MountainChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/WaterChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunks/WaterChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Data.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Data/ChunksSpawnManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Data/ChunksSpawnManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Data/MapManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Data/MapManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapDataStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSettingsSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapDataStorage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnerSo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/EntryPoint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/EntryPoint.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/PathFindingManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/PathFindingManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/RoutineManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/RoutineManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/TimeManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoManagers/TimeManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Data.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Data/PlayerManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Data/PlayerManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Data/PlayerSpawnManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Data/PlayerSpawnManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerActions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerActions/MoveActionTc.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerActions/MoveActionTc.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIInitializer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UISpawnManagerSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UISpawnManagerSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UISpawnerSo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/EnemiesManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/EnemiesManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/GameManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ManagersSO/GameManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/CameraManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/CameraManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/LightManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/LightManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/MapManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/MapManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/PlayerManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/PlayerManager.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/UIManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ObjectsManagersSO/UIManager.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
@@ -41,36 +191,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;laplandics&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/laplandics/RPG_Station.git&quot;,
-    &quot;accountId&quot;: &quot;b08c7b22-913f-44bb-9739-38c0aa20a6e0&quot;
-  }
-}</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/72/8ca32bb9/Task.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/69/fb365682/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/b4/83f79592/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/bd/411eb26f/Object.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Global/GameManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Map/ChunkManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Map/Grid/Map.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Map/MapManagerSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Editor/Utility/GameViewComposerGuides.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Behaviours/CinemachineBrain.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="32cKs7gX4EkK2o6WmjZ4Pw8GCDQ" />
+  <component name="ProjectId" id="33HXJ1l2LtPBlzieTEQHM81MLx6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -78,13 +211,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Unity Player.Unity.exe (AssetImportWorker0).executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Unity Player.Unity.exe (AssetImportWorker1).executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Backend notifications&quot;: &quot;Backend notifications&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Unity project open&quot;: &quot;Unity project open&quot;,
-    &quot;Notification.DoNotAsk-Backend notifications&quot;: &quot;true&quot;,
-    &quot;Notification.DoNotAsk-Unity project open&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -94,27 +221,15 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
-    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../SkyWatt Games/RPG_Station\RPG_Station.exe" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="G:\SkyWatt Games\RPG_Station" />
-      <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="ENV_FILE_PATHS" value="" />
-      <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
-      <option name="MIXED_MODE_DEBUG" value="0" />
-      <method v="2" />
-    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.0f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-projectPath G:\GitUnityRep\RPG_Station -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="G:\GitUnityRep\RPG_Station" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath G:\RPG_Station -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="G:\RPG_Station" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -125,8 +240,8 @@
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.0f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath G:\GitUnityRep\RPG_Station -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="G:\GitUnityRep\RPG_Station" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath G:\RPG_Station -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="G:\RPG_Station" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -166,72 +281,26 @@
     <configuration name="Attach to Device" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
       <method v="2" />
     </configuration>
-    <configuration name="Unity.exe (AssetImportWorker0)" type="UnityPlayer" factoryName="UnityAttachToPlayer" temporary="true">
-      <option name="host" value="127.0.0.1" />
-      <option name="pid" value="13592" />
-      <option name="playerId" value="EditorHelper(Unity.exe-AssetImportWorker0-RPG_Station)" />
-      <option name="playerInstanceId" value="RPG_Station" />
-      <option name="port" value="56592" />
-      <option name="projectName" value="RPG_Station" />
-      <option name="roleName" value="AssetImportWorker0" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unity.exe (AssetImportWorker1)" type="UnityPlayer" factoryName="UnityAttachToPlayer" temporary="true">
-      <option name="host" value="127.0.0.1" />
-      <option name="pid" value="11020" />
-      <option name="playerId" value="EditorHelper(Unity.exe-AssetImportWorker1-RPG_Station)" />
-      <option name="playerInstanceId" value="RPG_Station" />
-      <option name="port" value="56020" />
-      <option name="projectName" value="RPG_Station" />
-      <option name="roleName" value="AssetImportWorker1" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Attach to Unity Player.Unity.exe (AssetImportWorker1)" />
-        <item itemvalue="Attach to Unity Player.Unity.exe (AssetImportWorker0)" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="12bad51c-2c4e-40b6-ac43-b869a0f55dab" name="Changes" comment="" />
-      <created>1757714624600</created>
+      <changelist id="a6d89bb6-794f-423b-b125-e575c60d79ab" name="Changes" comment="" />
+      <created>1758974896320</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1757714624600</updated>
-      <workItem from="1757714626365" duration="42000" />
-      <workItem from="1757714688764" duration="22463000" />
-      <workItem from="1757738215913" duration="145000" />
-      <workItem from="1757757620735" duration="10956000" />
-      <workItem from="1757769414261" duration="15298000" />
-      <workItem from="1757787525349" duration="26000" />
-      <workItem from="1757787566643" duration="217000" />
-      <workItem from="1757787807726" duration="343000" />
-      <workItem from="1757796992829" duration="5463000" />
-      <workItem from="1757853961679" duration="4806000" />
-      <workItem from="1757862334257" duration="6469000" />
-      <workItem from="1757910126949" duration="6115000" />
-      <workItem from="1757933732296" duration="20661000" />
-      <workItem from="1757955113623" duration="2460000" />
-      <workItem from="1757960165957" duration="2708000" />
-      <workItem from="1757964683573" duration="7616000" />
-      <workItem from="1758030552636" duration="14000" />
-      <workItem from="1758030597683" duration="193000" />
-      <workItem from="1758030815737" duration="2787000" />
-      <workItem from="1758039417617" duration="3413000" />
-      <workItem from="1758043277062" duration="6874000" />
-      <workItem from="1758056427011" duration="11523000" />
-      <workItem from="1758115755328" duration="1192000" />
-      <workItem from="1758117476595" duration="796000" />
-      <workItem from="1758132573881" duration="6636000" />
+      <updated>1758974896320</updated>
+      <workItem from="1758974897798" duration="7862000" />
+      <workItem from="1758987262911" duration="227000" />
+      <workItem from="1758987996073" duration="10458000" />
+      <workItem from="1759003222765" duration="16302000" />
+      <workItem from="1759054098086" duration="4780000" />
+      <workItem from="1759058925779" duration="12095000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />

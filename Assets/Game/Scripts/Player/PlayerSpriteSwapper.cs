@@ -6,22 +6,24 @@ public class PlayerSpriteSwapper : MonoBehaviour
     [SerializeField] private Sprite baseRight;
     private SpriteRenderer _spriteRenderer;
 
-    private PlayerManagerSo _playerManager;
+    private PlayerInitializer _playerManager;
 
-    public void Initialize()
+    public void Initialize(PlayerInitializer initializer)
     {
-        _playerManager = DS.GetObjectManager<PlayerManagerSo>();
+        _playerManager  = initializer;
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        DS.GetSceneManager<RoutineManager>().GetUpdateAction(SetPlayerSprite);
+        DS.GetSceneManager<RoutineService>().GetUpdateAction(SetPlayerSprite);
     }
 
-    public void SetPlayerSprite()
+    private void SetPlayerSprite()
     {
         var input = _playerManager.MoveInput;
         if (input == Vector2.zero) return;
-        if (Mathf.Abs(input.x) > Mathf.Abs(input.y)) { _spriteRenderer.sprite = input.x > 0 ? baseRight : baseLeft; }
-        else if (Mathf.Abs(input.x) == Mathf.Abs(input.y)) { _spriteRenderer.sprite = input.x > 0 ? baseRight : baseLeft; }
+        if (Mathf.Abs(input.x) > Mathf.Abs(input.y) || Mathf.Approximately(Mathf.Abs(input.x), Mathf.Abs(input.y)))
+        {
+            _spriteRenderer.sprite = input.x > 0 ? baseRight : baseLeft;
+        }
     }
 
-    private void OnDestroy() => DS.GetSceneManager<RoutineManager>().ReturnUpdateAction(SetPlayerSprite);
+    private void OnDestroy() => DS.GetSceneManager<RoutineService>().ReturnUpdateAction(SetPlayerSprite);
 }

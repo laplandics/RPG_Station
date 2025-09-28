@@ -18485,11 +18485,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea3b837e647f634d907d7ab3f8fb18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeadowChunk
-  prefabKey: 58981d1d-65a7-499a-9b74-2f634f82d47e
-  minEnemies: 0
-  maxEnemies: 0
-  allowedEnemies: []
-  spawnZones: []
-  noiseMin: 0.3
-  noiseMax: 0.5
-  terrainType: 1
+  terrainData: {fileID: 11400000, guid: ad214b8925700044eb23f614a3e4dec4, type: 2}

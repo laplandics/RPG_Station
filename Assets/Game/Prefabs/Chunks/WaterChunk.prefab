@@ -37065,11 +37065,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591350b5a88caa14faa3ef5c49ec89ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterChunk
-  prefabKey: 9a371685-9af3-413e-9e47-11ce011829d9
-  minEnemies: 0
-  maxEnemies: 0
-  allowedEnemies: []
-  spawnZones: []
-  noiseMin: 0
-  noiseMax: 0.3
-  terrainType: 0
+  terrainData: {fileID: 11400000, guid: 53abd23563ccf424b8323e3a574ed23a, type: 2}

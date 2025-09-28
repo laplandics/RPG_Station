@@ -41,10 +41,10 @@ public class GlobalInputsManagerSo : ScriptableObject
 
     private void InvokeSave(InputAction.CallbackContext _)
     {
-        onSave?.Invoke();
+        OnSave?.Invoke();
     }
     private void InvokeLoad(InputAction.CallbackContext _)
     {
-        onLoad?.Invoke();
+        OnLoad?.Invoke();
     }
 }

@@ -8,7 +8,7 @@ public class GameCamera : MonoBehaviour
 
     public void Initialize()
     {
-        onPlayerSpawned.AddListener(SetTarget);
+        OnPlayerSpawned.AddListener(SetTarget);
     }
 
     private void SetTarget(Player target, SaveData _)

@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float baseStepsDelay;
     [SerializeField] private float minStepsDelay;
     [SerializeField] private float decreaseRate;
-    private Coroutine moveRoutine;
     private GameInputs _input;
+    private Transform _playerTransform;
     private Vector2 _moveInput;
     private Vector2Int _targetPosition;
     private Vector2 _currentInput;
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public void Initialize()
     {
         _input = DS.GetGlobalManager<GlobalInputsManagerSo>().GetInputs();
+        _playerTransform = transform;
 
         _input.Player.Move.Enable();
         _input.Player.Move.performed += ReadInput;
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
         _isInitialized = true;
     }
     private void ReadInput(CallbackContext ctx) => _moveInput = ctx.ReadValue<Vector2>();
-    private void StartMoving(CallbackContext _) => moveRoutine = DS.GetSceneManager<RoutineManager>().StartRoutine(MovePlayer());
+    private void StartMoving(CallbackContext _) => DS.GetSceneManager<RoutineService>().StartRoutine(MovePlayer());
     private void ResetInput(CallbackContext _) => _moveInput = Vector2.zero;
 
     private IEnumerator MovePlayer()
@@ -57,17 +58,17 @@ public class PlayerController : MonoBehaviour
             if (!TryCalculateNewPosition()) yield break;
             IEnumerator action = null;
             yield return new MoveActionTc().PerformAction(0.6f, 1, ChangePlayersPosition(), CancelMovement()).ToCoroutine(result => action = result);
-            yield return DS.GetSceneManager<RoutineManager>().StartRoutine(action);
+            yield return DS.GetSceneManager<RoutineService>().StartRoutine(action);
             yield return null;
         }
     }
 
     private bool TryCalculateNewPosition()
     {
-        var currentPosition = GridMover.SnapToGrid(transform.position);
-        var pos = currentPosition + _moveInput * GridMover.CELL_SIZE;
+        var currentPosition = GridMover.SnapToGrid(_playerTransform.position);
+        var pos = currentPosition + _moveInput * GridMover.CellSize;
         _targetPosition = GridMover.SnapToGrid(pos);
-        if (!Physics2D.OverlapCircle(GridMover.SnapToCellCenter(_targetPosition), GridMover.CELL_SIZE * 0.1f, obstacleMask)) return true;
+        if (!Physics2D.OverlapCircle(GridMover.SnapToCellCenter(_targetPosition), GridMover.CellSize * 0.1f, obstacleMask)) return true;
         _isMoving = false;
         return false;
     }
@@ -81,18 +82,18 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ChangePlayersPosition()
     {
-        while ((Vector2)transform.position != _targetPosition)
+        while ((Vector2)_playerTransform.position != _targetPosition)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, animationSpeed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, _targetPosition) < 0.01f)
+            _playerTransform.position = Vector2.MoveTowards(_playerTransform.position, _targetPosition, animationSpeed * Time.deltaTime);
+            if (Vector2.Distance(_playerTransform.position, _targetPosition) < 0.01f)
             {
-                transform.position = new Vector2(_targetPosition.x, _targetPosition.y);
+                _playerTransform.position = new Vector2(_targetPosition.x, _targetPosition.y);
                 yield return new WaitForSeconds(CalculateDelay());
                 break;
             }
             yield return null;
         }
-        onPlayersPositionChanged?.Invoke(transform);
+        OnPlayersPositionChanged?.Invoke(_playerTransform);
     }
 
     private float CalculateDelay()
@@ -102,14 +103,6 @@ public class PlayerController : MonoBehaviour
         return delay;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(GridMover.SnapToCellCenter(_targetPosition), GridMover.CELL_SIZE * 0.1f);
-    }
-
-    public void SetLockState(bool isBlocked) => _isBlocked = isBlocked;
-
     private void OnDestroy()
     {
         if (!_isInitialized) return;
@@ -117,7 +110,6 @@ public class PlayerController : MonoBehaviour
         _input.Player.Move.performed -= StartMoving;
         _input.Player.Move.canceled -= ResetInput;
         _input?.Player.Move.Disable();
-        if (moveRoutine != null) DS.GetSceneManager<RoutineManager>().EndRoutine(moveRoutine);
         _isInitialized = false;
     }
 
