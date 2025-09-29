@@ -3,14 +3,11 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using static EventManager;
 using static UnityEngine.InputSystem.InputAction;
+using static PlayerDataHandler;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float animationSpeed;
     [SerializeField] private LayerMask obstacleMask;
-    [SerializeField] private float baseStepsDelay;
-    [SerializeField] private float minStepsDelay;
-    [SerializeField] private float decreaseRate;
     private GameInputs _input;
     private Transform _playerTransform;
     private Vector2 _moveInput;
@@ -84,7 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         while ((Vector2)_playerTransform.position != _targetPosition)
         {
-            _playerTransform.position = Vector2.MoveTowards(_playerTransform.position, _targetPosition, animationSpeed * Time.deltaTime);
+            _playerTransform.position = Vector2.MoveTowards(_playerTransform.position, _targetPosition, GetPlayerData.animationSpeed * Time.deltaTime);
             if (Vector2.Distance(_playerTransform.position, _targetPosition) < 0.01f)
             {
                 _playerTransform.position = new Vector2(_targetPosition.x, _targetPosition.y);
@@ -99,7 +96,7 @@ public class PlayerController : MonoBehaviour
     private float CalculateDelay()
     {
         _holdTime += Time.deltaTime;
-        var delay = Mathf.Clamp(baseStepsDelay - _holdTime * decreaseRate, minStepsDelay, baseStepsDelay);
+        var delay = Mathf.Clamp(GetPlayerData.baseStepsDelay - _holdTime * GetPlayerData.decreaseRate, GetPlayerData.minStepsDelay, GetPlayerData.baseStepsDelay);
         return delay;
     }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139fa929fdd46d9afe8d1a4de1f3b7b, type: 3}
   m_Name: MapSettings
   m_EditorClassIdentifier: Assembly-CSharp::MapSettingsSo
-  mapKey: map
+  mapKey: MAP
   chunkSize: 32
   mapSize: 100
   renderAreaSize: 10

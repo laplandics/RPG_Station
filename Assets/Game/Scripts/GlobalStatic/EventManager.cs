@@ -25,29 +25,12 @@ public static class EventManager
     public static readonly UnityEvent<Terminal, SaveData> OnTerminalSpawned = new();
 
     //MAP_EVENTS//
-    public static readonly UnityEvent<Map, MapData> OnMapSpawned = new();
-    public static readonly UnityEvent<Vector2> OnRenderAreaBorderReached = new();
+    public static readonly UnityEvent<Map, MapData, TerrainsData> OnMapSpawned = new();
+    public static readonly UnityEvent<Vector2Int> OnRenderAreaBorderReached = new();
 
     //PLAYER_EVENTS//
     public static readonly UnityEvent<Player, PlayerData> OnPlayerSpawned = new();
     public static readonly UnityEvent<Transform> OnPlayersPositionChanged = new();
     public static readonly UnityEvent<Vector2Int> OnPlayerChunkChanged = new();
 
-    public static void AddUniqueListener(this UnityEvent unityEvent, UnityAction call)
-    {
-        unityEvent.RemoveListener(call);
-        unityEvent.AddListener(call);
-    }
-
-    public static void AddUniqueListener<T>(this UnityEvent<T> unityEvent, UnityAction<T> call)
-    {
-        unityEvent.RemoveListener(call);
-        unityEvent.AddListener(call);
-    }
-
-    public static void AddUniqueListener<T0, T1>(this UnityEvent<T0, T1> unityEvent, UnityAction<T0, T1> call)
-    {
-        unityEvent.RemoveListener(call);
-        unityEvent.AddListener(call);
-    }
 }

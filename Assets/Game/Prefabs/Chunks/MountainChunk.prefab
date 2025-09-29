@@ -37105,4 +37105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ff93b97d69e8242bdbe7eed68cf601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MountainChunk
-  terrainData: {fileID: 11400000, guid: dd6f72118fce9d144a23015435c47270, type: 2}
+  prefabKey: mountain_chunk

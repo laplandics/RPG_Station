@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using static GridMover;
-using static SaveDataService;
+using static MapDataHandler;
 
 public static class GlobalMapMethods
 {
@@ -36,7 +36,7 @@ public static class GlobalMapMethods
         return farChunks.ToArray();
     }
 
-    private static List<Vector2Int> GetBoundaries(int area, Vector2Int center)
+    public static List<Vector2Int> GetBoundaries(int area, Vector2Int center)
     {
         var boundaries = new List<Vector2Int>();
         for (var y = -area; y <= area; y++)

@@ -15,14 +15,16 @@ public class GlobalInputsManagerSo : ScriptableObject
 
     public GameInputs GetInputs() => _inputs;
 
-    public void EnableAllGlobalInputs()
+    public void EnableAllInputs()
     {
+        _inputs.Player.Enable();
         _inputs.Global.Enable();
         EnableSaveLoadInputs();
     }
     
-    public void DisableAllGlobalInputs()
+    public void DisableAllInputs()
     {
+        _inputs.Player.Disable();
         _inputs.Global.Disable();
         DisableSaveLoadInputs();
     }

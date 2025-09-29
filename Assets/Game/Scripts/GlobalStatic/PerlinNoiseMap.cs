@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static TerrainDataHandler;
 
 public static class PerlinNoiseMap
 {
@@ -15,10 +16,8 @@ public static class PerlinNoiseMap
     public static Dictionary<Vector2Int, TerrainType> SmoothTerrain(Dictionary<Vector2Int, TerrainType> initialMap, int threshold, int chunkSize)
     {
         var newMap = new Dictionary<Vector2Int, TerrainType>(initialMap);
-        foreach (var kvp in initialMap)
+        foreach (var (pos, terrainType) in initialMap)
         {
-            var pos = kvp.Key;
-            var current = kvp.Value;
             var counts = new Dictionary<TerrainType, int>();
             var directions = new Vector2Int[]
             {
@@ -40,11 +39,22 @@ public static class PerlinNoiseMap
                     counts[neighborType]++;
                 }
             }
-            var majority = current;
+            var majority = terrainType;
             var maxCount = 0;
             foreach (var count in counts) { if (count.Value > maxCount) { maxCount = count.Value; majority = count.Key; } }
-            if (majority != current && maxCount >= threshold) newMap[pos] = majority;
+            if (majority != terrainType && maxCount >= threshold) newMap[pos] = majority;
         }
         return newMap;
+    }
+    
+    public static TerrainType ChooseChunkFromNoise(float noise)
+    {
+        var type = TerrainType.Water;
+        foreach (var ts in GetTerrainSettingsSo)
+        {
+            if (noise > ts.noiseMax || noise < ts.noiseMin) continue;
+            type = ts.terrainType;
+        }
+        return type;
     }
 }

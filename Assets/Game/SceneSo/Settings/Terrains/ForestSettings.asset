@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ForestSettings
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataStorage
   terrainKey: terrain_forest
+  chunkPrefab: {fileID: -6692571221211114530, guid: 074b28149319aa54c93d423ce8898ecb, type: 3}
   terrainType: 2
   noiseMin: 0.5
   noiseMax: 0.7

@@ -3,8 +3,8 @@ using static EventManager;
 
 public class EntryPoint : MonoBehaviour
 {
-    [SerializeField] private SceneInitializeService sceneInitializer;
     [SerializeField] private GameObject[] sceneServices;
+    private SceneInitializeService _sceneInitializer;
     
     [SerializeField] private GlobalSettings globalSettings;
     private void Start()
@@ -12,18 +12,14 @@ public class EntryPoint : MonoBehaviour
         InitializeDS();
         OnSceneReady.AddListener(FinalizeLoading);
 
-        DS.GetGlobalManager<GlobalInputsManagerSo>().DisableAllGlobalInputs();
+        DS.GetGlobalManager<GlobalInputsManagerSo>().DisableAllInputs();
         AssignManagersSoToInSceneManagersInitialization();
-        SpawnInSceneManagers();
-        DS.GetGlobalManager<GlobalInputsManagerSo>().EnableAllGlobalInputs();
-        InitializeGameSettings();
+        SpawnInSceneServices();
+        InitializeSaveLoadService();
         InitializeSceneService();
     }
-
-    private void InitializeDS()
-    {
-        DS.Initialize();
-    }
+    
+    private void InitializeDS() => DS.Initialize();
 
     private void AssignManagersSoToInSceneManagersInitialization()
     {
@@ -34,31 +30,25 @@ public class EntryPoint : MonoBehaviour
         }
     }
 
-    private void SpawnInSceneManagers()
+    private void SpawnInSceneServices()
     {
         foreach (var service in sceneServices)
         {
             var manager = Instantiate(service, Vector3.zero, Quaternion.identity, transform).GetComponent<MonoBehaviour>();
             DS.SetSceneManager(manager);
+            if (manager.GetType() == typeof(SceneInitializeService)) _sceneInitializer = manager as SceneInitializeService;
             manager.GetComponent<IInSceneService>().Initialize();
         }
         OnInSceneManagersInitialized?.Invoke();
     }
     
-    private void InitializeGameSettings()
-    {
-        SaveDataService.SaveMapSettings(globalSettings.mapSettings);
-        SaveDataService.SavePlayerData(globalSettings.playerSettings);
-        SaveDataService.SaveTerrainSettings(globalSettings.terrainSettings);
-    }
-
-    private void InitializeSceneService()
-    {
-        sceneInitializer.Initialize();
-    }
+    private void InitializeSaveLoadService() => SaveLoadService.SubscribeToSaveLoadEvents();
+    
+    private void InitializeSceneService() => _sceneInitializer.InitializeGame();
 
     private void FinalizeLoading()
     {
         Debug.Log("Loading done");
+        DS.GetGlobalManager<GlobalInputsManagerSo>().EnableAllInputs();
     }
 }

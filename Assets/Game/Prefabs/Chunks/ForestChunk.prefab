@@ -18597,4 +18597,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6772e38c8fd6bff4e9de17155fdcf155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForestChunk
-  terrainData: {fileID: 11400000, guid: b9f391ccdf9e54c4b8be24e38468bcc3, type: 2}
+  prefabKey: forest_chunk

@@ -2,26 +2,37 @@ using static EventManager;
 
 public class MapInitializer
 {
-    private readonly GameObjectsService _gameObjectsService;
-    private TerrainDataGenerator _terrainDataGenerator;
-    private ChunksGenerator _chunksGenerator;
+    private readonly GOService _goService;
     private Map _map;
+    
+    public MapData CurrentMapData { get; private set; }
+    public TerrainsData CurrentTerrainsData { get; private set; }
+    public TerrainDataGenerator TerrainDataGenerator {get ; private set;}
+    public TerrainChunksGenerator TerrainChunksGenerator {get; private set;}
 
     public MapInitializer()
     {
-        _gameObjectsService = DS.GetSceneManager<GameObjectsService>();
+        _goService = DS.GetSceneManager<GOService>();
         OnMapSpawned.AddListener(SetMap);
     }
 
-    private void SetMap(Map map, MapData data)
+    private void SetMap(Map map, MapData data, TerrainsData terrainsData)
     {
+        CurrentMapData = data;
+        CurrentTerrainsData = terrainsData;
         _map = map;
-        _terrainDataGenerator = new TerrainDataGenerator(data);
-        _chunksGenerator = new ChunksGenerator(map, data);
+        
+        TerrainDataGenerator = new TerrainDataGenerator(data);
+        TerrainChunksGenerator = new TerrainChunksGenerator(this, map, data);
     }
     
     public void DeInitialize()
     {
-        
+        TerrainDataGenerator.Dispose();
+        TerrainChunksGenerator.Dispose();
+        _goService.Despawn(_map.gameObject);
+        CurrentMapData = null;
+        CurrentTerrainsData = null;
+        OnMapSpawned.RemoveListener(SetMap);
     }
 }

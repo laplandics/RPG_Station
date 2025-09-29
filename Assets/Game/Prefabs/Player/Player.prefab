@@ -123,8 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd539427a8c3eb458666c03a4b00cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  key: a553a097-1f9f-4701-b295-20df464a89d1
-  controller: {fileID: 4890396874743471357}
 --- !u!114 &4890396874743471357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,10 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bf30df859eef242a3537efa7016a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpriteSwapper
-  spriteAssetsBundle: {fileID: 11400000, guid: c5c3b7c34fa04884c859f2f47e0c209e, type: 2}
-  spriteRenderer: {fileID: 8395470353823340448}
-  baseLeft: {fileID: 206652746, guid: 7372c3892bbaf2d49863526000c641d2, type: 3}
-  baseRight: {fileID: 705814963, guid: 7372c3892bbaf2d49863526000c641d2, type: 3}
+  baseLeft: {fileID: 9010246951293410028, guid: 739929f7378beff48b9b5651fb33367b, type: 3}
+  baseRight: {fileID: -1285062391946184785, guid: 739929f7378beff48b9b5651fb33367b, type: 3}
 --- !u!1 &7093767259890294133
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +235,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 705814963, guid: 7372c3892bbaf2d49863526000c641d2, type: 3}
+  m_Sprite: {fileID: -1285062391946184785, guid: 739929f7378beff48b9b5651fb33367b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

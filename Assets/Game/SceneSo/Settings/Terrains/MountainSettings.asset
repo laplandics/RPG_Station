@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MountainSettings
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataStorage
   terrainKey: terrain_mountain
+  chunkPrefab: {fileID: -43422627071350971, guid: 53ce60012e16aec439e1e6697a38b633, type: 3}
   terrainType: 3
   noiseMin: 0.7
   noiseMax: 1

@@ -5,12 +5,12 @@ public class CameraInitializer
 {
     private Camera _camera;
     private GameCamera _gameCamera;
-    private readonly GameObjectsService _gameObjectsService;
+    private readonly GOService _goService;
 
     public CameraInitializer()
     {
-        OnCameraSpawned.AddUniqueListener(SetCamera);
-        _gameObjectsService = DS.GetSceneManager<GameObjectsService>();
+        OnCameraSpawned.AddListener(SetCamera);
+        _goService = DS.GetSceneManager<GOService>();
     }
 
     private void SetCamera(Camera camera, SaveData _)
@@ -20,5 +20,9 @@ public class CameraInitializer
         _gameCamera.Initialize();
     }
 
-    public void DeInitialize() => _gameObjectsService.Despawn(_gameCamera.gameObject);
+    public void DeInitialize()
+    {
+        _goService.Despawn(_gameCamera.gameObject);
+        OnCameraSpawned.RemoveListener(SetCamera);
+    }
 }

@@ -105,4 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3e18a537e628046a761a730fdb85db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shadowling
-  key: SHADOWLING
+  prefabKey: SHADOWLING

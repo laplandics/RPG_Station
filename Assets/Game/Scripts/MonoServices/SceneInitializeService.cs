@@ -1,30 +1,47 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using static EventManager;
 
-public class SceneInitializeService : MonoBehaviour
+public class SceneInitializeService : MonoBehaviour, IInSceneService
 {
     [SerializeField] private ScriptableObject[] objectSpawners;
-    
-    private CameraInitializer _cameraInitializer;
-    private LightInitializer _lightInitializer;
-    private MapInitializer _mapInitializer;
-    private PlayerInitializer _playerInitializer;
-    private UIInitializer _uiInitializer;
-    
+    private RoutineService _routineService;
+    private bool _isDataInitialized;
+
+    private CameraInitializer CameraInitializer { get; set; }
+    private LightInitializer LightInitializer { get; set; }
+    public MapInitializer MapInitializer { get; private set; }
+    public PlayerInitializer PlayerInitializer { get; private set; }
+    private UIInitializer UIInitializer { get; set; }
+
     public void Initialize()
     {
-        OnLoad.AddUniqueListener(Initialize);
+        OnLoad.AddListener(() => StartCoroutine(RestartGame()));
+    }
+    
+    public void SetDataState(bool state) => _isDataInitialized = state;
+
+    private IEnumerator RestartGame()
+    {
+        yield return new WaitUntil(() => _isDataInitialized);
+        yield return null;
+        InitializeGame();
+        DS.GetGlobalManager<GlobalInputsManagerSo>().EnableAllInputs();
+    }
+
+    public void InitializeGame()
+    {
         AssignSceneGameObjectInitializers();
         AssignSpawnersSo();
     }
     
     private void AssignSceneGameObjectInitializers()
     {
-        _cameraInitializer = new CameraInitializer();
-        _lightInitializer = new LightInitializer();
-        _mapInitializer = new MapInitializer();
-        _playerInitializer = new PlayerInitializer();
-        _uiInitializer = new UIInitializer();
+        CameraInitializer = new CameraInitializer();
+        LightInitializer = new LightInitializer();
+        MapInitializer = new MapInitializer();
+        PlayerInitializer = new PlayerInitializer();
+        UIInitializer = new UIInitializer();
     }
     
     private void AssignSpawnersSo()
@@ -38,6 +55,16 @@ public class SceneInitializeService : MonoBehaviour
     
     public void EraseScene()
     {
+        CameraInitializer.DeInitialize();
+        LightInitializer.DeInitialize();
+        MapInitializer.DeInitialize();
+        PlayerInitializer.DeInitialize();
+        UIInitializer.DeInitialize();
         
+        CameraInitializer = null;
+        LightInitializer = null;
+        MapInitializer = null;
+        PlayerInitializer = null;
+        UIInitializer = null;
     }
 }

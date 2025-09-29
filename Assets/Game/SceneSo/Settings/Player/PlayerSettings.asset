@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2888ff3c557c4ec184ee8e49a6b1546c, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSettings
-  playerKey: player
-  x: 0
-  y: 0
+  playerKey: PLAYER
+  x: -74
+  y: 53
+  animationSpeed: 10
+  baseStepsDelay: 0.3
+  minStepsDelay: 0.01
+  decreaseRate: 30

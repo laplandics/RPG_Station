@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GlobalSettings
   m_EditorClassIdentifier: Assembly-CSharp::GlobalSettings
   mapSettings: {fileID: 11400000, guid: be6d7fbe11b7a4247a12d2dda1e7621a, type: 2}
-  playerSettings: {fileID: 11400000, guid: b0b3eab7a7f75e14fb44139abf6b6a3f, type: 2}
+  playerSettingsSo: {fileID: 11400000, guid: b0b3eab7a7f75e14fb44139abf6b6a3f, type: 2}
   terrainSettings:
   - {fileID: 11400000, guid: b9f391ccdf9e54c4b8be24e38468bcc3, type: 2}
   - {fileID: 11400000, guid: ad214b8925700044eb23f614a3e4dec4, type: 2}

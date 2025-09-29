@@ -4,18 +4,22 @@ using static EventManager;
 public class LightInitializer
 {
     private Light2D _globalLight;
-    private readonly GameObjectsService _gameObjectsService;
+    private readonly GOService _goService;
 
     public LightInitializer()
     {
-        OnLightSpawned.AddUniqueListener(SetLight);
-        _gameObjectsService = DS.GetSceneManager<GameObjectsService>();
+        OnLightSpawned.AddListener(SetLight);
+        _goService = DS.GetSceneManager<GOService>();
     }
 
     private void SetLight(Light2D light, SaveData _)
     {
         _globalLight = light;
     }
-    
-    public void DeInitialize() => _gameObjectsService.Despawn(_globalLight.transform.parent.gameObject);
+
+    public void DeInitialize()
+    {
+        _goService.Despawn(_globalLight.transform.parent.gameObject);
+        OnLightSpawned.RemoveListener(SetLight);
+    }
 }

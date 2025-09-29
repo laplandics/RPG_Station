@@ -9,7 +9,7 @@ public class PlayerSpawnerSo : ScriptableObject, ISpawner
 
     public void InitializeSpawner()
     {
-        _playerData = SaveDataService.GetPlayerData;
+        _playerData = PlayerDataHandler.GetPlayerData;
         SpawnPlayer();
     }
 
