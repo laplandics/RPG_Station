@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
@@ -25,12 +26,11 @@ public static class EventManager
     public static readonly UnityEvent<Terminal, SaveData> OnTerminalSpawned = new();
 
     //MAP_EVENTS//
-    public static readonly UnityEvent<Map, MapData, TerrainsData> OnMapSpawned = new();
-    public static readonly UnityEvent<Vector2Int> OnRenderAreaBorderReached = new();
-
+    public static readonly UnityEvent<Map, MapData, AllTerrainsData> OnMapSpawned = new();
+    public static readonly UnityEvent<Vector2Int, IWalkable> OnSmbEnteredChunk = new();
+    
     //PLAYER_EVENTS//
     public static readonly UnityEvent<Player, PlayerData> OnPlayerSpawned = new();
     public static readonly UnityEvent<Transform> OnPlayersPositionChanged = new();
-    public static readonly UnityEvent<Vector2Int> OnPlayerChunkChanged = new();
 
 }

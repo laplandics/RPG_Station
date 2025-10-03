@@ -1,64 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
-using static GridMover;
 using static MapDataHandler;
 
 public static class GlobalMapMethods
 {
-    public static Vector2Int GetPlayerChunk(Transform playerTransform)
+    public static Vector2Int GetEntityChunk(Transform entityTransform)
     {
-        var player = playerTransform.position;
-        var playerChunkX = (int)Math.Round(player.x / GetMapData.chunkSize);
-        var playerChunkY = (int)Math.Round(player.y / GetMapData.chunkSize);
+        var entityTransformPosition = entityTransform.position;
+        var entityChunkX = Mathf.FloorToInt(entityTransformPosition.x/ GetMapData.chunkSize);
+        var entityChunkY = Mathf.FloorToInt(entityTransformPosition.y / GetMapData.chunkSize);
     
-        return new Vector2Int(playerChunkX, playerChunkY);
-    }
-    
-    public static Vector2Int GetChunkCenter(Vector2 pos)
-    {
-        var chunkX = (int)Math.Round(pos.x / GetMapData.chunkSize) * GetMapData.chunkSize;
-        var chunkY = (int)Math.Round(pos.y / GetMapData.chunkSize) * GetMapData.chunkSize;
-    
-        return new Vector2Int(chunkX, chunkY);
+        return new Vector2Int(entityChunkX, entityChunkY);
     }
 
-    public static Vector2Int[] GetChunksAroundPlayer(int area, int distance, Vector2Int playerChunk)
+    public static Vector2Int GetChunkCenterWorldPosition(Vector2Int chunk)
     {
-        var allChunksInArea = GetBoundaries(area, playerChunk);
-        var farChunks = new List<Vector2Int>();
-        foreach (var pos in allChunksInArea)
-        {
-            if(Mathf.Abs(pos.x - playerChunk.x) <= distance * GetMapData.chunkSize && Mathf.Abs(pos.y - playerChunk.y) <= distance * GetMapData.chunkSize) continue;
-            farChunks.Add(pos);
-        }
-        return farChunks.ToArray();
+        var chunkXPos = chunk.x * GetMapData.chunkSize;
+        var chunkYPos = chunk.y * GetMapData.chunkSize;
+        return new Vector2Int(chunkXPos, chunkYPos);
     }
 
-    public static List<Vector2Int> GetBoundaries(int area, Vector2Int center)
+    public static List<Vector2Int> GetChunksIndexesInArea(int chunksCount, Vector2Int index)
     {
-        var boundaries = new List<Vector2Int>();
-        for (var y = -area; y <= area; y++)
+        var positions = new List<Vector2Int>();
+        var halfArea = chunksCount / 2;
+        
+        var startX = index.x - halfArea;
+        var startY = index.y - halfArea;
+        
+        for (var y = 0; y < chunksCount; y ++)
         {
-            for (var x = -area; x <= area; x++)
+            for (var x = 0; x < chunksCount; x ++)
             {
-                var chunkX = center.x + x;
-                var chunkY = center.y + y;
-                boundaries.Add(new Vector2Int(chunkX * GetMapData.chunkSize, chunkY * GetMapData.chunkSize));
+                var xPos = startX + x;
+                var yPos = startY + y;
+                positions.Add(new Vector2Int(xPos, yPos));
             }
         }
-        return boundaries;
+        return positions;
     }
-    
-    public static Vector2 GetRandomSpawnPoint(Vector2Int chunkPosition)
-    {
-        var halfWidth = GetMapData.chunkSize / 2f;
-        var halfHeight = GetMapData.chunkSize / 2f;
 
-        var x = Random.Range(chunkPosition.x - halfWidth, chunkPosition.x + halfWidth);
-        var y = Random.Range(chunkPosition.y - halfHeight, chunkPosition.y + halfHeight);
-        
-        return SnapToGrid(new Vector2(x, y));
+    public static List<Vector2Int> GetTilesPositionsInChunk(Vector2Int chunkIndex)
+    {
+        var positions = new List<Vector2Int>();
+
+        int startX = chunkIndex.x * GetMapData.chunkSize;
+        int startY = chunkIndex.y * GetMapData.chunkSize;
+
+        for (int y = 0; y < GetMapData.chunkSize; y++)
+        {
+            for (int x = 0; x < GetMapData.chunkSize; x++)
+            {
+                positions.Add(new Vector2Int(startX + x, startY + y));
+            }
+        }
+        return positions;
     }
 }

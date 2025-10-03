@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: ForestSettings
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataStorage
   terrainKey: terrain_forest
-  chunkPrefab: {fileID: -6692571221211114530, guid: 074b28149319aa54c93d423ce8898ecb, type: 3}
-  terrainType: 2
-  noiseMin: 0.5
-  noiseMax: 0.7
+  biomeType: 2
+  noise: {x: 0.5, y: 0.8}
   enemySpawnMult: 3.91
-  allowedEnemies:
-  - {fileID: -491516063759454300, guid: 4d826b19a528fca479cf0daa8b372de1, type: 3}
+  allowedEnemies: []

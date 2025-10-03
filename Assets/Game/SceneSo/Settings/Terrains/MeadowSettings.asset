@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: MeadowSettings
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataStorage
   terrainKey: terrain_meadow
-  chunkPrefab: {fileID: -5075080407261769186, guid: ab2dc429485b1f143af61ac5a9d5c969, type: 3}
-  terrainType: 1
-  noiseMin: 0.31
-  noiseMax: 0.5
+  biomeType: 1
+  noise: {x: 0.25, y: 0.5}
   enemySpawnMult: 1.12
-  allowedEnemies:
-  - {fileID: -491516063759454300, guid: 4d826b19a528fca479cf0daa8b372de1, type: 3}
+  allowedEnemies: []

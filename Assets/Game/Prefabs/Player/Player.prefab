@@ -123,6 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd539427a8c3eb458666c03a4b00cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  playerController: {fileID: 4890396874743471357}
+  playerSpriteSwapper: {fileID: 3871936838316568781}
+  playerSpriteRenderer: {fileID: 8395470353823340448}
 --- !u!114 &4890396874743471357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,13 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6cff2b80eeead4798a74974d263b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  animationSpeed: 10
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
-  baseStepsDelay: 0.2
-  minStepsDelay: 0.01
-  decreaseRate: 10
 --- !u!114 &3871936838316568781
 MonoBehaviour:
   m_ObjectHideFlags: 0

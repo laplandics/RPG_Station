@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSettings
   playerKey: PLAYER
-  x: -74
-  y: 53
+  x: 0
+  y: 0
   animationSpeed: 10
   baseStepsDelay: 0.3
   minStepsDelay: 0.01

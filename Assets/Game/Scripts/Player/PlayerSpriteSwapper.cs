@@ -8,10 +8,10 @@ public class PlayerSpriteSwapper : MonoBehaviour
 
     private PlayerInitializer _playerManager;
 
-    public void Initialize(PlayerInitializer initializer)
+    public void Initialize(PlayerInitializer initializer, Player player)
     {
         _playerManager  = initializer;
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer = player.playerSpriteRenderer;
         DS.GetSceneManager<RoutineService>().GetUpdateAction(SetPlayerSprite);
     }
 

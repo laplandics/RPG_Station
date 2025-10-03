@@ -6,9 +6,9 @@ public class PlayerInitializer
     private readonly GOService _goService;
     private PlayerChunkObserver _playerChunkObserver;
     private PlayerSpriteSwapper _playerSpriteSwapper;
-    private PlayerController _playerController;
     private Player _player;
-    public Vector2 MoveInput => _playerController.GetMoveInput();
+    public Vector2 MoveInput => PlayerController.GetMoveInput();
+    public PlayerController PlayerController { get; private set; }
 
     private PlayerData _playerData;
     public PlayerData CurrentPlayerData
@@ -32,16 +32,16 @@ public class PlayerInitializer
     {
         CurrentPlayerData = data;
         _player = player;
-        _playerChunkObserver = new PlayerChunkObserver(player.transform);
-        _playerController = _player.GetComponent<PlayerController>();
-        _playerSpriteSwapper = _player.GetComponent<PlayerSpriteSwapper>();
         OnSceneReady.AddListener(InitializePlayerScripts);
+        PlayerController = _player.playerController;
+        _playerSpriteSwapper = _player.playerSpriteSwapper;
+        _playerChunkObserver = new PlayerChunkObserver(player.transform, PlayerController);
     }
 
     private void InitializePlayerScripts()
     {
-        _playerController.Initialize();
-        _playerSpriteSwapper.Initialize(this);
+        PlayerController.Initialize();
+        _playerSpriteSwapper.Initialize(this, _player);
     }
 
     public void DeInitialize()

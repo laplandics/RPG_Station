@@ -1,13 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using static EventManager;
 using static UnityEngine.InputSystem.InputAction;
 using static PlayerDataHandler;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IWalkable
 {
-    [SerializeField] private LayerMask obstacleMask;
     private GameInputs _input;
     private Transform _playerTransform;
     private Vector2 _moveInput;
@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float _holdTime;
     private bool _isInitialized;
 
+    public HashSet<Vector2Int> UnreachableTiles { get; set; } = new();
+    
     public void Initialize()
     {
         _input = DS.GetGlobalManager<GlobalInputsManagerSo>().GetInputs();
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
                 continue;
             }
 
-            if (!TryCalculateNewPosition()) yield break;
+            if (!CheckTilePosition()) yield break;
             IEnumerator action = null;
             yield return new MoveActionTc().PerformAction(0.6f, 1, ChangePlayersPosition(), CancelMovement()).ToCoroutine(result => action = result);
             yield return DS.GetSceneManager<RoutineService>().StartRoutine(action);
@@ -60,16 +62,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool TryCalculateNewPosition()
+    public bool CheckTilePosition()
     {
         var currentPosition = GridMover.SnapToGrid(_playerTransform.position);
-        var pos = currentPosition + _moveInput * GridMover.CellSize;
+        var pos = currentPosition + _moveInput * GridMover.TileSize;
         _targetPosition = GridMover.SnapToGrid(pos);
-        if (!Physics2D.OverlapCircle(GridMover.SnapToCellCenter(_targetPosition), GridMover.CellSize * 0.1f, obstacleMask)) return true;
+        if (!UnreachableTiles.Contains(_targetPosition)) return true;
         _isMoving = false;
         return false;
     }
-
+    
     private IEnumerator CancelMovement()
     {
         _isCancelled = true;

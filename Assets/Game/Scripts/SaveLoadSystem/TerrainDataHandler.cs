@@ -3,25 +3,23 @@
 public static class TerrainDataHandler
 {
     public static TerrainSettingsSo[] GetTerrainSettingsSo {get; private set;}
-    public static TerrainsData GetTerrainsData {get; private set;}
+    public static AllTerrainsData GetAllTerrainsData {get; private set;}
     
     public static void SetTerrainSettings(TerrainSettingsSo[] terrainSettings)
     {
         GetTerrainSettingsSo = terrainSettings;
-        GetTerrainsData = new TerrainsData { instanceKey = "TERRAIN", allTerrainsData = new List<TerrainData>() };
+        GetAllTerrainsData = new AllTerrainsData { instanceKey = "TERRAIN", allTerrainsData = new List<TerrainData>() };
         foreach (var ts in terrainSettings)
         {
             var prefabKeys = new List<string>();
             foreach (var enemy in ts.allowedEnemies) { prefabKeys.Add(enemy.prefabKey); }
-            GetTerrainsData.allTerrainsData.Add
+            GetAllTerrainsData.allTerrainsData.Add
             (
                 new TerrainData
                 {
                     instanceKey = ts.terrainKey,
-                    chunkPrefabKey = ts.chunkPrefab.prefabKey,
-                    terrainType = ts.terrainType,
-                    noiseMax = ts.noiseMax,
-                    noiseMin = ts.noiseMin,
+                    biomeType = ts.biomeType,
+                    noise = ts.noise,
                     enemySpawnMult = ts.enemySpawnMult,
                     allowedEnemiesPrefabKeys = prefabKeys
                 }
@@ -29,10 +27,10 @@ public static class TerrainDataHandler
         }
     }
 
-    public static TerrainsData SetTerrainsData(TerrainsData terrainsData = null)
+    public static AllTerrainsData SetTerrainsData(AllTerrainsData allTerrainsData = null)
     {
-        terrainsData ??= DS.GetSceneManager<SceneInitializeService>().MapInitializer.CurrentTerrainsData;
-        GetTerrainsData = terrainsData;
+        allTerrainsData ??= DS.GetSceneManager<SceneInitializeService>().MapInitializer.CurrentAllTerrainsData;
+        GetAllTerrainsData = allTerrainsData;
 
         var allEnemies = new Dictionary<string, Enemy>();
         foreach (var settings in GetTerrainSettingsSo)
@@ -44,12 +42,10 @@ public static class TerrainDataHandler
         }
         foreach (var terrainSetting in GetTerrainSettingsSo)
         {
-            foreach (var terrainData in GetTerrainsData.allTerrainsData)
+            foreach (var terrainData in GetAllTerrainsData.allTerrainsData)
             {
-                if (terrainSetting.terrainType != terrainData.terrainType) continue;
-                terrainSetting.noiseMax = terrainData.noiseMax;
-                terrainSetting.noiseMin = terrainData.noiseMin;
-                terrainSetting.chunkPrefab.prefabKey = terrainData.chunkPrefabKey;
+                if (terrainSetting.biomeType != terrainData.biomeType) continue;
+                terrainSetting.noise = terrainData.noise;
                 terrainSetting.enemySpawnMult = terrainData.enemySpawnMult;
                 terrainSetting.allowedEnemies.Clear();
                 foreach (var key in terrainData.allowedEnemiesPrefabKeys)
@@ -59,6 +55,6 @@ public static class TerrainDataHandler
             }
         }
 
-        return GetTerrainsData;
+        return GetAllTerrainsData;
     }
 }

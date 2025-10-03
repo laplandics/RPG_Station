@@ -1,43 +1,187 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using static EventManager;
+using static GlobalMapMethods;
+using static TilesDataGenerator;
 
-public class TerrainGenerator
+public class TerrainMeshGenerator : IDisposable
 {
-    private Texture2D _atlas;
-    private Material _tileMaterial;
-    private int _mapSizeX; 
-    private int _mapSizeY;
-    private int _chunkSize;
-    private int _atlasColumns;
-    private int _atlasRows;
-    private bool _isAtlasOriginTopLeft;
-    private float _noiseScaleDividedBy100;
-    private int _seed;
-
     private readonly Dictionary<Vector2Int, Chunk> _chunks = new();
-    private const int TileSize = 1;
-    private int[,] _tiles;
+    private readonly Dictionary<Vector2Int, int> _tiles = new();
+    private readonly Queue<Vector2Int> _memorizedChunks;
+    private readonly Transform _mapTransform;
+    private readonly GOService _goService;
+    private readonly Material _tileMaterial;
+    private readonly Chunk _chunkPrefab;
+    private readonly int _renderChunksCount;
+    private readonly int _chunkSize;
+    private readonly int _atlasColumns;
+    private readonly int _atlasRows;
+    private readonly int _memorizedArea;
+    private bool _isFirstGeneration;
 
-    // private void GenerateChunksMeshes()
-    // {
-    //     AssignMaterial();
-    //     GenerateTilesData();
-    //     ClearChunks();
-    //     SplitMapInChunks();
-    // }
-    
-    private void AssignMaterial()
+    public TerrainMeshGenerator(Map map)
     {
-        if (_tileMaterial == null)
+        _goService = DS.GetSceneManager<GOService>();
+        _mapTransform = map.transform;
+        var mapData = MapDataHandler.GetMapData;
+        var mapSettings = MapDataHandler.GetMapSettingsSo;
+        _chunkPrefab = mapSettings.chunkPrefab;
+        _renderChunksCount = mapData.renderChunksCount;
+        _chunkSize = mapData.chunkSize;
+        _atlasColumns = mapData.atlasColumns;
+        _atlasRows = mapData.atlasRows;
+        _memorizedArea = mapData.memorizedArea;
+        _memorizedChunks = mapSettings.MemorizedChunks;
+        var atlas = mapSettings.atlasTexture;
+        _tileMaterial = new Material(Shader.Find("Sprites/Default"));
+        _tileMaterial.mainTexture = atlas;
+        _tileMaterial.hideFlags = HideFlags.DontSave;
+        _isFirstGeneration = true;
+        OnSmbEnteredChunk.AddListener(BuildNewTerrain);
+        RestoreCalculationArea();
+    }
+
+    private void RestoreCalculationArea()
+    {
+        if (_memorizedChunks.Count <= 0) return;
+        foreach (var position in _memorizedChunks)
         {
-            _tileMaterial = new Material(Shader.Find("Sprites/Default"))
-            {
-                mainTexture = _atlas,
-                hideFlags = HideFlags.DontSave
-            };
+            GenerateChunk(position);
         }
-        else { _tileMaterial.mainTexture = _atlas; }
     }
     
+    private void BuildNewTerrain(Vector2Int chunkIndex, IWalkable entity)
+    {
+        if (entity is not PlayerController) return;
+        var indexes = GetChunksIndexesInArea(_renderChunksCount, chunkIndex);
+        var nearChunks = new List<Vector2Int>();
+        foreach (var index in indexes)
+        {
+            GenerateChunk(index, nearChunks);
+            UpdateCalculationArea(index);
+        }
+        ClearFarChunks(nearChunks);
+        if (_isFirstGeneration) OnSceneReady?.Invoke();
+        _isFirstGeneration = false;
+    }
     
+    private void GenerateChunk(Vector2Int index, List<Vector2Int> nearChunks = null)
+    {
+        nearChunks?.Add(index);
+        if (_chunks.ContainsKey(index)) return;
+        TryGenerateTiles(index);
+        CreateChunk(index);
+        _tiles.Clear();
+    }
+
+    private void TryGenerateTiles(Vector2Int chunkIndex)
+    {
+        var chunkCenterPosition = GetChunkCenterWorldPosition(chunkIndex);
+        if (_tiles.ContainsKey(chunkCenterPosition)) return;
+        var newTiles = GetChunkTilesIndexes(chunkIndex);
+        foreach (var tile in newTiles) { _tiles.TryAdd(tile.Key, tile.Value); }
+    }
+    
+    private void UpdateCalculationArea(Vector2Int index)
+    {
+        if (_memorizedChunks.Contains(index)) return;
+        _memorizedChunks.Enqueue(index);
+        if (_memorizedChunks.Count > _memorizedArea) _memorizedChunks.Dequeue();
+    }
+
+    private void ClearFarChunks(List<Vector2Int> nearChunks)
+    {
+        var farChunks = new List<Vector2Int>();
+        foreach (var chunk in _chunks)
+        {
+            if (_memorizedChunks.Contains(chunk.Key)) continue;
+            if (nearChunks.Contains(chunk.Key)) continue;
+            farChunks.Add(chunk.Key);
+            _goService.Despawn(chunk.Value.gameObject);
+        }
+        foreach (var farChunk in farChunks) { _chunks.Remove(farChunk); }
+    }
+
+    private void CreateChunk(Vector2Int position)
+    {
+        var startTileX = position.x * _chunkSize;
+        var startTileY = position.y * _chunkSize;
+        
+        var chunkW = _chunkSize;
+        var chunkH = _chunkSize;
+        
+        var tileCount = _chunkSize * _chunkSize;
+        var verts = new Vector3[tileCount * 4];
+        var uvs = new Vector2[tileCount * 4];
+        var tris = new int[tileCount * 6];
+        var uvX = 1f / _atlasColumns;
+        var uvY = 1f / _atlasRows;
+        
+        var v = 0;
+        var t = 0;
+
+        for (var y = 0; y < chunkH; y++)
+        {
+            for (var x = 0; x < chunkW; x++)
+            {
+                var globalTileX = startTileX + x;
+                var globalTileY = startTileY + y;
+                var tileIndex = _tiles[new Vector2Int(globalTileX, globalTileY)];
+                
+                var vertexPositionX = x * GridMover.TileSize;
+                var vertexPositionY = y * GridMover.TileSize;
+                var vertexIndex = v;
+                verts[vertexIndex + 0] = new Vector3(vertexPositionX, vertexPositionY, 0);
+                verts[vertexIndex + 1] = new Vector3(vertexPositionX + GridMover.TileSize, vertexPositionY, 0);
+                verts[vertexIndex + 2] = new Vector3(vertexPositionX, vertexPositionY + GridMover.TileSize, 0);
+                verts[vertexIndex + 3] = new Vector3(vertexPositionX + GridMover.TileSize, vertexPositionY + GridMover.TileSize, 0);
+                
+                var texturePositionX = tileIndex % _atlasColumns;
+                var texturePositionY = tileIndex / _atlasColumns;
+                var uMin = texturePositionX * uvX;
+                var vMin = texturePositionY * uvY;
+                uvs[vertexIndex + 0] = new Vector2(uMin, vMin);
+                uvs[vertexIndex + 1] = new Vector2(uMin + uvX, vMin);
+                uvs[vertexIndex + 2] = new Vector2(uMin, vMin + uvY);
+                uvs[vertexIndex + 3] = new Vector2(uMin + uvX, vMin + uvY);
+                
+                tris[t + 0] = vertexIndex + 0;
+                tris[t + 1] = vertexIndex + 2;
+                tris[t + 2] = vertexIndex + 1;
+                
+                tris[t + 3] = vertexIndex + 2;
+                tris[t + 4] = vertexIndex + 3;
+                tris[t + 5] = vertexIndex + 1;
+                
+                v += 4;
+                t += 6;
+            }
+        }
+        
+        var mesh = new Mesh();
+        if (verts.Length > 65000) mesh.indexFormat = IndexFormat.UInt32;
+        mesh.vertices = verts;
+        mesh.uv = uvs;
+        mesh.triangles = tris;
+        mesh.RecalculateBounds();
+        mesh.RecalculateNormals();
+        mesh.MarkDynamic();
+        
+        var chunkPosition = new Vector3(startTileX * GridMover.TileSize, startTileY * GridMover.TileSize, 1f);
+        var chunk = _goService.Spawn(_chunkPrefab, chunkPosition, Quaternion.identity, _mapTransform);
+        chunk.gameObject.name = $"Chunk {position.x}:{position.y}";
+        chunk.Initialize(_tileMaterial, mesh, position, _tiles);
+        _chunks.TryAdd(position, chunk);
+    }
+
+    public void Dispose()
+    {
+        OnSmbEnteredChunk.RemoveListener(BuildNewTerrain);
+        foreach (var kvp in _chunks) { if (kvp.Value != null) _goService.Despawn(kvp.Value.gameObject); }
+        _chunks.Clear();
+        _tiles.Clear();
+    }
 }

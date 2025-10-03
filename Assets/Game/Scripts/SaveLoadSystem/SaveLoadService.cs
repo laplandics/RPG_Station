@@ -22,7 +22,7 @@ public static class SaveLoadService
         
         var mapData = _saveLoadManager.Load<MapData>(MapDataHandler.GetMapData.instanceKey);
         var playerData = _saveLoadManager.Load<PlayerData>(PlayerDataHandler.GetPlayerData.instanceKey);
-        var terrainsData = _saveLoadManager.Load<TerrainsData>(TerrainDataHandler.GetTerrainsData.instanceKey);
+        var terrainsData = _saveLoadManager.Load<AllTerrainsData>(TerrainDataHandler.GetAllTerrainsData.instanceKey);
         
         MapDataHandler.SetMapData(mapData);
         PlayerDataHandler.SetPlayerData(playerData);

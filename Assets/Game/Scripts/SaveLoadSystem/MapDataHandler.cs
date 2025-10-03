@@ -9,13 +9,17 @@
         {
             instanceKey = ms.mapKey,
             chunkSize = ms.chunkSize,
-            mapSize = ms.mapSize,
-            renderAreaSize = ms.renderAreaSize,
+            renderChunksCount = ms.renderChunksCount,
+            memorizedArea = ms.memorizedArea,
+            tilesCalculationArea = ms.tilesCalculationArea,
             seed = ms.seed,
             scale = ms.scale,
-            multX = ms.multX,
-            multY = ms.multY,
-            threshold = ms.threshold
+            octaves = ms.octaves,
+            persistence = ms.persistence,
+            lacunarity = ms.lacunarity,
+            atlasColumns = ms.atlasColumns,
+            atlasRows = ms.atlasRows,
+            ChunksToRemember = ms.MemorizedChunks
         };
     }
 
@@ -26,13 +30,17 @@
         
         GetMapSettingsSo.mapKey = mapData.instanceKey;
         GetMapSettingsSo.chunkSize = mapData.chunkSize;
-        GetMapSettingsSo.mapSize = mapData.mapSize;
-        GetMapSettingsSo.renderAreaSize = mapData.renderAreaSize;
+        GetMapSettingsSo.renderChunksCount = mapData.renderChunksCount;
+        GetMapSettingsSo.memorizedArea = mapData.memorizedArea;
+        GetMapSettingsSo.tilesCalculationArea = mapData.tilesCalculationArea;
         GetMapSettingsSo.seed = mapData.seed;
         GetMapSettingsSo.scale = mapData.scale;
-        GetMapSettingsSo.multX = mapData.multX;
-        GetMapSettingsSo.multY = mapData.multY;
-        GetMapSettingsSo.threshold = mapData.threshold;
+        GetMapSettingsSo.octaves = mapData.octaves;
+        GetMapSettingsSo.persistence = mapData.persistence;
+        GetMapSettingsSo.lacunarity = mapData.lacunarity;
+        GetMapSettingsSo.atlasColumns = mapData.atlasColumns;
+        GetMapSettingsSo.atlasRows = mapData.atlasRows;
+        GetMapSettingsSo.MemorizedChunks = mapData.ChunksToRemember;
 
         return GetMapData;
     }

@@ -6,21 +6,28 @@ using static GlobalMapMethods;
 public class PlayerChunkObserver : IDisposable
 {
     private Vector2Int _currentChunk;
-    public PlayerChunkObserver(Transform playerTransform)
+    private readonly PlayerController _playerController;
+    
+    public PlayerChunkObserver(Transform playerTransform, PlayerController playerController)
     {
-        _currentChunk = GetPlayerChunk(playerTransform);
-        OnPlayerChunkChanged?.Invoke(_currentChunk);
+        _currentChunk = GetEntityChunk(playerTransform);
+        _playerController = playerController;
+        _playerController.UnreachableTiles.Clear();
+        
+        OnSmbEnteredChunk?.Invoke(_currentChunk, _playerController);
         OnPlayersPositionChanged.AddListener(InvokeOnPlayerChunkChanged);
     }
-    
+
     private void InvokeOnPlayerChunkChanged(Transform playerTransform)
     {
-        var newChunk = GetPlayerChunk(playerTransform);
+        var newChunk = GetEntityChunk(playerTransform);
         if (_currentChunk == newChunk) return;
+        _playerController.UnreachableTiles.Clear();
         _currentChunk = newChunk;
-        OnPlayerChunkChanged?.Invoke(_currentChunk);
+        OnSmbEnteredChunk?.Invoke(_currentChunk, _playerController);
+        Debug.Log(_currentChunk);
     }
-
+    
     public void Dispose()
     {
         OnPlayersPositionChanged.RemoveListener(InvokeOnPlayerChunkChanged);

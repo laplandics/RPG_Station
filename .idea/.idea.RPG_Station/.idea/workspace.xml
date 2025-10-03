@@ -5,128 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6d89bb6-794f-423b-b125-e575c60d79ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/Chunk.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/ForestChunk.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MeadowChunk.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MountainChunk.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/WaterChunk.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/MapDataHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/PlayerDataHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadManagerSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/TerrainDataHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/CellDataGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/CellDataGenerator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainChunksGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainDataGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainSettingsSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/NoiseGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IWalkable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IWalkable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TilesDataGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Shadowling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Shadowling.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/MonoServices/PathFindingService.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/MonoServices/PathFindingService.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/Chunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/Chunk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/Terminal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/Terminal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/GlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/GlobalSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Map/MapSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Map/MapSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Player/PlayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Player/PlayerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/ForestSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/ForestSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MeadowSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MeadowSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MountainSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MountainSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/WaterSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/WaterSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Camera/CameraInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalInputsManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalInputsManagerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/SaveData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/SaveData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/SaveLoadManagerSo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/SaveLoadManagerSo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/Chunk.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/ForestChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/ForestChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MeadowChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MeadowChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MountainChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MountainChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/WaterChunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/WaterChunk.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Shadowling.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Shadowling.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/EventManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PerlinNoiseMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PerlinNoiseMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/SaveDataService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/SaveDataService.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Light/LightInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Chunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/ChunksGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/ChunksGenerator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/ForestChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/ForestChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/Map.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFindingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFinder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFindingService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFinder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PerlinNoiseMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PerlinNoiseMap.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/NoiseGenerator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/TerrainType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/BiomeType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/TerrainType.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/BiomeType.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSettingsSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSettingsSo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MeadowChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MeadowChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MountainChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MountainChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/TerrainDataGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/TerrainDataGenerator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/TerrainSettingsSo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/TerrainSettingsSo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/WaterChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/WaterChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/EntryPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/GameObjectsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/GOService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/GameObjectsService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/GOService.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/PathFindingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFindingService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/PathFindingService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFindingService.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/SceneInitializeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/SceneInitializeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerChunkObserver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerChunkObserver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSettingsSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSettingsSo.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpawnerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpawnerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/0. Base.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/0. Base/Player.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/0. Base/Player.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/LeatherCap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/LeatherCap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/MetalHelmet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/MetalHelmet.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/ObsidianHelmet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/ObsidianHelmet.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/RedCap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/1. Head/RedCap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/Chainmail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/Chainmail.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/LeatherJacket.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/LeatherJacket.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/MetalPlate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/MetalPlate.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/ObsidianPlate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/ObsidianPlate.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/Shirt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/Shirt.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/T-shirt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/2. Torso/T-shirt.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/3. Hands.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/3. Hands/LeatherGloves.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/3. Hands/LeatherGloves.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/3. Hands/MetalGloves.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/3. Hands/MetalGloves.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/3. Hands/ObsidianGloves.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/3. Hands/ObsidianGloves.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/LeatherBoots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/LeatherBoots.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/MetalBoots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/MetalBoots.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/ObsidianBoots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/ObsidianBoots.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/VelvetBoots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/4. Legs/VelvetBoots.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/MapDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/MapDataHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/TerrainDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/TerrainDataHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/CellDataGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/CellDataGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TilesDataGenerator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainChunksGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainChunksGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainDataGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainDataGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainSettingsSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainSettingsSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,12 +82,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/29/d9075f41/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/69/fb365682/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/b4/83f79592/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/bd/411eb26f/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e926e9c7db684472928e12ac2693beec9f7400/93/42c96271/GameObjectInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e926e9c7db684472928e12ac2693beec9f7400/ee/07f46f1c/Editor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Core/CinemachinePropertyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -178,7 +123,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.6f2\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath G:\RPG_Station -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="G:\RPG_Station" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -190,7 +135,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.6f2\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath G:\RPG_Station -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="G:\RPG_Station" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -250,6 +195,20 @@
       <workItem from="1759144037637" duration="9128000" />
       <workItem from="1759155400754" duration="5873000" />
       <workItem from="1759181284592" duration="844000" />
+      <workItem from="1759182221528" duration="1037000" />
+      <workItem from="1759220034236" duration="6391000" />
+      <workItem from="1759226502491" duration="314000" />
+      <workItem from="1759226845292" duration="2634000" />
+      <workItem from="1759253185292" duration="9270000" />
+      <workItem from="1759315146485" duration="3217000" />
+      <workItem from="1759320333604" duration="6324000" />
+      <workItem from="1759332001195" duration="1316000" />
+      <workItem from="1759335979120" duration="454000" />
+      <workItem from="1759336590966" duration="18416000" />
+      <workItem from="1759436139349" duration="9226000" />
+      <workItem from="1759483851332" duration="9939000" />
+      <workItem from="1759500657799" duration="4507000" />
+      <workItem from="1759508784612" duration="784000" />
     </task>
     <servers />
   </component>

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public static class PathFindingService
+public static class PathFinder
 {
     public static async UniTask<List<Vector3>> FindPath(Vector3 currentPosition, Vector3 targetPosition)
     {
@@ -11,9 +11,9 @@ public static class PathFindingService
         var routePoints = new List<Vector3>();
         while (nearestPoint != targetPosition)
         {
-            for (var y = -GridMover.CellSize; y <= GridMover.CellSize; y++)
+            for (var y = -GridMover.TileSize; y <= GridMover.TileSize; y++)
             {
-                for (var x = -GridMover.CellSize; x <= GridMover.CellSize; x++)
+                for (var x = -GridMover.TileSize; x <= GridMover.TileSize; x++)
                 {
                     var point = new Vector3(currentPosition.x + x, currentPosition.y + y, 0f);
                     var distance = Vector3.Distance(point, targetPosition);

@@ -23,13 +23,32 @@ public class PlayerData : SaveData
 public class MapData : SaveData
 {
     public int chunkSize;
-    public int mapSize;
-    public int renderAreaSize;
+    public int renderChunksCount;
+    public int memorizedArea;
+    public int tilesCalculationArea;
     public int seed;
     public float scale;
-    public float multX;
-    public float multY;
-    public int threshold;
+    public int octaves;
+    public float persistence;
+    public float lacunarity;
+    public int atlasColumns;
+    public int atlasRows;
+    public Queue<Vector2Int> ChunksToRemember = new();
+}
+
+[Serializable]
+public class AllTerrainsData : SaveData
+{
+    public List<TerrainData> allTerrainsData;
+}
+
+[Serializable]
+public class TerrainData : SaveData
+{
+    public BiomeTypePairs.BiomeType biomeType;
+    public Vector2 noise;
+    public float enemySpawnMult;
+    public List<string> allowedEnemiesPrefabKeys;
 }
 
 [Serializable]
@@ -48,21 +67,4 @@ public class EnemyData : SaveData
     public int x;
     public int y;
     public bool isSpawned;
-}
-
-[Serializable]
-public class TerrainsData : SaveData
-{
-    public List<TerrainData> allTerrainsData;
-}
-
-[Serializable]
-public class TerrainData : SaveData
-{
-    public TerrainType terrainType;
-    public string chunkPrefabKey;
-    public float noiseMin;
-    public float noiseMax;
-    public float enemySpawnMult;
-    public List<string> allowedEnemiesPrefabKeys;
 }

@@ -6,12 +6,12 @@ public class MapSpawnerSo : ScriptableObject, ISpawner
 {
     [SerializeField] private Map mapPrefab;
     private MapData _mapData;
-    private TerrainsData _terrainsData;
+    private AllTerrainsData _allTerrainsData;
 
     public void InitializeSpawner()
     {
         _mapData = MapDataHandler.GetMapData;
-        _terrainsData = TerrainDataHandler.GetTerrainsData;
+        _allTerrainsData = TerrainDataHandler.GetAllTerrainsData;
         SpawnMap();
     }
 
@@ -19,6 +19,6 @@ public class MapSpawnerSo : ScriptableObject, ISpawner
     {
         var map = Instantiate(mapPrefab, Vector2.zero, Quaternion.identity);
         map.gameObject.name = _mapData.instanceKey;
-        OnMapSpawned?.Invoke(map, _mapData, _terrainsData);
+        OnMapSpawned?.Invoke(map, _mapData, _allTerrainsData);
     }
 }

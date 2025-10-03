@@ -6,9 +6,8 @@ public class MapInitializer
     private Map _map;
     
     public MapData CurrentMapData { get; private set; }
-    public TerrainsData CurrentTerrainsData { get; private set; }
-    public TerrainDataGenerator TerrainDataGenerator {get ; private set;}
-    public TerrainChunksGenerator TerrainChunksGenerator {get; private set;}
+    public AllTerrainsData CurrentAllTerrainsData { get; private set; }
+    public TerrainMeshGenerator TerrainMeshGenerator {get; private set;}
 
     public MapInitializer()
     {
@@ -16,23 +15,21 @@ public class MapInitializer
         OnMapSpawned.AddListener(SetMap);
     }
 
-    private void SetMap(Map map, MapData data, TerrainsData terrainsData)
+    private void SetMap(Map map, MapData data, AllTerrainsData allTerrainsData)
     {
         CurrentMapData = data;
-        CurrentTerrainsData = terrainsData;
+        CurrentAllTerrainsData = allTerrainsData;
         _map = map;
-        
-        TerrainDataGenerator = new TerrainDataGenerator(data);
-        TerrainChunksGenerator = new TerrainChunksGenerator(this, map, data);
+        TerrainMeshGenerator = new TerrainMeshGenerator(map);
     }
     
     public void DeInitialize()
     {
-        TerrainDataGenerator.Dispose();
-        TerrainChunksGenerator.Dispose();
+        TerrainMeshGenerator.Dispose();
+        TerrainMeshGenerator = null;
         _goService.Despawn(_map.gameObject);
         CurrentMapData = null;
-        CurrentTerrainsData = null;
+        CurrentAllTerrainsData = null;
         OnMapSpawned.RemoveListener(SetMap);
     }
 }
