@@ -5,8 +5,8 @@ public class EntryPoint : MonoBehaviour
 {
     [SerializeField] private GameObject[] sceneServices;
     private SceneInitializeService _sceneInitializer;
+    private GlobalDataManagerSo _globalDataManager;
     
-    [SerializeField] private GlobalSettings globalSettings;
     private void Start()
     {
         InitializeDS();
@@ -15,8 +15,8 @@ public class EntryPoint : MonoBehaviour
         DS.GetGlobalManager<GlobalInputsManagerSo>().DisableAllInputs();
         AssignManagersSoToInSceneManagersInitialization();
         SpawnInSceneServices();
-        InitializeSaveLoadService();
-        InitializeSceneService();
+        InitializeSaveLoadServices();
+        InitializeSceneInitializer();
     }
     
     private void InitializeDS() => DS.Initialize();
@@ -41,14 +41,25 @@ public class EntryPoint : MonoBehaviour
         }
         OnInSceneManagersInitialized?.Invoke();
     }
+
+    private void InitializeSaveLoadServices()
+    {
+        _globalDataManager = DS.GetGlobalManager<GlobalDataManagerSo>();
+        _globalDataManager.ResetSettings();
+        SaveLoadService.SubscribeToSaveLoadEvents();
+    }
     
-    private void InitializeSaveLoadService() => SaveLoadService.SubscribeToSaveLoadEvents();
-    
-    private void InitializeSceneService() => _sceneInitializer.InitializeGame();
+    private void InitializeSceneInitializer() => _sceneInitializer.InitializeGame();
 
     private void FinalizeLoading()
     {
         Debug.Log("Loading done");
         DS.GetGlobalManager<GlobalInputsManagerSo>().EnableAllInputs();
+    }
+
+    private void OnDestroy()
+    {
+        OnSceneReady.RemoveListener(FinalizeLoading);
+        _globalDataManager.Dispose();
     }
 }

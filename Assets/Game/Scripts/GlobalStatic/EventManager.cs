@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
@@ -26,7 +25,7 @@ public static class EventManager
     public static readonly UnityEvent<Terminal, SaveData> OnTerminalSpawned = new();
 
     //MAP_EVENTS//
-    public static readonly UnityEvent<Map, MapData, AllTerrainsData> OnMapSpawned = new();
+    public static readonly UnityEvent<Map, MapData, AllTilesData, AllBiomesData> OnMapSpawned = new();
     public static readonly UnityEvent<Vector2Int, IWalkable> OnSmbEnteredChunk = new();
     
     //PLAYER_EVENTS//

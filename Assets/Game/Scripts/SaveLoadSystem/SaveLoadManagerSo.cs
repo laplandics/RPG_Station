@@ -2,6 +2,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "SaveLoadSystemManager", menuName = "ManagersSO/SaveLoadSystemManager")]
 public class SaveLoadManagerSo : ScriptableObject, IInSceneManagerListener
 {

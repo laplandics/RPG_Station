@@ -1,17 +1,20 @@
 using UnityEngine;
 using static EventManager;
+using static GameDataInjector;
 
 [CreateAssetMenu(fileName = "MapSpawner", menuName = "SpawnersSO/MapSpawner")]
 public class MapSpawnerSo : ScriptableObject, ISpawner
 {
     [SerializeField] private Map mapPrefab;
     private MapData _mapData;
-    private AllTerrainsData _allTerrainsData;
+    private AllTilesData _allTilesData;
+    private AllBiomesData _allBiomesData;
 
     public void InitializeSpawner()
     {
-        _mapData = MapDataHandler.GetMapData;
-        _allTerrainsData = TerrainDataHandler.GetAllTerrainsData;
+        _mapData = InjectMapData;
+        _allTilesData = InjectTilesData;
+        _allBiomesData = InjectBiomesData;
         SpawnMap();
     }
 
@@ -19,6 +22,6 @@ public class MapSpawnerSo : ScriptableObject, ISpawner
     {
         var map = Instantiate(mapPrefab, Vector2.zero, Quaternion.identity);
         map.gameObject.name = _mapData.instanceKey;
-        OnMapSpawned?.Invoke(map, _mapData, _allTerrainsData);
+        OnMapSpawned?.Invoke(map, _mapData, _allTilesData, _allBiomesData);
     }
 }

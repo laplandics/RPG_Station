@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using static EventManager;
 using static UnityEngine.InputSystem.InputAction;
-using static PlayerDataHandler;
+using static GameDataInjector;
 
 public class PlayerController : MonoBehaviour, IWalkable
 {
@@ -64,9 +64,9 @@ public class PlayerController : MonoBehaviour, IWalkable
 
     public bool CheckTilePosition()
     {
-        var currentPosition = GridMover.SnapToGrid(_playerTransform.position);
-        var pos = currentPosition + _moveInput * GridMover.TileSize;
-        _targetPosition = GridMover.SnapToGrid(pos);
+        var currentPosition = Grid.SnapToGrid(_playerTransform.position);
+        var pos = currentPosition + _moveInput * Grid.TileSize;
+        _targetPosition = Grid.SnapToGrid(pos);
         if (!UnreachableTiles.Contains(_targetPosition)) return true;
         _isMoving = false;
         return false;
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour, IWalkable
     {
         while ((Vector2)_playerTransform.position != _targetPosition)
         {
-            _playerTransform.position = Vector2.MoveTowards(_playerTransform.position, _targetPosition, GetPlayerData.animationSpeed * Time.deltaTime);
+            _playerTransform.position = Vector2.MoveTowards(_playerTransform.position, _targetPosition, InjectPlayerData.animationSpeed * Time.deltaTime);
             if (Vector2.Distance(_playerTransform.position, _targetPosition) < 0.01f)
             {
                 _playerTransform.position = new Vector2(_targetPosition.x, _targetPosition.y);
@@ -98,7 +98,11 @@ public class PlayerController : MonoBehaviour, IWalkable
     private float CalculateDelay()
     {
         _holdTime += Time.deltaTime;
-        var delay = Mathf.Clamp(GetPlayerData.baseStepsDelay - _holdTime * GetPlayerData.decreaseRate, GetPlayerData.minStepsDelay, GetPlayerData.baseStepsDelay);
+        var stepsDelay = InjectPlayerData.baseStepsDelay;
+        var decreaseRate = InjectPlayerData.decreaseRate;
+        var minStepsDelay = InjectPlayerData.minStepsDelay;
+        var baseStepsDelay = InjectPlayerData.baseStepsDelay;
+        var delay = Mathf.Clamp(stepsDelay - _holdTime * decreaseRate, minStepsDelay, baseStepsDelay);
         return delay;
     }
 

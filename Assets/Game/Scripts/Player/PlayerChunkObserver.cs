@@ -25,7 +25,6 @@ public class PlayerChunkObserver : IDisposable
         _playerController.UnreachableTiles.Clear();
         _currentChunk = newChunk;
         OnSmbEnteredChunk?.Invoke(_currentChunk, _playerController);
-        Debug.Log(_currentChunk);
     }
     
     public void Dispose()

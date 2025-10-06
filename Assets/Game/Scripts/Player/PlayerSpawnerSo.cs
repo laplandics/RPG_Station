@@ -1,5 +1,6 @@
 using UnityEngine;
 using static EventManager;
+using static GameDataInjector;
 
 [CreateAssetMenu(fileName = "PlayerSpawner", menuName = "SpawnersSO/PlayerSpawner")]
 public class PlayerSpawnerSo : ScriptableObject, ISpawner
@@ -9,7 +10,7 @@ public class PlayerSpawnerSo : ScriptableObject, ISpawner
 
     public void InitializeSpawner()
     {
-        _playerData = PlayerDataHandler.GetPlayerData;
+        _playerData = InjectPlayerData;
         SpawnPlayer();
     }
 

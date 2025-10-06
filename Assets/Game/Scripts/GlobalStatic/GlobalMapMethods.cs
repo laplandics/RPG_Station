@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using static MapDataHandler;
+using static GameDataInjector;
 
 public static class GlobalMapMethods
 {
     public static Vector2Int GetEntityChunk(Transform entityTransform)
     {
         var entityTransformPosition = entityTransform.position;
-        var entityChunkX = Mathf.FloorToInt(entityTransformPosition.x/ GetMapData.chunkSize);
-        var entityChunkY = Mathf.FloorToInt(entityTransformPosition.y / GetMapData.chunkSize);
+        var entityChunkX = Mathf.FloorToInt(entityTransformPosition.x/ InjectMapData.chunkSize);
+        var entityChunkY = Mathf.FloorToInt(entityTransformPosition.y / InjectMapData.chunkSize);
     
         return new Vector2Int(entityChunkX, entityChunkY);
     }
 
     public static Vector2Int GetChunkCenterWorldPosition(Vector2Int chunk)
     {
-        var chunkXPos = chunk.x * GetMapData.chunkSize;
-        var chunkYPos = chunk.y * GetMapData.chunkSize;
+        var chunkXPos = chunk.x * InjectMapData.chunkSize;
+        var chunkYPos = chunk.y * InjectMapData.chunkSize;
         return new Vector2Int(chunkXPos, chunkYPos);
     }
 
@@ -44,12 +44,12 @@ public static class GlobalMapMethods
     {
         var positions = new List<Vector2Int>();
 
-        int startX = chunkIndex.x * GetMapData.chunkSize;
-        int startY = chunkIndex.y * GetMapData.chunkSize;
+        var startX = chunkIndex.x * InjectMapData.chunkSize;
+        var startY = chunkIndex.y * InjectMapData.chunkSize;
 
-        for (int y = 0; y < GetMapData.chunkSize; y++)
+        for (var y = 0; y < InjectMapData.chunkSize; y++)
         {
-            for (int x = 0; x < GetMapData.chunkSize; x++)
+            for (var x = 0; x < InjectMapData.chunkSize; x++)
             {
                 positions.Add(new Vector2Int(startX + x, startY + y));
             }

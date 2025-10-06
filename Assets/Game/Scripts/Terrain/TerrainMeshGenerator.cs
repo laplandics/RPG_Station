@@ -5,12 +5,14 @@ using UnityEngine.Rendering;
 using static EventManager;
 using static GlobalMapMethods;
 using static TilesDataGenerator;
+using static MemorizedAreaHandler;
+using static GameDataInjector;
 
 public class TerrainMeshGenerator : IDisposable
 {
     private readonly Dictionary<Vector2Int, Chunk> _chunks = new();
-    private readonly Dictionary<Vector2Int, int> _tiles = new();
-    private readonly Queue<Vector2Int> _memorizedChunks;
+    private readonly MapData _mapData;
+    private readonly MapMajorSettingsSo _mapSettings;
     private readonly Transform _mapTransform;
     private readonly GOService _goService;
     private readonly Material _tileMaterial;
@@ -19,38 +21,26 @@ public class TerrainMeshGenerator : IDisposable
     private readonly int _chunkSize;
     private readonly int _atlasColumns;
     private readonly int _atlasRows;
-    private readonly int _memorizedArea;
     private bool _isFirstGeneration;
 
     public TerrainMeshGenerator(Map map)
     {
         _goService = DS.GetSceneManager<GOService>();
         _mapTransform = map.transform;
-        var mapData = MapDataHandler.GetMapData;
-        var mapSettings = MapDataHandler.GetMapSettingsSo;
-        _chunkPrefab = mapSettings.chunkPrefab;
+        var mapData = InjectMapData;
+        _mapSettings = InjectMapSettings;
+        _chunkPrefab = _mapSettings.chunkPrefab;
         _renderChunksCount = mapData.renderChunksCount;
         _chunkSize = mapData.chunkSize;
         _atlasColumns = mapData.atlasColumns;
         _atlasRows = mapData.atlasRows;
-        _memorizedArea = mapData.memorizedArea;
-        _memorizedChunks = mapSettings.MemorizedChunks;
-        var atlas = mapSettings.atlasTexture;
+        var atlas = _mapSettings.atlasTexture;
         _tileMaterial = new Material(Shader.Find("Sprites/Default"));
         _tileMaterial.mainTexture = atlas;
         _tileMaterial.hideFlags = HideFlags.DontSave;
         _isFirstGeneration = true;
         OnSmbEnteredChunk.AddListener(BuildNewTerrain);
-        RestoreCalculationArea();
-    }
-
-    private void RestoreCalculationArea()
-    {
-        if (_memorizedChunks.Count <= 0) return;
-        foreach (var position in _memorizedChunks)
-        {
-            GenerateChunk(position);
-        }
+        RestoreMemorizedArea(_mapSettings.MemorizedChunks, index => GenerateChunk(index), mapData.memorizedArea);
     }
     
     private void BuildNewTerrain(Vector2Int chunkIndex, IWalkable entity)
@@ -61,7 +51,7 @@ public class TerrainMeshGenerator : IDisposable
         foreach (var index in indexes)
         {
             GenerateChunk(index, nearChunks);
-            UpdateCalculationArea(index);
+            UpdateMemorizedArea(_mapSettings.MemorizedChunks, index);
         }
         ClearFarChunks(nearChunks);
         if (_isFirstGeneration) OnSceneReady?.Invoke();
@@ -72,24 +62,7 @@ public class TerrainMeshGenerator : IDisposable
     {
         nearChunks?.Add(index);
         if (_chunks.ContainsKey(index)) return;
-        TryGenerateTiles(index);
-        CreateChunk(index);
-        _tiles.Clear();
-    }
-
-    private void TryGenerateTiles(Vector2Int chunkIndex)
-    {
-        var chunkCenterPosition = GetChunkCenterWorldPosition(chunkIndex);
-        if (_tiles.ContainsKey(chunkCenterPosition)) return;
-        var newTiles = GetChunkTilesIndexes(chunkIndex);
-        foreach (var tile in newTiles) { _tiles.TryAdd(tile.Key, tile.Value); }
-    }
-    
-    private void UpdateCalculationArea(Vector2Int index)
-    {
-        if (_memorizedChunks.Contains(index)) return;
-        _memorizedChunks.Enqueue(index);
-        if (_memorizedChunks.Count > _memorizedArea) _memorizedChunks.Dequeue();
+        CreateChunk(index, GenerateTiles(index));
     }
 
     private void ClearFarChunks(List<Vector2Int> nearChunks)
@@ -97,7 +70,7 @@ public class TerrainMeshGenerator : IDisposable
         var farChunks = new List<Vector2Int>();
         foreach (var chunk in _chunks)
         {
-            if (_memorizedChunks.Contains(chunk.Key)) continue;
+            if (_mapSettings.MemorizedChunks.Contains(chunk.Key)) continue;
             if (nearChunks.Contains(chunk.Key)) continue;
             farChunks.Add(chunk.Key);
             _goService.Despawn(chunk.Value.gameObject);
@@ -105,40 +78,32 @@ public class TerrainMeshGenerator : IDisposable
         foreach (var farChunk in farChunks) { _chunks.Remove(farChunk); }
     }
 
-    private void CreateChunk(Vector2Int position)
+    private void CreateChunk(Vector2Int position, Dictionary<Vector2Int, int> tiles)
     {
         var startTileX = position.x * _chunkSize;
         var startTileY = position.y * _chunkSize;
-        
-        var chunkW = _chunkSize;
-        var chunkH = _chunkSize;
-        
         var tileCount = _chunkSize * _chunkSize;
         var verts = new Vector3[tileCount * 4];
         var uvs = new Vector2[tileCount * 4];
         var tris = new int[tileCount * 6];
         var uvX = 1f / _atlasColumns;
         var uvY = 1f / _atlasRows;
-        
         var v = 0;
         var t = 0;
-
-        for (var y = 0; y < chunkH; y++)
+        for (var y = 0; y < _chunkSize; y++)
         {
-            for (var x = 0; x < chunkW; x++)
+            for (var x = 0; x < _chunkSize; x++)
             {
                 var globalTileX = startTileX + x;
                 var globalTileY = startTileY + y;
-                var tileIndex = _tiles[new Vector2Int(globalTileX, globalTileY)];
-                
-                var vertexPositionX = x * GridMover.TileSize;
-                var vertexPositionY = y * GridMover.TileSize;
+                var tileIndex = tiles[new Vector2Int(globalTileX, globalTileY)];
+                var vertexPositionX = x * Grid.TileSize;
+                var vertexPositionY = y * Grid.TileSize;
                 var vertexIndex = v;
                 verts[vertexIndex + 0] = new Vector3(vertexPositionX, vertexPositionY, 0);
-                verts[vertexIndex + 1] = new Vector3(vertexPositionX + GridMover.TileSize, vertexPositionY, 0);
-                verts[vertexIndex + 2] = new Vector3(vertexPositionX, vertexPositionY + GridMover.TileSize, 0);
-                verts[vertexIndex + 3] = new Vector3(vertexPositionX + GridMover.TileSize, vertexPositionY + GridMover.TileSize, 0);
-                
+                verts[vertexIndex + 1] = new Vector3(vertexPositionX + Grid.TileSize, vertexPositionY, 0);
+                verts[vertexIndex + 2] = new Vector3(vertexPositionX, vertexPositionY + Grid.TileSize, 0);
+                verts[vertexIndex + 3] = new Vector3(vertexPositionX + Grid.TileSize, vertexPositionY + Grid.TileSize, 0);
                 var texturePositionX = tileIndex % _atlasColumns;
                 var texturePositionY = tileIndex / _atlasColumns;
                 var uMin = texturePositionX * uvX;
@@ -147,20 +112,16 @@ public class TerrainMeshGenerator : IDisposable
                 uvs[vertexIndex + 1] = new Vector2(uMin + uvX, vMin);
                 uvs[vertexIndex + 2] = new Vector2(uMin, vMin + uvY);
                 uvs[vertexIndex + 3] = new Vector2(uMin + uvX, vMin + uvY);
-                
                 tris[t + 0] = vertexIndex + 0;
                 tris[t + 1] = vertexIndex + 2;
                 tris[t + 2] = vertexIndex + 1;
-                
                 tris[t + 3] = vertexIndex + 2;
                 tris[t + 4] = vertexIndex + 3;
                 tris[t + 5] = vertexIndex + 1;
-                
                 v += 4;
                 t += 6;
             }
         }
-        
         var mesh = new Mesh();
         if (verts.Length > 65000) mesh.indexFormat = IndexFormat.UInt32;
         mesh.vertices = verts;
@@ -169,11 +130,10 @@ public class TerrainMeshGenerator : IDisposable
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
         mesh.MarkDynamic();
-        
-        var chunkPosition = new Vector3(startTileX * GridMover.TileSize, startTileY * GridMover.TileSize, 1f);
+        var chunkPosition = new Vector3(startTileX * Grid.TileSize, startTileY * Grid.TileSize, 1f);
         var chunk = _goService.Spawn(_chunkPrefab, chunkPosition, Quaternion.identity, _mapTransform);
         chunk.gameObject.name = $"Chunk {position.x}:{position.y}";
-        chunk.Initialize(_tileMaterial, mesh, position, _tiles);
+        chunk.Initialize(_tileMaterial, mesh, position, tiles);
         _chunks.TryAdd(position, chunk);
     }
 
@@ -182,6 +142,5 @@ public class TerrainMeshGenerator : IDisposable
         OnSmbEnteredChunk.RemoveListener(BuildNewTerrain);
         foreach (var kvp in _chunks) { if (kvp.Value != null) _goService.Despawn(kvp.Value.gameObject); }
         _chunks.Clear();
-        _tiles.Clear();
     }
 }

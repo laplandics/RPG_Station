@@ -4,71 +4,397 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6d89bb6-794f-423b-b125-e575c60d79ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/NoiseGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IWalkable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IWalkable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TilesDataGenerator.cs" afterDir="false" />
+    <list default="true" id="dd760a26-0936-4656-ab6f-1c496c2b0297" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes/AllBiomesMajorSettingsSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes/AllBiomesMajorSettingsSo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes/BiomeSettingsSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes/BiomeSettingsSo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes/BiomesDataGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes/BiomesTypes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Biomes/BiomesTypes.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/BiomeTilesInfoValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/BiomeTilesInfoValidator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/BiomesDataHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/BiomesDataHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/TilesDataHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GenerationPresets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalDataManagerSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalDataManagerSo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GameDataInjector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GameDataInjector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IDataHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IDataHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IGenerationPreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IGenerationPreset.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IMajorSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerMajorSettingsSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/MemorizedAreaHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/MemorizedAreaHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Tiles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Tiles/AllTilesMajorSettingsSo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Tiles/AllTilesMajorSettingsSo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Tiles/TileSettingsSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG_Station/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/Chunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/Chunk.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/ForestChunk.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MeadowChunk.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/MountainChunk.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Chunks/WaterChunk.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Enemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Enemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Shadowling.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemies/Shadowling.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/GlobalSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/GlobalSettings.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Map/MapSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Map/MapSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Player/PlayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Player/PlayerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/ForestSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/ForestSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MeadowSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MeadowSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MountainSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MountainSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/WaterSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/WaterSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/ForestSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/ForestSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MeadowSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MeadowSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MountainSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/MountainSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/WaterSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/SceneSo/Settings/Terrains/WaterSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/MainGame.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/Chunk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/ForestChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/ForestChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MeadowChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MeadowChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MountainChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/MountainChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/WaterChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Chunks/WaterChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Shadowling.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemies/Shadowling.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalData/GlobalSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/BiomeType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/BiomeType.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/DS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/DS.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/EventManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFindingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFinder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFindingService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFinder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PerlinNoiseMap.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PerlinNoiseMap.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/NoiseGenerator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/TerrainType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/BiomeType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/TerrainType.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/BiomeType.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/Grid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GridMover.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/Grid.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/NoiseGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GenerationPresets/MountainGenerationPresetSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/NoiseGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/PathFinder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSettingsSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSettingsSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSettingsSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapMajorSettingsSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSettingsSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapMajorSettingsSo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Map/MapSpawnerSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Map/TileSetSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/MonoServices/EntryPoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerChunkObserver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerChunkObserver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpriteSwapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/MapDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/MapDataHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSettingsSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSettingsSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerMajorSettingsSo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpawnerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Player/PlayerSpawnerSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/MapDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/MapDataHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/MapDataHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/MapDataHandler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/PlayerDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/PlayerDataHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/PlayerDataHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/PlayerDataHandler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadManagerSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadManagerSo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/SaveLoadService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/TerrainDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/TerrainDataHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/CellDataGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/CellDataGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TilesDataGenerator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainChunksGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainChunksGenerator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainDataGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainDataGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/TerrainDataHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/SaveLoadSystem/TerrainDataHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/DataHandlers/TilesDataHandler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainSettingsSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainSettingsSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainSettingsSo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainSettingsSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Tiles/TileSettingsSo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainTileMapGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TilesDataGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Tiles/TilesDataGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TilesDataGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Tiles/TilesDataGenerator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Enemies/Shadowling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Enemies/Shadowling.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/Player.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/Player.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/PlayerRobo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Player/PlayerRobo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/TileAtlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/TileAtlas/atlas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/TileAtlas/atlas.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/Bioms.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/Bioms.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/FloorMetal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/FloorMetal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/TileSet_Atlas.spriteatlasv2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/TileSet_Atlas.spriteatlasv2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/WallsMetal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Sprites/Tiles/WallsMetal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_15.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_15.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_16.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_16.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_17.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_17.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_18.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_18.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_19.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_19.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_20.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_20.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_21.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_21.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_22.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_22.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_23.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_23.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_24.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_24.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_25.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_25.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_26.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_26.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_27.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_27.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_28.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_28.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_29.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_29.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_30.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_30.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_31.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_31.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_32.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_32.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_33.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_33.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_34.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_34.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_35.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_35.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_36.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_36.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_37.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_37.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_38.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_38.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_39.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_39.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_40.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_40.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_41.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_41.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_42.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_42.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_43.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_43.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_44.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_44.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_45.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_45.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_46.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_46.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_47.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_47.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_48.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_48.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_49.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_49.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_50.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_50.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_51.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_51.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_52.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_52.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_53.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_53.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_54.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_54.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_55.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_55.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_56.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_56.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_57.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_57.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_58.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_58.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_59.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_59.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_60.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_60.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_61.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_61.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_62.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_62.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_63.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_63.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Bioms/Bioms_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_15.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_15.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/FloorTiles/FloorMetal_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_15.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_15.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_16.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_16.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_17.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_17.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_18.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_18.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_19.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_19.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_20.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_20.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_21.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_21.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_22.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_22.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_23.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_23.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_24.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_24.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_25.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_25.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_26.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_26.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_27.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_27.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_28.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_28.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_29.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_29.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_30.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_30.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_31.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_31.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_32.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_32.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_33.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_33.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_34.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_34.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_35.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_35.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_36.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_36.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_37.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_37.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_38.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_38.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_39.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_39.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_40.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_40.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_41.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_41.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/TilesPalette/Station/WallsTiles/WallsMetal_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Documents.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Documents.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Documents/JsonNetConverters.pdf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Documents/JsonNetConverters.pdf.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/BoundsConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/BoundsConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/ColorConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/ColorConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/DictionaryConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/DictionaryConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/JsonNetUtility.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/JsonNetUtility.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Matrix4x4Converter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Matrix4x4Converter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/PartialConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/PartialConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/QuaternionConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/QuaternionConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/RectConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/RectConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/RectOffsetConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/RectOffsetConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Vector2Converter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Vector2Converter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Vector3Converter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Vector3Converter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Vector4Converter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/Concrete/Json/Vector4Converter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/WanzyeeStudio.Runtime.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/WanzyeeStudio.Runtime.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/WanzyeeStudio.Runtime.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/Scripts/Runtime/WanzyeeStudio.Runtime.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/JsonNet.unitypackage.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/JsonNet.unitypackage.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/LICENSE.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/LICENSE.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/Plugins/Newtonsoft.Json.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/Plugins/Newtonsoft.Json.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/README.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/README.md.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/link.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WanzyeeStudio/ThirdParty/SaladLab/Json.Net.Unity3D/link.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,23 +408,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/29/d9075f41/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6460d52f11fa4eaeabfca1cf2e9eca8f46ae00/69/fb365682/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/b4/83f79592/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98fbc9de20ae47d9bb2559ab79ec66431f5a00/bd/411eb26f/Object.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e926e9c7db684472928e12ac2693beec9f7400/93/42c96271/GameObjectInspector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e926e9c7db684472928e12ac2693beec9f7400/ee/07f46f1c/Editor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/GlobalStatic/GlobalMapMethods.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Terrain/TerrainMeshGenerator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Core/CinemachinePropertyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Biomes/BiomesDataGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Interfaces/IMajorSettings.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="33HXJ1l2LtPBlzieTEQHM81MLx6" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="33byzhjMV8I4OOj1BASXsCUe281" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -109,7 +426,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.46105918&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.97865856&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -117,15 +434,15 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.6f2\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-projectPath G:\RPG_Station -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="G:\RPG_Station" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath G:\UnityGit\RPG_Station -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="G:\UnityGit\RPG_Station" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -136,8 +453,8 @@
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\App\Editor\6000.2.6f2\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath G:\RPG_Station -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="G:\RPG_Station" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath G:\UnityGit\RPG_Station -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="G:\UnityGit\RPG_Station" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -180,35 +497,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a6d89bb6-794f-423b-b125-e575c60d79ab" name="Changes" comment="" />
-      <created>1758974896320</created>
+      <changelist id="dd760a26-0936-4656-ab6f-1c496c2b0297" name="Changes" comment="" />
+      <created>1759600331067</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1758974896320</updated>
-      <workItem from="1758974897798" duration="7862000" />
-      <workItem from="1758987262911" duration="227000" />
-      <workItem from="1758987996073" duration="10458000" />
-      <workItem from="1759003222765" duration="16302000" />
-      <workItem from="1759054098086" duration="4780000" />
-      <workItem from="1759058925779" duration="12095000" />
-      <workItem from="1759097021718" duration="4176000" />
-      <workItem from="1759144037637" duration="9128000" />
-      <workItem from="1759155400754" duration="5873000" />
-      <workItem from="1759181284592" duration="844000" />
-      <workItem from="1759182221528" duration="1037000" />
-      <workItem from="1759220034236" duration="6391000" />
-      <workItem from="1759226502491" duration="314000" />
-      <workItem from="1759226845292" duration="2634000" />
-      <workItem from="1759253185292" duration="9270000" />
-      <workItem from="1759315146485" duration="3217000" />
-      <workItem from="1759320333604" duration="6324000" />
-      <workItem from="1759332001195" duration="1316000" />
-      <workItem from="1759335979120" duration="454000" />
-      <workItem from="1759336590966" duration="18416000" />
-      <workItem from="1759436139349" duration="9226000" />
-      <workItem from="1759483851332" duration="9939000" />
-      <workItem from="1759500657799" duration="4507000" />
-      <workItem from="1759508784612" duration="784000" />
+      <updated>1759600331067</updated>
+      <workItem from="1759600332489" duration="241000" />
+      <workItem from="1759600655269" duration="20000" />
+      <workItem from="1759600724122" duration="306000" />
+      <workItem from="1759601041796" duration="1277000" />
+      <workItem from="1759605935397" duration="8535000" />
+      <workItem from="1759669927542" duration="33987000" />
+      <workItem from="1759740094944" duration="13212000" />
     </task>
     <servers />
   </component>
@@ -242,14 +542,5 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="Type#TerrainData" memberName="allowedEnemiesPrefabKeys" />
-      </pinned-members>
-    </pin-to-top-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

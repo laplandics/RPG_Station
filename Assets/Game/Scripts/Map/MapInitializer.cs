@@ -6,7 +6,8 @@ public class MapInitializer
     private Map _map;
     
     public MapData CurrentMapData { get; private set; }
-    public AllTerrainsData CurrentAllTerrainsData { get; private set; }
+    public AllTilesData CurrentAllTilesData { get; private set; }
+    public AllBiomesData CurrentAllBiomesData { get; private set; }
     public TerrainMeshGenerator TerrainMeshGenerator {get; private set;}
 
     public MapInitializer()
@@ -15,10 +16,11 @@ public class MapInitializer
         OnMapSpawned.AddListener(SetMap);
     }
 
-    private void SetMap(Map map, MapData data, AllTerrainsData allTerrainsData)
+    private void SetMap(Map map, MapData data, AllTilesData allTilesData, AllBiomesData biomesData)
     {
         CurrentMapData = data;
-        CurrentAllTerrainsData = allTerrainsData;
+        CurrentAllTilesData = allTilesData;
+        CurrentAllBiomesData = biomesData;
         _map = map;
         TerrainMeshGenerator = new TerrainMeshGenerator(map);
     }
@@ -29,7 +31,7 @@ public class MapInitializer
         TerrainMeshGenerator = null;
         _goService.Despawn(_map.gameObject);
         CurrentMapData = null;
-        CurrentAllTerrainsData = null;
+        CurrentAllTilesData = null;
         OnMapSpawned.RemoveListener(SetMap);
     }
 }

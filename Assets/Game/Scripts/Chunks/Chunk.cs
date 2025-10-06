@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static BiomeTypePairs;
 using static EventManager;
-using static GlobalMapMethods;
-using static MapDataHandler;
+using static GameDataInjector;
 
+[SelectionBase]
 public class Chunk : MonoBehaviour
 {
+    private static readonly int ColorProperty = Shader.PropertyToID("_Color");
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private MeshRenderer meshRenderer;
-    private readonly Dictionary<Vector2Int, BiomeType> _tileBiomePairs = new();
-    private readonly HashSet<Vector2Int> _unreachableTiles = new();
+    private Dictionary<Vector2Int, TileData> _tilesData = new();
     private RoutineService _routineService;
     private Vector2Int _chunkIndex;
 
@@ -20,33 +19,30 @@ public class Chunk : MonoBehaviour
         meshRenderer.sharedMaterial = tileMaterial;
         meshFilter.mesh = mesh;
         _chunkIndex = position;
-        AssignTileBiomes(tiles);
+        AssignTiles(tiles);
         SetUnreachableTiles();
         SendUnreachableTiles(Vector2Int.zero, DS.GetSceneManager<SceneInitializeService>().PlayerInitializer.PlayerController);
         OnSmbEnteredChunk.AddListener(SendUnreachableTiles);
     }
 
-    private void AssignTileBiomes(Dictionary<Vector2Int, int> tiles)
+    private void AssignTiles(Dictionary<Vector2Int, int> tiles)
     {
         foreach (var tile in tiles)
         {
-            BiomeType biomeType; 
-            if (BiomeTypes.TryGetValue(tile.Value, out var biome)) biomeType  = biome;
-            else throw new ArgumentOutOfRangeException($"No biome for index {tile.Value}");
-            _tileBiomePairs.TryAdd(tile.Key, biomeType);
+            foreach (var tileData in InjectTilesData.allTilesData)
+            {
+                if (tile.Value != tileData.tileAtlasIndex) continue;
+                _tilesData.Add(tile.Key, tileData);
+            }
         }
     }
 
     private void SetUnreachableTiles()
     {
-        foreach (var tileBiomePair in _tileBiomePairs)
-        {
-            if (tileBiomePair.Value is BiomeType.Water or BiomeType.Mountain) _unreachableTiles.Add(tileBiomePair.Key);
-        }
+        
     }
     private void SendUnreachableTiles(Vector2Int chunk, IWalkable smb)
     {
-        if (!GetChunksIndexesInArea(GetMapData.tilesCalculationArea, chunk).Contains(_chunkIndex)) return;
-        foreach (var unreachableTile in _unreachableTiles) { smb.UnreachableTiles.Add(unreachableTile); }
+        
     }
 }

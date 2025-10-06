@@ -26,29 +26,41 @@ public class MapData : SaveData
     public int renderChunksCount;
     public int memorizedArea;
     public int tilesCalculationArea;
-    public int seed;
-    public float scale;
-    public int octaves;
-    public float persistence;
-    public float lacunarity;
     public int atlasColumns;
     public int atlasRows;
     public Queue<Vector2Int> ChunksToRemember = new();
 }
 
 [Serializable]
-public class AllTerrainsData : SaveData
+public class AllTilesData : SaveData
 {
-    public List<TerrainData> allTerrainsData;
+    public List<TileData> allTilesData;
 }
 
 [Serializable]
-public class TerrainData : SaveData
+public class TileData : SaveData
 {
-    public BiomeTypePairs.BiomeType biomeType;
     public Vector2 noise;
-    public float enemySpawnMult;
-    public List<string> allowedEnemiesPrefabKeys;
+    public int tileAtlasIndex;
+    public bool isUnreachable;
+}
+
+[Serializable]
+public class AllBiomesData : SaveData
+{
+    public int biomesCount;
+    public int seed;
+    public float borderSize;
+    public float jitter;
+    public int biomeSize;
+    public List<BiomeData> allBiomesData;
+}
+
+[Serializable]
+public class BiomeData : SaveData
+{
+    public BiomesType biomeType;
+    public float weight;
 }
 
 [Serializable]

@@ -11,9 +11,9 @@ public static class PathFinder
         var routePoints = new List<Vector3>();
         while (nearestPoint != targetPosition)
         {
-            for (var y = -GridMover.TileSize; y <= GridMover.TileSize; y++)
+            for (var y = -Grid.TileSize; y <= Grid.TileSize; y++)
             {
-                for (var x = -GridMover.TileSize; x <= GridMover.TileSize; x++)
+                for (var x = -Grid.TileSize; x <= Grid.TileSize; x++)
                 {
                     var point = new Vector3(currentPosition.x + x, currentPosition.y + y, 0f);
                     var distance = Vector3.Distance(point, targetPosition);

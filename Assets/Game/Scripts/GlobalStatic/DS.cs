@@ -47,5 +47,4 @@ public static class DS
         if (ManagersMb.TryGetValue(typeof(T), out var manager)) return manager as T;
         return null;
     }
-
 }

@@ -12,17 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139fa929fdd46d9afe8d1a4de1f3b7b, type: 3}
   m_Name: MapSettings
   m_EditorClassIdentifier: Assembly-CSharp::MapSettingsSo
-  mapKey: MAP
+  mapKey: _map
   chunkSize: 32
   renderChunksCount: 100
-  memorizedArea: 1000
-  tilesCalculationArea: 2
-  seed: 731741
-  scale: 0.1
-  octaves: 8
-  persistence: 0.58
-  lacunarity: 2.13
+  memorizedArea: 0
+  tilesCalculationArea: 3
   chunkPrefab: {fileID: 6218670179655334571, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
-  atlasTexture: {fileID: 2800000, guid: f8d9631adf7756e4e8860a3bb2b528ab, type: 3}
-  atlasColumns: 2
+  atlasTexture: {fileID: 2800000, guid: 284325b8e7ab15240b5424b9d9c85a26, type: 3}
+  atlasColumns: 3
   atlasRows: 2
