@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapSettingsSo
   mapKey: _map
   chunkSize: 32
-  renderChunksCount: 100
+  renderChunksCount: 10
   memorizedArea: 0
   tilesCalculationArea: 3
+  visibleChunks: 8
+  seed: 592269
   chunkPrefab: {fileID: 6218670179655334571, guid: 85b7102d9394ad64c9a2135e6315c325, type: 3}
-  atlasTexture: {fileID: 2800000, guid: 284325b8e7ab15240b5424b9d9c85a26, type: 3}
-  atlasColumns: 3
-  atlasRows: 2
+  defaultTerrainType: 0
+  defaultMaterial: {fileID: 2100000, guid: ab1e2f04882e8344f87e45a176ffb38f, type: 2}

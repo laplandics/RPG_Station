@@ -35,12 +35,12 @@ public class PlayerInitializer
         OnSceneReady.AddListener(InitializePlayerScripts);
         PlayerController = _player.playerController;
         _playerSpriteSwapper = _player.playerSpriteSwapper;
-        _playerChunkObserver = new PlayerChunkObserver(player.transform, PlayerController);
+        _playerChunkObserver = new PlayerChunkObserver(player.transform, _player);
     }
 
     private void InitializePlayerScripts()
     {
-        PlayerController.Initialize();
+        PlayerController.Initialize(_player);
         _playerSpriteSwapper.Initialize(this, _player);
     }
 

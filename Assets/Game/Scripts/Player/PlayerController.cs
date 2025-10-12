@@ -1,29 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using static EventManager;
 using static UnityEngine.InputSystem.InputAction;
 using static GameDataInjector;
 
-public class PlayerController : MonoBehaviour, IWalkable
+public class PlayerController : MonoBehaviour
 {
     private GameInputs _input;
+    private Player _player;
     private Transform _playerTransform;
     private Vector2 _moveInput;
     private Vector2Int _targetPosition;
     private Vector2 _currentInput;
     private bool _isCancelled;
     private bool _isBlocked;
-    private bool _isMoving;
     private float _holdTime;
     private bool _isInitialized;
 
-    public HashSet<Vector2Int> UnreachableTiles { get; set; } = new();
-    
-    public void Initialize()
+    public bool IsMoving { get; set; }
+    public Vector2Int TargetPosition {get => _targetPosition; set => _targetPosition = value; }
+
+    public void Initialize(Player player)
     {
         _input = DS.GetGlobalManager<GlobalInputsManagerSo>().GetInputs();
+        _player = player;
         _playerTransform = transform;
 
         _input.Player.Move.Enable();
@@ -40,8 +41,8 @@ public class PlayerController : MonoBehaviour, IWalkable
     private IEnumerator MovePlayer()
     {
         if (!_isInitialized) yield break;
-        if (_isMoving) yield break;
-        _isMoving = true;
+        if (IsMoving) yield break;
+        IsMoving = true;
         _isCancelled = false;
         while (!_isCancelled)
         {
@@ -54,28 +55,18 @@ public class PlayerController : MonoBehaviour, IWalkable
                 continue;
             }
 
-            if (!CheckTilePosition()) yield break;
+            if (!_player.CheckTilePosition()) yield break;
             IEnumerator action = null;
             yield return new MoveActionTc().PerformAction(0.6f, 1, ChangePlayersPosition(), CancelMovement()).ToCoroutine(result => action = result);
             yield return DS.GetSceneManager<RoutineService>().StartRoutine(action);
             yield return null;
         }
     }
-
-    public bool CheckTilePosition()
-    {
-        var currentPosition = Grid.SnapToGrid(_playerTransform.position);
-        var pos = currentPosition + _moveInput * Grid.TileSize;
-        _targetPosition = Grid.SnapToGrid(pos);
-        if (!UnreachableTiles.Contains(_targetPosition)) return true;
-        _isMoving = false;
-        return false;
-    }
     
     private IEnumerator CancelMovement()
     {
         _isCancelled = true;
-        _isMoving = false;
+        IsMoving = false;
         yield break;
     }
 

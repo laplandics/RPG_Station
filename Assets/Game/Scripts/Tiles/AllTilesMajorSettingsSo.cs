@@ -4,7 +4,7 @@
 public class AllTilesMajorSettingsSo : ScriptableObject, IMajorSettings
 {
     [SerializeField] private string instanceKey;
-    public TileSettingsSo[] tilesSettings;
+    public TileSetSo[] tilesSettings;
     
     public string InstanceKey { get => instanceKey; set => instanceKey = value; }
     

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f6f8d4e8665fe4685654a1dcb9128a, type: 3}
+  m_Name: TerrainRenderSettings
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainTexturesHandlerSo
+  testQuad: {fileID: 2100000, guid: 633f49e7717f56b4b8c8bf052d575597, type: 2}
+  textures:
+  - {fileID: 2800000, guid: c1741a041c8f9924fab5b3d35d96223c, type: 3}
+  - {fileID: 2800000, guid: 095b39ab6f0489441bc2e15112e84ef3, type: 3}
+  textureArray: {fileID: 0}

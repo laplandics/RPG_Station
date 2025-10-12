@@ -10,7 +10,7 @@
     
     public static AllTilesMajorSettingsSo InjectTilesSettings => DS.GetGlobalManager<GlobalDataManagerSo>().GetObjectSettings<AllTilesMajorSettingsSo>();
     
-    public static AllBiomesData InjectBiomesData => DS.GetGlobalManager<GlobalDataManagerSo>().GetDataHandler<BiomesDataHandler>().GetData<AllBiomesData>();
+    public static AllTerrainData InjectTerrainData => DS.GetGlobalManager<GlobalDataManagerSo>().GetDataHandler<TerrainDataHandler>().GetData<AllTerrainData>();
     
-    public static AllBiomesMajorSettingsSo InjectBiomesSettings = DS.GetGlobalManager<GlobalDataManagerSo>().GetObjectSettings<AllBiomesMajorSettingsSo>();
+    public static AllTerrainTypesMajorSettingsSo InjectTerrainTypesSettings = DS.GetGlobalManager<GlobalDataManagerSo>().GetObjectSettings<AllTerrainTypesMajorSettingsSo>();
 }

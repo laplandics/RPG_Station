@@ -25,7 +25,7 @@ public static class EventManager
     public static readonly UnityEvent<Terminal, SaveData> OnTerminalSpawned = new();
 
     //MAP_EVENTS//
-    public static readonly UnityEvent<Map, MapData, AllTilesData, AllBiomesData> OnMapSpawned = new();
+    public static readonly UnityEvent<Map, MapData, AllTilesData, AllTerrainData> OnMapSpawned = new();
     public static readonly UnityEvent<Vector2Int, IWalkable> OnSmbEnteredChunk = new();
     
     //PLAYER_EVENTS//

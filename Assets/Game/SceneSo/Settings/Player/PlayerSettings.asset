@@ -15,7 +15,7 @@ MonoBehaviour:
   playerKey: _player
   x: 0
   y: 0
-  animationSpeed: 10
-  baseStepsDelay: 0.3
-  minStepsDelay: 0.01
+  animationSpeed: 100
+  baseStepsDelay: 0
+  minStepsDelay: 0
   decreaseRate: 30

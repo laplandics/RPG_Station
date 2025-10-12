@@ -14,12 +14,15 @@ public class MapMajorSettingsSo : ScriptableObject, IMajorSettings
     public int renderChunksCount;
     [Range(0, 10000)] public int memorizedArea;
     [Range(3, 10)] public int tilesCalculationArea;
+
+    [Header("TypeMap Settings")]
+    public int visibleChunks;
     
-    [Header("MeshGeneration Settings")]
+    [Header("Generation Settings")]
+    [Range(100000, 999999)]public uint seed;
     public Chunk chunkPrefab;
-    public Texture2D atlasTexture;
-    public int atlasColumns;
-    public int atlasRows;
+    public TerrainType defaultTerrainType;
+    public Material defaultMaterial;
     
     [NonSerialized] public Queue<Vector2Int> MemorizedChunks =  new();
     

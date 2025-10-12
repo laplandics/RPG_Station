@@ -8,13 +8,13 @@ public class MapSpawnerSo : ScriptableObject, ISpawner
     [SerializeField] private Map mapPrefab;
     private MapData _mapData;
     private AllTilesData _allTilesData;
-    private AllBiomesData _allBiomesData;
+    private AllTerrainData _allTerrainData;
 
     public void InitializeSpawner()
     {
         _mapData = InjectMapData;
         _allTilesData = InjectTilesData;
-        _allBiomesData = InjectBiomesData;
+        _allTerrainData = InjectTerrainData;
         SpawnMap();
     }
 
@@ -22,6 +22,6 @@ public class MapSpawnerSo : ScriptableObject, ISpawner
     {
         var map = Instantiate(mapPrefab, Vector2.zero, Quaternion.identity);
         map.gameObject.name = _mapData.instanceKey;
-        OnMapSpawned?.Invoke(map, _mapData, _allTilesData, _allBiomesData);
+        OnMapSpawned?.Invoke(map, _mapData, _allTilesData, _allTerrainData);
     }
 }

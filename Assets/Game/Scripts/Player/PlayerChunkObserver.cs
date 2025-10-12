@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 using static EventManager;
-using static GlobalMapMethods;
+using static MapHelper;
 
 public class PlayerChunkObserver : IDisposable
 {
     private Vector2Int _currentChunk;
-    private readonly PlayerController _playerController;
+    private readonly Player _player;
     
-    public PlayerChunkObserver(Transform playerTransform, PlayerController playerController)
+    public PlayerChunkObserver(Transform playerTransform, Player player)
     {
         _currentChunk = GetEntityChunk(playerTransform);
-        _playerController = playerController;
-        _playerController.UnreachableTiles.Clear();
+        _player = player;
+        _player.UnreachableTiles.Clear();
         
-        OnSmbEnteredChunk?.Invoke(_currentChunk, _playerController);
+        OnSmbEnteredChunk?.Invoke(_currentChunk, _player);
         OnPlayersPositionChanged.AddListener(InvokeOnPlayerChunkChanged);
     }
 
@@ -22,9 +22,9 @@ public class PlayerChunkObserver : IDisposable
     {
         var newChunk = GetEntityChunk(playerTransform);
         if (_currentChunk == newChunk) return;
-        _playerController.UnreachableTiles.Clear();
+        _player.UnreachableTiles.Clear();
         _currentChunk = newChunk;
-        OnSmbEnteredChunk?.Invoke(_currentChunk, _playerController);
+        OnSmbEnteredChunk?.Invoke(_currentChunk, _player);
     }
     
     public void Dispose()

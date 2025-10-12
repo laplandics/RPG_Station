@@ -12,7 +12,7 @@ public class GlobalDataManagerSo : ScriptableObject, IDisposable
     private TilesDataHandler _tilesDh;
     private MapDataHandler _mapDh;
     private PlayerDataHandler _playerDh;
-    private BiomesDataHandler _biomesDh;
+    private TerrainDataHandler _terrainDh;
     
     public void ResetSettings()
     {
@@ -20,14 +20,14 @@ public class GlobalDataManagerSo : ScriptableObject, IDisposable
         _tilesDh = new TilesDataHandler();
         _mapDh = new MapDataHandler();
         _playerDh = new PlayerDataHandler();
-        _biomesDh = new BiomesDataHandler();
+        _terrainDh = new TerrainDataHandler();
         
         _handlerMap.AddRange(new KeyValuePair<Type, IDataHandler>[]
         {
             new(typeof(TilesDataHandler), _tilesDh),
             new(typeof(MapDataHandler), _mapDh),
             new(typeof(PlayerDataHandler), _playerDh),
-            new(typeof(BiomesDataHandler), _biomesDh)
+            new(typeof(TerrainDataHandler), _terrainDh)
         });
         
         foreach (var os in objectSettings)
@@ -49,6 +49,6 @@ public class GlobalDataManagerSo : ScriptableObject, IDisposable
         _tilesDh = null;
         _mapDh = null;
         _playerDh = null;
-        _biomesDh = null;
+        _terrainDh = null;
     }
 }

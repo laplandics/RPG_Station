@@ -22,12 +22,13 @@ public class PlayerData : SaveData
 [Serializable]
 public class MapData : SaveData
 {
+    public uint seed;
     public int chunkSize;
     public int renderChunksCount;
     public int memorizedArea;
     public int tilesCalculationArea;
-    public int atlasColumns;
-    public int atlasRows;
+    public int visibleChunks;
+    public TerrainType defaultTerrainType;
     public Queue<Vector2Int> ChunksToRemember = new();
 }
 
@@ -41,42 +42,18 @@ public class AllTilesData : SaveData
 public class TileData : SaveData
 {
     public Vector2 noise;
-    public int tileAtlasIndex;
+    public int[] tileAtlasIndexes;
     public bool isUnreachable;
 }
 
 [Serializable]
-public class AllBiomesData : SaveData
+public class AllTerrainData : SaveData
 {
-    public int biomesCount;
-    public int seed;
-    public float borderSize;
-    public float jitter;
-    public int biomeSize;
-    public List<BiomeData> allBiomesData;
+    public List<TerrainData> allTerrainData;
 }
 
 [Serializable]
-public class BiomeData : SaveData
+public class TerrainData : SaveData
 {
-    public BiomesType biomeType;
     public float weight;
-}
-
-[Serializable]
-public class EnemiesData : SaveData
-{
-    public int enemiesGenerationDistance;
-    public int enemiesGenerationArea;
-    public float averageGenerationEnemiesChance;
-    public Vector2Int[] recentChunks;
-    public List<EnemyData> enemies;
-}
-
-[Serializable]
-public class EnemyData : SaveData
-{
-    public int x;
-    public int y;
-    public bool isSpawned;
 }
