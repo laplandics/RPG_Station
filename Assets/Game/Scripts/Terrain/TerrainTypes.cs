@@ -1,16 +1,29 @@
-﻿using System.Collections.Generic;
-
-public enum TerrainType
+﻿public enum TerrainType
 {
     Void,
-    Rock,
+    Rock
 }
 
-public static class TerrainTypePairs
+public enum TransitionType
 {
-    public static readonly Dictionary<TerrainType, float> TerrainTypeDictionary = new()
-    {
-        [TerrainType.Void] = 0.0f,
-        [TerrainType.Rock] = 0.1f,
-    };
+    HorizontalLeftEnd,
+    HorizontalBothSided,
+    HorizontalRightEnd,
+    AllSided,
+    InnerRightBottomCorner,
+    LeftBottomCorner,
+    BottomSide,
+    RightBottomCorner,
+    VerticalBottomEnd,
+    InnerLeftUpCorner,
+    LeftSide,
+    None,
+    RightSide,
+    VerticalBothSided,
+    InnerRightUpCorner,
+    LeftUpCorner,
+    UpSide,
+    RightUpCorner,
+    VerticalUpEnd,
+    InnerLeftBottomCorner
 }

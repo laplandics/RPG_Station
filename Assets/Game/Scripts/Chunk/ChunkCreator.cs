@@ -11,6 +11,9 @@ public class ChunkCreator
     private Material _tileMaterial;
     private TerrainDataGenerator[] _biomeGenerators;
     private int _chunkSize;
+    private int _textureScale;
+    private int _transitionAtlasColumns;
+    private int _transitionAtlasRows;
     
     private void AssignData(Transform map)
     {
@@ -19,6 +22,9 @@ public class ChunkCreator
         _chunkSize = InjectMapData.chunkSize;
         _chunkPrefab = InjectMapSettings.chunkPrefab;
         _biomeGenerators = InjectTerrainTypesSettings.terrainDataGenerators;
+        _transitionAtlasColumns = InjectMapData.columns;
+        _transitionAtlasRows = InjectMapData.rows;
+        _textureScale = Grid.TileSize * 64;
     }
 
     private void GetTiles(Vector2Int chunkIndex, out Dictionary<TerrainType, Material> biomeMaterials, out Dictionary<Vector2Int, Tile> chunkTiles)
@@ -31,19 +37,19 @@ public class ChunkCreator
         TileSetter.ClearUncommonTilesInChunk(chunkTiles, excludedBiomes);
     }
     
-    public Chunk CreateChunk(Vector2Int index, Transform map)
+    public Chunk CreateChunk(Vector2Int chunkIndex, Transform map)
     {
         AssignData(map);
-        GetTiles(index, out var biomes, out var tiles);
-        var startTileX = index.x * _chunkSize;
-        var startTileY = index.y * _chunkSize;
+        GetTiles(chunkIndex, out var biomes, out var tiles);
+        var startTileX = chunkIndex.x * _chunkSize;
+        var startTileY = chunkIndex.y * _chunkSize;
         var tileCount = _chunkSize * _chunkSize;
         var verts = new Vector3[tileCount * 4];
         var uvs = new Vector2[tileCount * 4];
+        var uvs2 = new Vector2[tileCount * 4];
         var biomeTriangles = new Dictionary<TerrainType, List<int>>();
-        var usedBiomes = new List<TerrainType>();
+        var usedTerrainTypes = new List<TerrainType>();
         var v = 0;
-        var textureScale = Grid.TileSize * 64;
 
         for (var y = 0; y < _chunkSize; y++)
         {
@@ -62,14 +68,8 @@ public class ChunkCreator
                 verts[vertexIndex + 3] = new Vector3(vertexPositionX + Grid.TileSize, vertexPositionY + Grid.TileSize, 0f);
                 float worldX = (startTileX + x) * Grid.TileSize;
                 float worldY = (startTileY + y) * Grid.TileSize;
-                var uvBL = new Vector2(worldX / textureScale, worldY / textureScale);
-                var uvBR = new Vector2((worldX + Grid.TileSize) / textureScale, worldY / textureScale);
-                var uvTL = new Vector2(worldX / textureScale, (worldY + Grid.TileSize) / textureScale);
-                var uvTR = new Vector2((worldX + Grid.TileSize) / textureScale, (worldY + Grid.TileSize) / textureScale);
-                uvs[vertexIndex + 0] = uvBL;
-                uvs[vertexIndex + 1] = uvBR;
-                uvs[vertexIndex + 2] = uvTL;
-                uvs[vertexIndex + 3] = uvTR;
+                GetUVs(worldX, worldY, vertexIndex, uvs);
+                GetUVs2(0, vertexIndex, uvs2);
                 var i0 = vertexIndex + 0;
                 var i1 = vertexIndex + 1;
                 var i2 = vertexIndex + 2;
@@ -80,37 +80,62 @@ public class ChunkCreator
                 {
                     list = new List<int>();
                     biomeTriangles[biome] = list;
-                    usedBiomes.Add(biome);
+                    usedTerrainTypes.Add(biome);
                 }
                 list.AddRange(trisForTile);
                 v += 4;
             }
         }
 
-        return AssignMesh(index, verts, uvs, usedBiomes, biomeTriangles, biomes, startTileX, startTileY, tiles);
+        return AssignMesh(chunkIndex, verts, uvs, usedTerrainTypes, biomeTriangles, biomes, startTileX, startTileY, tiles);
     }
 
-    private Chunk AssignMesh(Vector2Int index, Vector3[] verts, Vector2[] uvs, List<TerrainType> usedBiomes, Dictionary<TerrainType, List<int>> biomeTriangles,
+    private void GetUVs(float worldX, float worldY, int vertexIndex, Vector2[] uvs)
+    {
+        var uvBL = new Vector2(worldX / _textureScale, worldY / _textureScale);
+        var uvBR = new Vector2((worldX + Grid.TileSize) / _textureScale, worldY / _textureScale);
+        var uvTL = new Vector2(worldX / _textureScale, (worldY + Grid.TileSize) / _textureScale);
+        var uvTR = new Vector2((worldX + Grid.TileSize) / _textureScale, (worldY + Grid.TileSize) / _textureScale);
+        uvs[vertexIndex + 0] = uvBL;
+        uvs[vertexIndex + 1] = uvBR;
+        uvs[vertexIndex + 2] = uvTL;
+        uvs[vertexIndex + 3] = uvTR;
+    }
+
+    private void GetUVs2(int index, int vertexIndex, Vector2[] uvs)
+    {
+        var tileWidth = 1f / _transitionAtlasColumns;
+        var tileHeight = 1f / _transitionAtlasRows;
+        var tileX = index % _transitionAtlasColumns;
+        var tileY = index / _transitionAtlasColumns;
+        var uMin = tileX * tileWidth;
+        var vMin = tileY * tileHeight;
+        var uMax = uMin + tileWidth;
+        var vMax = vMin + tileHeight;
+        uvs[vertexIndex + 0] = new Vector2(uMin, vMin);
+        uvs[vertexIndex + 1] = new Vector2(uMax, vMin);
+        uvs[vertexIndex + 2] = new Vector2(uMin, vMax);
+        uvs[vertexIndex + 3] = new Vector2(uMax, vMax);
+    }
+
+    private Chunk AssignMesh(Vector2Int index, Vector3[] verts, Vector2[] uvs, List<TerrainType> usedTerrainTypes, Dictionary<TerrainType, List<int>> biomeTriangles,
         Dictionary<TerrainType, Material> biomes, int startTileX, int startTileY, Dictionary<Vector2Int, Tile> tiles)
     {
         var mesh = new Mesh();
         if (verts.Length > 65000) mesh.indexFormat = IndexFormat.UInt32;
         mesh.vertices = verts;
         mesh.uv = uvs;
-        mesh.subMeshCount = usedBiomes.Count;
-        for (var si = 0; si < usedBiomes.Count; si++)
+        mesh.subMeshCount = usedTerrainTypes.Count;
+        for (var si = 0; si < usedTerrainTypes.Count; si++)
         {
-            var biome = usedBiomes[si];
+            var biome = usedTerrainTypes[si];
             var trisList = biomeTriangles[biome];
             mesh.SetTriangles(trisList.ToArray(), si);
         }
-        mesh.RecalculateBounds();
-        mesh.RecalculateNormals();
-        mesh.MarkDynamic();
-        var materials = new Material[usedBiomes.Count];
-        for (var i = 0; i < usedBiomes.Count; i++)
+        var materials = new Material[usedTerrainTypes.Count];
+        for (var i = 0; i < usedTerrainTypes.Count; i++)
         {
-            var biome = usedBiomes[i];
+            var biome = usedTerrainTypes[i];
             materials[i] = biomes[biome];
         }
         var chunk = SpawnChunk(mesh, startTileX, startTileY, index, tiles, materials);

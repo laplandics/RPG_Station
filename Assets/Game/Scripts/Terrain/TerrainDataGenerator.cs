@@ -14,7 +14,7 @@ public class TerrainDataGenerator : ScriptableObject
     public ScriptableObject terrainGenerationPresets;
     public Material terrainMaterial;
 
-    public Tile[] GenerateBiomeTilesInChunk(Vector2Int chunkIndex)
+    public Tile[] GenerateTerrainTilesInChunk(Vector2Int chunkIndex)
     {
         var chunkSize = InjectMapData.chunkSize;
         var tiles = new Tile[chunkSize * chunkSize];
@@ -31,13 +31,6 @@ public class TerrainDataGenerator : ScriptableObject
             tiles[i] = tile;
         }
         return tiles;
-    }
-
-    public int GetRandomTileVariationIndex()
-    {
-        var seed = InjectMapData.seed;
-        var index = tileSet.GetTileVariation(seed);
-        return index;
     }
 
     private bool IsTileInBiome(float tileNoise)

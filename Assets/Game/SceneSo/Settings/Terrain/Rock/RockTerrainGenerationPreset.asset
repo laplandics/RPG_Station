@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc50fdd4e610e4f41a250ff37377ced0, type: 3}
   m_Name: RockTerrainGenerationPreset
   m_EditorClassIdentifier: Assembly-CSharp::MountainsGenerationPreset
-  presetName: mountains_preset
-  seed: 626242
+  presetName: rock_preset
   octaves: 6
   persistence: 0.5
   lacunarity: 3.8

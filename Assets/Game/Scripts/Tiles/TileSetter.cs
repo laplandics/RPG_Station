@@ -28,7 +28,7 @@ public static class TileSetter
         var generators = biomeGenerators.OrderBy(gen => gen.generationOrder).ToList();
         foreach (var generator in generators)
         {
-            var tiles = generator.GenerateBiomeTilesInChunk(chunkIndex);
+            var tiles = generator.GenerateTerrainTilesInChunk(chunkIndex);
             foreach (var tile in tiles)
             {
                 if (tile == null) continue;

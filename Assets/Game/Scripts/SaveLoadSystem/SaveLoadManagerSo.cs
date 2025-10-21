@@ -4,10 +4,8 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "SaveLoadSystemManager", menuName = "ManagersSO/SaveLoadSystemManager")]
-public class SaveLoadManagerSo : ScriptableObject, IInSceneManagerListener
+public class SaveLoadManagerSo : ScriptableObject
 {
-    public void OnSceneManagersInitialized() {}
-    
     public void Save(string key, object data)
     {
         var json = JsonConvert.SerializeObject(data, GetSettings());

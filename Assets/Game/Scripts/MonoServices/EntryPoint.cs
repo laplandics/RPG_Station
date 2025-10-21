@@ -13,22 +13,12 @@ public class EntryPoint : MonoBehaviour
         OnSceneReady.AddListener(FinalizeLoading);
 
         DS.GetGlobalManager<GlobalInputsManagerSo>().DisableAllInputs();
-        AssignManagersSoToInSceneManagersInitialization();
         SpawnInSceneServices();
         InitializeSaveLoadServices();
         InitializeSceneInitializer();
     }
     
     private void InitializeDS() => DS.Initialize();
-
-    private void AssignManagersSoToInSceneManagersInitialization()
-    {
-        foreach (var manager in DS.GetGlobalManagers())
-        {
-            if (manager is not IInSceneManagerListener rManager) continue;
-            OnInSceneManagersInitialized.AddListener(rManager.OnSceneManagersInitialized);
-        }
-    }
 
     private void SpawnInSceneServices()
     {

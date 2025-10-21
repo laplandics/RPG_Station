@@ -22,7 +22,9 @@ public class MapDataHandler : IDataHandler
             tilesCalculationArea = ms.tilesCalculationArea,
             defaultTerrainType = ms.defaultTerrainType,
             visibleChunks = ms.visibleChunks,
-            ChunksToRemember = ms.MemorizedChunks
+            ChunksToRemember = ms.MemorizedChunks,
+            columns = ms.columns,
+            rows = ms.rows
         };
         return true;
     }
@@ -42,6 +44,8 @@ public class MapDataHandler : IDataHandler
         _mapSettings.visibleChunks = mapData.visibleChunks;
         _mapSettings.defaultTerrainType = mapData.defaultTerrainType;
         _mapSettings.MemorizedChunks = mapData.ChunksToRemember;
+        _mapSettings.columns = mapData.columns;
+        _mapSettings.rows = mapData.rows;
 
         return _mapData;
     }

@@ -23,6 +23,10 @@ public class MapMajorSettingsSo : ScriptableObject, IMajorSettings
     public Chunk chunkPrefab;
     public TerrainType defaultTerrainType;
     public Material defaultMaterial;
+
+    [Header("Transitions Settings")]
+    public int columns;
+    public int rows;
     
     [NonSerialized] public Queue<Vector2Int> MemorizedChunks =  new();
     

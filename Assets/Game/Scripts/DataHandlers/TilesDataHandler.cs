@@ -24,7 +24,6 @@ public class TilesDataHandler : IDataHandler
                 {
                     instanceKey = ts.tileKey,
                     noise = ts.noise,
-                    tileAtlasIndexes = ts.tileAtlasIndexes,
                     isUnreachable = ts.isUnreachable
                 }
             );
@@ -43,7 +42,6 @@ public class TilesDataHandler : IDataHandler
             {
                 if (tileSettingsSo.tileKey != tileData.instanceKey) continue;
                 tileSettingsSo.noise = tileData.noise;
-                tileSettingsSo.tileAtlasIndexes = tileData.tileAtlasIndexes;
                 tileSettingsSo.isUnreachable = tileData.isUnreachable;
                 break;
             }

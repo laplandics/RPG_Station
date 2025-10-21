@@ -10,7 +10,6 @@ public class TerrainGenerator : IDisposable
 {
     private readonly Dictionary<Vector2Int, Chunk> _chunks = new();
     private readonly ChunkCreator _chunkCreator;
-    private readonly TypeMapGenerator _typeMapGenerator;
     private readonly MapMajorSettingsSo _mapSettings;
     private readonly GOService _goService;
     private readonly Transform _mapTransform;
@@ -21,7 +20,6 @@ public class TerrainGenerator : IDisposable
     {
         _goService = DS.GetSceneManager<GOService>();
         _chunkCreator = new ChunkCreator();
-        _typeMapGenerator = new TypeMapGenerator();
         var mapData = InjectMapData;
         _mapTransform = map.transform;
         _mapSettings = InjectMapSettings;
@@ -42,7 +40,6 @@ public class TerrainGenerator : IDisposable
             UpdateMemorizedArea(_mapSettings.MemorizedChunks, index);
         }
         ClearFarChunks(nearChunks);
-        _typeMapGenerator.GenerateTypeMap(chunkIndex);
         if (_isFirstGeneration) OnSceneReady?.Invoke();
         _isFirstGeneration = false;
     }

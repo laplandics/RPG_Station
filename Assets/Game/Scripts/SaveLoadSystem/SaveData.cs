@@ -30,6 +30,8 @@ public class MapData : SaveData
     public int visibleChunks;
     public TerrainType defaultTerrainType;
     public Queue<Vector2Int> ChunksToRemember = new();
+    public int columns;
+    public int rows;
 }
 
 [Serializable]
@@ -42,7 +44,6 @@ public class AllTilesData : SaveData
 public class TileData : SaveData
 {
     public Vector2 noise;
-    public int[] tileAtlasIndexes;
     public bool isUnreachable;
 }
 
